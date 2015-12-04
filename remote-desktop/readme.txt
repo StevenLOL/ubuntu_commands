@@ -1,3 +1,22 @@
+#install remote desktop for UBUNTU >14.04
+
+sudo apt-get install xrdp
+sudo apt-get install xfce-4
+sudo apt-get install xfce4
+echo xfce4-session >~/.xsession
+sudo service xrdp restar
+sudo service xrdp restart
+
+
+
+
+
+
+
+
+
+#others:
+
 sudo apt-add-repository ppa:freenx-team
 sudo apt-get update
 sudo apt-get install freenx-server
