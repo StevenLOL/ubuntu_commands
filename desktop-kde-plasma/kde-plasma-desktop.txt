@@ -1,0 +1,4 @@
+sudo apt-get install kde-plasma-desktop or kde-plasma-netbook
+
+install file manager Krusader
+

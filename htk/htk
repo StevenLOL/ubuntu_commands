@@ -1,0 +1,26 @@
+if ask for lx11 then remove all -m32 flag in htk
+
+64-bit Systems
+
+    Easiest way to do this is as follows (thanks to aaa in this thread):
+
+    # linux32 bash
+
+    ↑ 32 bit terminal
+ make hdecode
+make install-hdecode
+    #./configure --prefix=/home/yourname/htk
+
+    (may also need to: yum install libx11-devel)
+
+#make clean # else make error& link problem: i386:x86-64 architecture of input file, incompatible with i386 output
+
+#make clean    
+#make all
+
+    #make install
+
+copy hdecode to the same folder as htk
+in the htk folder
+make hdecode
+make install-hdecode

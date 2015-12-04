@@ -1,0 +1,83 @@
+http://sn0v.wordpress.com/2012/12/07/installing-cuda-5-on-ubuntu-12-04/
+
+sudo apt-get install libglapi-mesa
+sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-
+
+Add the following lines to the end of the file, one per line, and save it when done -
+
+blacklist amd76x_edac
+blacklist vga16fb
+blacklist nouveau
+blacklist rivafb
+blacklist nvidiafb
+blacklist rivatv
+
+In order to get rid of any nVidia residuals, run the following command in a terminal -
+
+sudo apt-get remove --purge nvidia*
+
+This may take a while, so be patient. Once it’s done, reboot your machine. At the login screen, don’t login just yet. Press Ctrl+Alt+F1 to switch to a text-based login, and switch to the directory which contains the downloaded driver. Run the following commands -
+
+sudo service lightdm stop
+chmod +x NVIDIA*.run
+
+where NVIDIA*.run is the full name of your driver. Next, start the installation with -
+
+sudo ./NVIDIA*.run
+
+Follow the onscreen instructions. If the installer throws up an error about nouveau still running, allow it to create a blacklist for nouveau, quit the installation and reboot. In that case, run the following commands again -
+
+sudo service lightdm stop
+sudo ./NVIDIA*.run
+
+The installation should now proceed smoothly. When it asks you if you want the 32-bit libraries and if you want it to edit xorg.conf to use these drivers by default, allow both.
+
+Reboot once the installation completes.
+
+STEP II – CUDA toolkit installation
+
+Download the CUDA toolkit (I used the Ubuntu 11.10 64-bit version). Navigate to the directory that contains the downloaded CUDA toolkit package, and run the following command -
+
+chmod +x cuda*.run
+sudo ./cuda*.run
+
+where cuda*.run is the full name of the downloaded CUDA toolkit. Accept the license that appears. Next, choose to install the driver if you’ve not done so already (this is the development version). Installation of the driver will require switching to a text-based shell (Ctrl+Alt+F1), stopping lightdm as detailed in the previous step and running the toolkit installer as superuser. The CUDA 5.0 toolkit installation is compulsory, while that of the included samples isn’t. Allow the installer to proceed with default locations unless you have specific reasons for not doing so. This makes for easier troubleshooting in the future.
+
+This process might take a while depending upon your system config. Once it’s done, double check the summary screen to make sure everything is in place. If the installation of the samples fails (which it does more often than not), it’s probably due to one or more missing libraries. In that case, install the required libraries and rerun the installer, choosing to install the samples alone.
+
+To make sure the necessary environment variables (PATH and LD_LIBRARY_PATH) are modified every time you access a terminal, add the requisite lines (from the summary screen) to the end of ~/.bashrc as follows -
+
+32 bit systems -
+export PATH=$PATH:/usr/local/cuda-5.0/bin
+export LD_LIBRARY_PATH=/usr/local/cuda-5.0/lib
+
+64 bit systems -
+export PATH=$PATH:/usr/local/cuda-5.0/bin
+export LD_LIBRARY_PATH=/usr/local/cuda-5.0/lib64:/lib
+
+The paths used above will vary based on the install directory you choose for the toolkit. This wraps up the arguably simpler setup (compared to CUDA 4.x for Linux users), although the samples’ installation still suffers from dependency hell.
+
+STEP III – CUDA samples installation and troubleshooting
+
+While the installation of the samples should be straightforward (simply run the all in one toolkit installer), it’s often not all that easy. If you’re getting an error similar to “Samples installation failed due to missing libraries – libglut.so not found”, it’s typically because the installer looks for libglut.so and not variants (like libglut.so.3). To fix this, we’ll have to create softlinks so the installer can track down these files.
+
+Determine if variants of libglut.so are present as follows -
+
+sudo find /usr -name libglut\*
+
+On my 64-bit installation of Ubuntu 12.04, this output the following text -
+
+/usr/lib/x86_64-linux-gnu/libglut.so.3
+/usr/lib/x86_64-linux-gnu/libglut.so.3.9.0
+/usr/lib/x86_64-linux-gnu/libglut.a
+/usr/lib/x86_64-linux-gnu/libglut.so
+
+Now that a variant of libglut.so (that is, libglut.so.3) has been found, we can create a softlink to it -
+
+sudo ln -s /usr/lib/x86_64-linux-gnu/libglut.so.3 /usr/lib/libglut.so
+
+Next, rerun the all in one installer choosing to install only the samples this time around. That should fix the “Missing libraries” error that cropped up previously.
+
+Further reading resources can be found here if you’re looking for books on CUDA and GPGPU programming in general.
+
+Credit for STEP III goes to these release notes (refer section III b – Known issues on CUDA Samples for Linux).

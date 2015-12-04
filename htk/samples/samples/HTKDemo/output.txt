@@ -1,0 +1,88 @@
+ Test Config File Read
+ =====================
+Parameter         Value
+-----------------------
+
+hsKind              p
+covKind             d
+nStreams            1
+nMixes              1
+Context             m
+TiedState           n
+VQ_clust            l
+HERest_Iter         3
+HERest_par_mode     n
+Clean_up            y
+Trace_tool_calls    y
+
+
+HCopy               n
+HList               n
+HQuant              n
+HLEd                n
+HInit               y
+HRest               y
+HERest              y
+HSmooth             n
+HVite               y
+
+Cleaning up directories
+Done cleaning
+
+
+./MakeProtoHMMSet protoconfs/proto_s1_m1_dc.pcf
+
+
+Calling HInit for HMM S
+HInit -A -i 10 -L labels/bcplabs/mon -l S -o S -C toolconfs/hinit.conf -D -M hmms/hmm.0 -T 1 proto/S data/train/tr1.mfc data/train/tr2.mfc data/train/tr3.mfc data/train/tr4.mfc data/train/tr5.mfc data/train/tr6.mfc data/train/tr7.mfc 
+
+HTK Configuration Parameters[3]
+  Module/Tool     Parameter                  Value
+#                 KEEPDISTINCT               FALSE
+#                 SAVEGLOBOPTS                TRUE
+#                 TARGETKIND              MFCC_E_D
+
+
+
+Calling HInit for HMM C
+HInit -A -i 10 -L labels/bcplabs/mon -l C -o C -C toolconfs/hinit.conf -D -M hmms/hmm.0 -T 1 proto/C data/train/tr1.mfc data/train/tr2.mfc data/train/tr3.mfc data/train/tr4.mfc data/train/tr5.mfc data/train/tr6.mfc data/train/tr7.mfc 
+
+HTK Configuration Parameters[3]
+  Module/Tool     Parameter                  Value
+#                 KEEPDISTINCT               FALSE
+#                 SAVEGLOBOPTS                TRUE
+#                 TARGETKIND              MFCC_E_D
+
+
+
+Calling HInit for HMM V
+HInit -A -i 10 -L labels/bcplabs/mon -l V -o V -C toolconfs/hinit.conf -D -M hmms/hmm.0 -T 1 proto/V data/train/tr1.mfc data/train/tr2.mfc data/train/tr3.mfc data/train/tr4.mfc data/train/tr5.mfc data/train/tr6.mfc data/train/tr7.mfc 
+
+HTK Configuration Parameters[3]
+  Module/Tool     Parameter                  Value
+#                 KEEPDISTINCT               FALSE
+#                 SAVEGLOBOPTS                TRUE
+#                 TARGETKIND              MFCC_E_D
+
+
+
+Calling HInit for HMM N
+HInit -A -i 10 -L labels/bcplabs/mon -l N -o N -C toolconfs/hinit.conf -D -M hmms/hmm.0 -T 1 proto/N data/train/tr1.mfc data/train/tr2.mfc data/train/tr3.mfc data/train/tr4.mfc data/train/tr5.mfc data/train/tr6.mfc data/train/tr7.mfc 
+
+HTK Configuration Parameters[3]
+  Module/Tool     Parameter                  Value
+#                 KEEPDISTINCT               FALSE
+#                 SAVEGLOBOPTS                TRUE
+#                 TARGETKIND              MFCC_E_D
+
+
+
+Calling HInit for HMM L
+HInit -A -i 10 -L labels/bcplabs/mon -l L -o L -C toolconfs/hinit.conf -D -M hmms/hmm.0 -T 1 proto/L data/train/tr1.mfc data/train/tr2.mfc data/train/tr3.mfc data/train/tr4.mfc data/train/tr5.mfc data/train/tr6.mfc data/train/tr7.mfc 
+
+HTK Configuration Parameters[3]
+  Module/Tool     Parameter                  Value
+#                 KEEPDISTINCT               FALSE
+#                 SAVEGLOBOPTS                TRUE
+#                 TARGETKIND              MFCC_E_D
+

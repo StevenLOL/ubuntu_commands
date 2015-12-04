@@ -1,0 +1,9 @@
+sudo add-apt-repository ppa:langdalepl/gvfs-mtp
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+sudo apt-get install gvfs
+
+
+
+http://askubuntu.com/questions/88552/can-not-access-files-in-any-folder-on-samsung-galaxy-sii
