@@ -1,0 +1,5 @@
+
+ssh-keygen -t rsa
+ssh steven@155.69.149.215 mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh steven@155.69.149.215 'cat >> .ssh/authorized_keys'
+ssh steven@155.69.149.215

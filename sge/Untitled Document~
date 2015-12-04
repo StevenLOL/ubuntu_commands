@@ -1,0 +1,67 @@
+http://pka.engr.ccny.cuny.edu/~jmao/node/49
+
+
+Install Sun Grid Engine (as Ubuntu package)
+Submitted by Junjun Mao on Mon, 02/22/2010 - 10:00
+
+Sun Grid Engine (SGE) is used as the job scheduler for this experimental cluster.
+
+CPU slots on nodes <-> SGE queues <-> Users
+
+Put it into a simple word, SGE queue(s) bridge CPU slots and users. That is users send jobs to SGE queues, then SGE queues find CPUs to run the jobs. There might be multiple queues on the system (just like multiple bank tellers in a branch to serve customers) and queues may have different priority (well, the teller that serves VIP only). Users may be assigned priority too. This section describes a simple SGE installation, in which there is only one queue that serves both serial and parallel jobs.
+
+This procedure has been verified on Ubuntu 9.10 server.
+ 
+
+    Install SGE on master node:
+    Run this command on master node:
+
+    sudo aptitude install gridengine-client gridengine-common gridengine-master gridengine-qmon
+
+    The gridengine-exec is left out on purpose because the master node is not supposed to run jobs.
+     
+    Install SGE on slave nodes:
+    Run this command on all slave nodes:
+
+    sudo aptitude install gridengine-exec gridengine-client
+
+
+     
+    Start SGE with qmon
+    To use "qmon" Graphic User Interface, ssh to the master node with X forwarding on:
+
+    ssh -X loginname@masternode
+
+    Invoke qmon as superuser:
+
+    sudo qmon
+
+
+     
+    Configure Host
+    Tab "Host Configuration" -> Tab "Administration Host" -> Add master node
+    Tab "Host Configuration" -> Tab "Submit Host" -> Add master node
+    Tab "Host Configuration" -> Tab "Execution Host" -> Add slave nodes such as node01, node02 ...
+    Click on "Done" to finish
+     
+    Configure User
+    Add or delete users that are allowed to access SGE here. In this example, a user is added to an existing group and later this group will be allowed to submit jobs. Everything else is left as default values.
+
+    Users have to be added in order to submit jobs with SGE.
+
+    Tab "User Configuration" -> Tab "Userset" -> Highlight userset "arusers" and click on "Modify" -> Input user name in "User/Group" field -> Click "Ok" to finish
+
+     
+    Configure Queue
+    While Host Configuration deals what computing resources are available and User Configuration defines who have access to the resources, this Queue Control defines ways to connect hosts and users.
+
+    Tab "Queue Control" -> Tab "Hosts" -> Confirm the execution hosts show up there.
+
+    Tab "Queue Control" -> Tab "Cluster Queues" -> Click on "Add" -> Name the queue, add execution nodes to Hostlist and
+       Tab "Use access" -> allow access to user group arusers;
+       Tab "General Configuration" -> Field "Slots" -> Raise the number to total CPU cores on slave nodes (ok to use a bigger number than actual CPU cores).
+
+    Tab "Queue Control" -> Tab "Queue Instances" -> This is the place to manually assign hosts to queues, and control the the state (active, suspend ...) of hosts.
+     
+
+Next section describes Parallel Environment configuration.

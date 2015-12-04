@@ -1,0 +1,4 @@
+install to root
+
+./runELAN_4.6.2
+

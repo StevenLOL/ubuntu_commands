@@ -1,0 +1,32 @@
+share fodler among users
+
+sudo nano /etc/samba/smb.conf
+
+
+ [global] section of the smb.conf
+******************************************
+
+
+usershare owner only = false
+
+
+
+
+
+
+disalbe guest account
+
+Open /etc/lightdm/lightdm.conf file from your terminal using the following command
+
+sudo gedit /etc/lightdm/lightdm.conf
+
+Add the following line
+
+allow-guest=false
+
+
+
+How to prevent standard users from my folder
+
+right click on folder and change permissions for others
+

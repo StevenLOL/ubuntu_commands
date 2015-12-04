@@ -1,0 +1,9 @@
+tools
+
+command line:
+
+javac "%f"
+
+workdir:
+
+%P

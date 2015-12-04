@@ -1,0 +1,445 @@
+terminal commands:
+
+press tab for possible suggetions
+
+1) navigation & browsing
+      cd ~/         #go to home directory of current account ~/=home
+      cd ..         #go to parent directory
+      cat /data2/malay1307/s5/irun.sh   #display file content
+      head somefile                     #display only the head part of a files
+      tral somfile                     #display .... trail
+      wordcount
+      wc /data/groundtrueE/text
+      list file properties
+      ls -l data/groundtrue
+      ls -d */   # list all directory
+      ls -d *bin # list all directories end with bin
+      tree -d    # list all directory
+2) system vars/info
+      echo $PATH
+      which ls
+      #list hardware
+      sudo lshw
+      lspci
+      #get cpu info
+      cat /proc/cpuinfo
+      top iftop iotop glances     sudo iftop -i eth1
+      ps aux
+      pkill process_id
+      #kill all process of a user
+      pkill -u username
+      #memory usage
+      free -m
+      #disk usage
+      df -h  #list harddisk size
+      du -hs #list folder size
+      ls -al /dev/disk/by-uuid/
+      sudo mkdir /media/mountpoint
+      #list show disks labels
+      sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+      #format disk
+      sudo mkfs.ext4 /dev/sdd
+      #mount 
+      sudo mount /dev/sdb1/ /media/mountpoint
+      #related error: mount: you must specify the filesystem type if mout /dev/sdb/ ...
+      #/dev/sdb/ is the device  /dev/sdb1/ is the voloum of that disk, so one must volume voloum but not a disk
+      sudo chown -R steven /media/mountpoint
+      for D in *; do echo $D; find $D -type f| wc -l; done    #get files count in sub folder
+      ##touchpad
+      xinput list
+			xinput set-prop 14 "Device Enabled" 0
+			xinput set-prop 14 "Device Enabled" 1
+
+      
+3) editing,create,copy modify files directories
+      mkdir somedir
+      #delete directory 
+      #rm -rf *
+      rm -rf ./train_clean/*8k
+      nano filename
+      echo somthing > newfile
+      rm somefile                     #del a file
+      sudo chmod 777 ./dir -R
+      sudo chmod 777 ./somescript.sh
+      #change ownership of a folder and sub
+      sudo chown -hR root /u
+      #Change the owner of /u and subfiles to "root".
+      #copy folder wiht sub folders
+      cp -r /your/fodler/* target/
+      cp -avr allsour totarget
+      #remote copy
+      rcp
+      scp or
+      scp -r catbert@192.168.1.103:/home/catbert/evil_plans/  ./
+      http://www.comentum.com/rsync.html
+      rsync -r localfolder -v -e ssh steven@155.69.149.184
+      sudo ln -s /usr/local/nginx/conf/ /etc/nginx   #link a folder(create a shortcut) target should not exists first
+      ln -s /data2/malay1307/s5/ /home/sjd601/training/linkedMalay1307
+)add user
+    sudo useradd -d /home/testuser -m testuser
+    sudo passwd testuser
+    gksudo gnome-control-center user-accounts 
+)rename
+      rename s/"sd_under_classter"/"change to wat?"/g *
+      /g = all matched
+      *=all files
+      eg rename s/"_16k.wav"/".wav"/g *
+      eg rename s/"Suria"/"suria"/g *
+      #all to lower case
+      find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
+)string 
+			#substring
+			stringZ=abcABC123ABCabc
+			echo ${stringZ:7}                            # 23ABCabc
+			echo ${stringZ:7:3}                          # 23A
+                                             # Three characters of substring
+)search sort
+			cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
+      sort -nk 12 sort by 12 colloums
+      sort -r flist.txt > rflist.txt
+      cat hub-140-f.data | sort -k 5,5 -k 2,2 -k 3,3n > hub-140-f.data.sorted    #sort by 5,2,3 3 in digit format
+      grep Mean exp/sgmm2_5a/decode_graph_tg222pr_24h.new.crf_fmllr/scoring/*.txt.sys | sort -nk 12
+      grep Mean exp/sgmm2_5a/decode_graph_tg222pr_24h.new.crf/scoring/*.txt.sys | sort -nk 12 
+      grep WER exp/tri3b/decode_tgpr_eval24hr.si/wer_* | sort -nk 2
+      #search 
+      find . -name "words.txt"
+      #search text in files
+      grep -r word *
+      #find and grep
+      find ./exp/tri3b/decode_tgpr_eval6hr_rttm14Aug13/ -name "*.sys" | xargs grep Mean | sort -nk 11
+      #search include sub directory
+      grep someword -R ./
+      grep 'pattern1\|pattern2' filename  #or
+      grep -E 'Tech|Sales' employee.txt   #or
+      egrep 'pattern1|pattern2' filename  #or
+      grep -E 'pattern1.*pattern2' filename #and
+      grep -v 'pattern1' filename           #not
+)split a file
+      #split text by lines :
+      split -l 500 a.list   #by lines
+      split -d -l 500 a.list
+      split -d -n l/3 a.list # 3 parts without spliting the line;
+      split -d -n l/3 a.list myprefix                                                         
+
+
+
+
+Task:
+)ssh
+      ssh sjd601@155.69.146.214
+)multi threads
+      some_commands &
+      with wait 
+      a&
+      b&
+      wait
+      
+)two comands at same time |
+      lspci | grep Intel
+)wait
+      sleep 60
+)work with queue
+      check queue state
+      qstat -u "*"
+      qdel job-ID 
+      qsub hello_world.sh &
+           
+)detach terminal from remote:
+      aaron@localpc$ ssh root@remoteserver
+      root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
+      nohup ./local/run_dnn.sh </dev/null &      
+)run task at time interval, given time
+      crontab -e
+      01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
+)open exploer as root
+      gksu nautilus /var/www      
+)image resize
+			for f in ./s5/*.jpg ;do echo $f[1024x] ./resized/$f done;
+
+)ping
+			for x in {11..255};do ssh 155.69.151.$x; done;
+    
+
+)install update software
+      sudo apt-get update
+      sudo apt-get install xx
+      sudo apt-get remove somepackage
+      sudo apt-get purge somepackage
+      #install a package
+      sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb 
+      #force update
+      sudo apt-get dist-upgrade
+      #update from 12.04-12.10
+      sudo do-release-upgrade
+      sudo pip some python_package
+      sudo pip some python_package -I #reinstall it inorge if it is installed
+      sudo pip uninstall pycuda
+)list installed module package
+      lsmod | grep nouveau
+      sudo dpkg -L packagename  #find installed file location
+)change repositories location with replace txt 
+      /etc/apt/sources.list
+      sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
+      sudo cp ./sources.list /etc/apt/sources.list
+)play audio
+      play a.wav
+      sox suria102_262_1904.wav  -p trim 300 5 |play -p
+)build software
+      ./configure
+      make -j 4
+      sudo make install
+)mount cd/dvd iamge (ISO) 
+       sudo mount -o loop xxx.iso /media/xxxx
+)mount USB drive
+      mount usb
+      sudo fdisk -l
+      sudo mkdir /media/external
+      sudo mount /dev/sdb1 /media/external
+      sudo mount -t ntfs-3g /dev/sdb1 /media/usb3tb
+      sudo mount -t ntfs-3g /dev/sdc1 /media/usb3tb
+      sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137 
+)mount network drive
+      sftp://steven@155.69.149.215
+      gvfs-mount sftp://sjd601@155.69.146.214     #mount with terminal or on the exploer
+      gvfs-mount sftp://dcl603@155.69.146.214
+      gvfs-mount sftp://dcl603@155.69.146.212
+      Enter password for ssh as sjd601 on 155.69.146.212
+      155.69.149.254
+      smb://databackup@mybooklive1/databackup
+      smb://databackup@155.69.149.109/databackup
+      155.69.149.240
+      smb://workspace@mybooklive2/workspace
+      smb://workspace@155.69.149.240/workspace
+      15569
+      ftp://cclahadmin@www.cclah.com
+)change desktop pictures download home path
+      http://www.howtogeek.com/howto/17752/use-any-folder-for-your-ubuntu-desktop-even-a-dropbox-folder/
+      gksu gedit .config/user-dirs.dirs
+      not work if change to other place that not under home path?
+      just ln some where to home also works
+)password
+      change root password
+      sudo passwd root 
+)change machine name
+      sudo apt-get install winbind
+      You probably want to add 'wins' where it says "hosts:" in /etc/nsswitch.conf
+      sudo gedit /etc/hostname
+      sudo gedit /etc/hosts
+      sudo apt-get install avahi-daemon
+
+)open webpage
+      #open webpage from ternimal
+      links www.zaobao.com
+      lynx
+      w3m
+      #As far as I know, these browsers do not support programmed reloading, however it can easily be accomplished by using a terminal multiplexer like tmux. For example if you start the browser in one terminal like this:
+      tmux new-session -s browse 'w3m google.com'
+      #Then you can send commands to it from another terminal with the send-keys command. So to make w3m reload the current page do this:
+      tmux send-keys -t browse R
+
+)mount folder to ram , put folder in ram
+	# mkdir -p /mnt/tmp
+	# mount -t tmpfs -o size=20m tmpfs /mnt/tmp
+
+	# mkdir -p /mnt/ram
+	# mount -t ramfs -o size=20m ramfs /mnt/ram
+
+
+#scripting
+)passing args to a.sh
+      a.sh 13 213 323
+      in a.sh  $1 $2 $3 & will run in background
+      in a.sh v1=$1 v2=$2
+)read text file and process line by lines
+      FILE=wav.list
+      ext=wav
+      outputfolder=seg_remove_cm
+      cat $FILE | while read line; do
+      #cat file hrizationly
+      paste -d"," *.txt
+          
+      echo "Processing $line"
+       nameOnly=$(echo $line | awk -F / '{ print $7 }')
+       nameOnly=${nameOnly%.$ext}
+       echo "NAME= $nameOnly"
+      java -Xmx2048m -classpath ./batch.jar \
+      edu.cmu.sphinx.tools.feature.FeatureFileDumper \
+      -config ./frontend.config.xml \
+      -name cepstraFrontEnd \
+      -i $line \
+      -o ./mfcc/$nameOnly.mfcc  
+      # ./wave2mfcc.sh $line $ext
+      done
+)read a fodler and process file one by one
+      #loop and find names 
+      eg1:
+      
+      for file in ./input/gt_ctm/*.ctm
+      do
+       # do something on "$file"
+       echo "Processing $file"
+        nameOnly=$(echo $file | awk -F "/" '{print $NF}') 
+       echo $nameOnly
+       nameOnly=${nameOnly%.ctm}
+       echo ${nameOnly}
+
+       #python sort_ctm.py "$file" "./output/gt_rttm/sorted_$nameOnly.ctm"
+       #python ctm_2_rttm_from_segments_and_utt2spk.py "./output/gt_rttm/sorted_$nameOnly.ctm" "./input/gt_ctm/segments" "./input/gt_ctm/utt2spk" "./output/gt_rttm/$nameOnly.rttm"
+       python my_validation.py "./output/gt_rttm/sorted_$nameOnly.ctm" "./output/gt_rttm/$nameOnly.rttm"
+       
+      #offical validator by NIST, take longer time
+      # perl rttmValidator.pl -f -i "./output/gt_rttm/$nameOnly.rttm"
+       
+      done
+      
+      #eg2:
+      #loop dir
+
+      for ifile in /home/steven/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts/*.wav
+      do
+	      #echo $ifile
+	      show=`basename $ifile .wav`
+	      echo $show
+	      /usr/bin/java -Xmx2024m -jar ./LIUM_SpkDiarization-8.4.1.jar \
+       --fInputMask=$ifile --sOutputMask=/home/steven/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts_gender/$show.seg ZHIZHENGTEST &
+      done
+      #eg3:
+      #loop vars
+      
+			names=( Jennifer Tonya Anna Sadie )
+
+			for name in ${names[@]}
+			do
+				echo $name
+			done
+      
+)split data and multithreading
+      mkdir -p $outdir
+
+      split -d -n l/15 /home/steven/apps/getgender/lium/magor_gt_merge_nodev.test.lst ${tid}
+
+      for x in ./${tid}*
+      do
+        echo $x
+        ./getgender.sh $x $outdir &
+      done
+
+)pick random files 
+			find ./audio -type f | shuf -n 10
+
+
+
+)disable mouse scroll
+			xinput list
+			xinput get-button-map 8
+			xinput set-button-map 8 1 2 3 0 0 
+			4,5 means scoring up/download
+			and sudo save to ~/.profile
+
+
+)to make gonme-session-fallback look nice,right click on the bootom tray and group applictions and 4 rows for workspace
+ or install kde-plasma
+
+)shorten command promt
+	
+To change it for the current terminal instance only
+
+Just enter PS1='\u:\W\$ ' and press enter.
+To change it "permanently"
+
+In your ~/.bashrc, find the following section:
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+
+Remove the @\h, and replace the \w with an uppercase \W, so that it becomes:
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u:\W\$ '
+
+
+
+
+
+
+
+#=========================================================================================================================================
+
+
+cp -a /data2/malay1307 /home/sjd601/training/malay_13_07/
+sudo rm -rf ./kaldi-trunk-whatever/
+sudo cp -a -H -L kaldi-trunk kaldi-trunk-whatever   #replace link file with source 
+
+sudo ufw disable
+
+
+#edit in sudo in gui mode
+gksu gedit /etc/bumblebee/bumblebee.conf
+
+
+
+
+
+stop gui 
+sudo service lightdm stop
+
+
+
+loop dir
+
+for ifile in /home/steven/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts/*.wav
+do
+	#echo $ifile
+	show=`basename $ifile .wav`
+	echo $show
+	/usr/bin/java -Xmx2024m -jar ./LIUM_SpkDiarization-8.4.1.jar \
+ --fInputMask=$ifile --sOutputMask=/home/steven/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts_gender/$show.seg ZHIZHENGTEST &
+
+done
+
+if [ -d "/path/to/dir" ]
+then
+    echo "Directory /path/to/dir exists."
+else
+    echo "Error: Directory /path/to/dir does not exists."
+fi
+
+for D in *; do echo $D; find $D -type f| wc -l; done
+
+
+)others
+
+#disable auto logout
+
+set LOCK_SCREEN=false
+sudo nano /etc/default/acpi-support
+
+
+
+~/.profile
+
+
+PATH=/home/steven/apps/getmfcc/utils:$PATH
+PATH=/home/steven/kaldi-trunk/src/utils:$PATH
+PATH=/home/steven/kaldi-trunk/src/bin:$PATH     
+PATH=/home/steven/kaldi-trunk/src/fgmmbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/gmmbin:$PATH      
+PATH=/home/steven/kaldi-trunk/src/kwsbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/nnet2bin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/onlinebin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/sgmmbin:$PATH
+PATH=/home/steven/kaldi-trunk/src/featbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/fstbin:$PATH   
+PATH=/home/steven/kaldi-trunk/src/ivectorbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/latbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/nnetbin:$PATH   
+PATH=/home/steven/kaldi-trunk/src/sgmm2bin:$PATH
+xinput set-button-map 8 1 2 3 0 0
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 60
+update-alternatives --config g++
+sudo update-initramfs -c -k all -u

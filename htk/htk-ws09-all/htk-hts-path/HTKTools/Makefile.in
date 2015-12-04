@@ -1,0 +1,131 @@
+# ----------------------------------------------------------- 
+#                                                             
+#                          ___                                
+#                       |_| | |_/   SPEECH                    
+#                       | | | | \   RECOGNITION               
+#                       =========   SOFTWARE                  
+#                                                             
+#                                                             
+# ----------------------------------------------------------- 
+#         Copyright: Cambridge University
+#          1995-2005 Engineering Department
+#                    http://htk.eng.cam.ac.uk
+#                    http://mi.eng.cam.ac.uk
+#                 
+#   Use of this software is governed by a License Agreement   
+#    ** See the file License for the Conditions of Use  **    
+#    **     This banner notice must not be removed      **    
+#                                                             
+# ----------------------------------------------------------- 
+# File: @configure_input@
+# ----------------------------------------------------------- 
+
+#  *** THIS IS A MODIFIED VERSION OF HTK ***                        #
+# ----------------------------------------------------------------- #
+#           The HMM-Based Speech Synthesis System (HTS)             #
+#           developed by HTS Working Group                          #
+#           http://hts.sp.nitech.ac.jp/                             #
+# ----------------------------------------------------------------- #
+#                                                                   #
+#  Copyright (c) 2001-2011  Nagoya Institute of Technology          #
+#                           Department of Computer Science          #
+#                                                                   #
+#                2001-2008  Tokyo Institute of Technology           #
+#                           Interdisciplinary Graduate School of    #
+#                           Science and Engineering                 #
+#                                                                   #
+# All rights reserved.                                              #
+#                                                                   #
+# Redistribution and use in source and binary forms, with or        #
+# without modification, are permitted provided that the following   #
+# conditions are met:                                               #
+#                                                                   #
+# - Redistributions of source code must retain the above copyright  #
+#   notice, this list of conditions and the following disclaimer.   #
+# - Redistributions in binary form must reproduce the above         #
+#   copyright notice, this list of conditions and the following     #
+#   disclaimer in the documentation and/or other materials provided #
+#   with the distribution.                                          #
+# - Neither the name of the HTS working group nor the names of its  #
+#   contributors may be used to endorse or promote products derived #
+#   from this software without specific prior written permission.   #
+#                                                                   #
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND            #
+# CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,       #
+# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF          #
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE          #
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS #
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,          #
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED   #
+# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     #
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON #
+# ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,   #
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY    #
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE           #
+# POSSIBILITY OF SUCH DAMAGE.                                       #
+# ----------------------------------------------------------------- #
+
+SHELL =	/bin/sh
+inc = ../HTKLib
+HTKLIB = $(inc)/HTKLib.a 
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+
+CC      = 	@CC@
+CFLAGS  = 	@CFLAGS@ -I$(inc) -DPHNALG
+LDFLAGS = 	@LDFLAGS@ -lm
+INSTALL = 	@INSTALL@
+PROGS   = 	@HSLAB@ HBuild HCompV HCopy HDMan \
+		HERest HHEd HInit HLEd 	HList \
+		HLRescore HLStats HMMIRest HParse \
+		HQuant HRest HResults HSGen HSmooth \
+		HVite HMGenS HSMMAlign HMgeTool
+all: $(PROGS)
+
+%: %.c $(HTKLIB) 
+	if [ ! -d $(bindir) -a X_@TRADHTK@ = X_yes ] ; then mkdir -p $(bindir) ; fi
+	if [ x$@ = xHSLab ] ; then \
+		$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS) -lX11 ; \
+	elif [ x$@ = xHMGenS ] ; then \
+		$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS) @FLIBS@ ; \
+	elif [ x$@ = xHMgeTool ] ; then \
+		$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS) @FLIBS@ ; \
+		else \
+		$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS) ; fi
+	if [ X_@TRADHTK@ = X_yes ] ; then $(INSTALL) -m 755 $@ $(bindir)  ; fi
+
+strip: $(PROGS)
+	-strip $(PROGS)
+
+clean:
+	-rm -f *.o 
+
+cleanup:
+	-rm -f *.o $(PROGS) *.exe
+
+distclean:
+	-rm -f *.o $(PROGS) *.exe Makefile
+
+install: mkinstalldir $(PROGS)
+	for program in $(PROGS) ; do $(INSTALL) -m 755 $${program} $(bindir) ; done
+
+mkinstalldir:
+	if [ ! -d $(bindir) ] ; then mkdir -p $(bindir) ; fi
+
+
+.PHONY: all strip clean cleanup distclean install mkinstalldir

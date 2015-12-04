@@ -1,0 +1,37 @@
+echo 1. Register a user with Bitbucket (using my invitation email)
+echo 2. Install git on your Linux, if it's Ubuntu: 
+echo sudo apt-get install git
+echo 3. Clone from the repository: 
+sudo apt-get install libblas-dev
+sudo apt-get install libalsa
+sudo apt-get install python-dev)
+sudo git clone https://dusijun@bitbucket.org/pckben/lvcsr_demo.git ./lvcsr_demo
+
+password=123456
+sudo chmod 777 ./lvcsr_demo -R
+
+echo 4 install automake
+echo sudo apt-get install automake
+echo sudo apt-get install subversion
+svn co https://svn.code.sf.net/p/kaldi/code/trunk ./kaldi-trunk
+cd kaldi-trunk
+cd tools
+make -j 4
+./install_portaudio.sh
+cd ../src
+./configure
+#make clean #if already build
+make depend
+make
+cd ../src/online
+make
+
+echo read install in kaldi and model from haihua or ben
+
+scp -r scespeech@155.69.144.231:~/lvcsr_demo_data <path/to/destination>
+
+username: scespeech
+password: speech@sce
+
+cd /lib
+sudo ln -s /home/daucheng/kaldi-trunk/tools/openfst/lib/libfst.so.0.0.0 libfst.so.0

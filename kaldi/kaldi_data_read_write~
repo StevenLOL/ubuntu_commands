@@ -1,0 +1,22 @@
+
+1.1 read from ark, first thing first you need to know what data it is
+	copy-vector ark:vad_NIST_SRE08_3summed.model.8.ark ark,t:- > vad.ark.t.text
+1.2 write back to ark
+	copy-vector ark:vad.ark.t.text ark:- >001.ark
+	
+	copy-feats scp:./data/ngmm/feats.scp ark,t:- | head
+
+
+feats-to-dim ark:./input.ark ark,t:- | head -n 1
+
+
+feats select 0 index
+
+
+
+copy-vector ark:./ivector.1.ark ark,t: |sed -e 's/\[\|\]//g'
+
+
+
+
+

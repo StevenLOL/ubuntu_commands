@@ -1,0 +1,58 @@
+svn cleanup kaldi-trunk
+svn co https://svn.code.sf.net/p/kaldi/code/trunk kaldi-trunk
+
+
+cd tools
+make -j 4
+cd ..
+sudo apt-get install libatlas-dev libatlas-base-dev
+./configure
+make depend -j 10
+make -j 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PATH=/home/steven/apps/getmfcc/utils:$PATH
+PATH=/home/steven/kaldi-trunk/src/utils:$PATH
+PATH=/home/steven/kaldi-trunk/src/bin:$PATH     
+PATH=/home/steven/kaldi-trunk/src/fgmmbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/gmmbin:$PATH      
+PATH=/home/steven/kaldi-trunk/src/kwsbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/nnet2bin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/onlinebin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/sgmmbin:$PATH
+PATH=/home/steven/kaldi-trunk/src/featbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/fstbin:$PATH   
+PATH=/home/steven/kaldi-trunk/src/ivectorbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/latbin:$PATH  
+PATH=/home/steven/kaldi-trunk/src/nnetbin:$PATH   
+PATH=/home/steven/kaldi-trunk/src/sgmm2bin:$PATH
+
+
+
+===================old
+if fatal error: clapack.h
+
+sudo apt-get install libatlas-base-dev
+sudo apt-get --purge remove liblapack-dev liblapack3 liblapack3gf
+export CPLUS_INCLUDE_PATH=/usr/include/atlas
+
+#https://github.com/SciRuby/nmatrix/wiki/Installation
+
+
+
+
+

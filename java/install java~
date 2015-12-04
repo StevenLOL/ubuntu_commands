@@ -1,0 +1,53 @@
+sudo apt-get install openjdk-7-jdk
+
+
+
+http://www.liberiangeek.net/2012/04/install-oracle-java-runtime-jre-7-in-ubuntu-12-04-precise-pangolin/
+
+sudo mkdir -p /usr/lib/jvm/jre1.7.0
+sudo mv jre1.7.0_03/* /usr/lib/jvm/jre1.7.0/
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jre1.7.0/bin/java 0
+ls /usr/lib/jvm/
+sudo update-alternatives --config java
+java -version
+
+
+
+
+firefox
+
+mkdir ~/.mozilla/plugins 
+
+ln -s /usr/lib/jvm/jre1.7.0/lib/amd64/libnpjp2.so ~/.mozilla/plugins/
+
+
+or in 32bits
+ln -s /usr/lib/jvm/jre1.7.0/lib/i386/libnpjp2.so ~/.mozilla/plugins/
+
+
+
+Ref: 
+http://www3.ntu.edu.sg/home/ehchua/programming/howto/Ubuntu_HowTo.html#zz-2.
+$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk1.7.0_{xx}/jre/bin/java" 1
+      // --install symlink name path priority
+$ sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk1.7.0_{xx}/bin/javac" 1
+$ sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk1.7.0_{xx}/jre/bin/javaws" 1
+ 
+// Use this Oracle JDK/JRE as the default
+$ sudo update-alternatives --set java /usr/local/java/jdk1.7.0_{xx}/jre/bin/java
+      // --set name path
+$ sudo update-alternatives --set javac /usr/local/java/jdk1.7.0_{xx}/bin/javac
+$ sudo update-alternatives --set javaws /usr/local/java/jdk1.7.0_{xx}/jre/bin/javaws
+
+
+
+
+
+
+java classpath
+
+steven@ws09:~/Downloads/weka-3-6-10$ source /etc/profile
+steven@ws09:~/Downloads/weka-3-6-10$ echo $CLASSPATH
+.:/home/steven/Downloads/lucene-4.7.0/analysis/common/lucene-analyzers-common-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/icu/lucene-analyzers-icu-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/icu/lib/icu4j-52.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/kuromoji/lucene-analyzers-kuromoji-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/morfologik/lucene-analyzers-morfologik-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/morfologik/lib/morfologik-fsa-1.7.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/morfologik/lib/morfologik-polish-1.7.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/morfologik/lib/morfologik-stemming-1.7.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/phonetic/lucene-analyzers-phonetic-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/phonetic/lib/commons-codec-1.7.jar:/home/steven/Downloads/lucene-4.7.0/analysis/smartcn/lucene-analyzers-smartcn-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/stempel/lucene-analyzers-stempel-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/uima/lucene-analyzers-uima-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/analysis/uima/lib/Tagger-2.3.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/uima/lib/uimaj-core-2.3.1.jar:/home/steven/Downloads/lucene-4.7.0/analysis/uima/lib/WhitespaceTokenizer-2.3.1.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lucene-benchmark-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lib/commons-compress-1.7.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lib/icu4j-52.1.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lib/nekohtml-1.9.17.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lib/spatial4j-0.4.1.jar:/home/steven/Downloads/lucene-4.7.0/benchmark/lib/xercesImpl-2.9.1.jar:/home/steven/Downloads/lucene-4.7.0/classification/lucene-classification-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/codecs/lucene-codecs-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/core/lucene-core-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/demo/lucene-demo-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/expressions/lucene-expressions-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/expressions/lib/antlr-runtime-3.5.jar:/home/steven/Downloads/lucene-4.7.0/expressions/lib/asm-4.1.jar:/home/steven/Downloads/lucene-4.7.0/expressions/lib/asm-commons-4.1.jar:/home/steven/Downloads/lucene-4.7.0/facet/lucene-facet-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/grouping/lucene-grouping-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/highlighter/lucene-highlighter-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/join/lucene-join-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/memory/lucene-memory-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/misc/lucene-misc-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/queries/lucene-queries-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/queryparser/lucene-queryparser-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lucene-replicator-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/commons-logging-1.1.1.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/httpclient-4.3.1.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/httpcore-4.3.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/javax.servlet-3.0.0.v201112011016.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-continuation-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-http-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-io-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-server-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-servlet-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/replicator/lib/jetty-util-8.1.10.v20130312.jar:/home/steven/Downloads/lucene-4.7.0/sandbox/lucene-sandbox-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/sandbox/lib/jakarta-regexp-1.4.jar:/home/steven/Downloads/lucene-4.7.0/spatial/lucene-spatial-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/spatial/lib/spatial4j-0.4.1.jar:/home/steven/Downloads/lucene-4.7.0/suggest/lucene-suggest-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/test-framework/lucene-test-framework-4.7.0.jar:/home/steven/Downloads/lucene-4.7.0/test-framework/lib/ant-1.8.2.jar:/home/steven/Downloads/lucene-4.7.0/test-framework/lib/junit4-ant-2.0.13.jar:/home/steven/Downloads/lucene-4.7.0/test-framework/lib/junit-4.10.jar:/home/steven/Downloads/lucene-4.7.0/test-framework/lib/randomizedtesting-runner-2.0.13.jar
+
+
