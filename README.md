@@ -2,7 +2,7 @@
 Commonly used UBUNTU commands and scripts
 
 [WIP]
-#(Advanced Bash-Scripting Guide){./abs-guide-new.pdf}
+#[Advanced Bash-Scripting Guide](./abs-guide-new.pdf)
 by Mendel Cooper
 
 #commands.txt
