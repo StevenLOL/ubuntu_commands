@@ -48,7 +48,8 @@ press tab for possible suggetions
       ##touchpad
       xinput list
 			xinput set-prop 14 "Device Enabled" 0
-			xinput set-prop 14 "Device Enabled" 1
+			xinput set-prop 14 "Device Enabled" 1			
+			sudo shutdown -r now # reboot now
 
       
 3) editing,create,copy modify files directories
@@ -165,6 +166,7 @@ Task:
       sudo apt-get install xx
       sudo apt-get remove somepackage
       sudo apt-get purge somepackage
+      sudo apt-get -f install 
       #install a package
       sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb 
       #force update
@@ -173,6 +175,8 @@ Task:
       sudo do-release-upgrade
       sudo pip some python_package
       sudo pip some python_package -I #reinstall it inorge if it is installed
+      sudo pip install -r your_file   #
+      sudo pip -U #install and update
       sudo pip uninstall pycuda
 )list installed module package
       lsmod | grep nouveau
