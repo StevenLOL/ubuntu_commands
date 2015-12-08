@@ -1,5 +1,5 @@
 REF: http://os.51cto.com/art/201411/457319.htm
-
+REF: http://xmodulo.com/lxc-containers-ubuntu.html
 如何在Ubuntu上创建及管理LXC容器？
 2014-11-18 00:45 布加迪编译 51CTO 字号：T | T
 一键收藏，随时查看，分享好友！
