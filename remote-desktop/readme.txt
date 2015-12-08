@@ -6,8 +6,16 @@ sudo apt-get install xfce4
 echo xfce4-session >~/.xsession
 sudo service xrdp restart
 
-
-
+To fix the TAB problem:
+~~~
+In short, you can either edit:
+~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+find the line
+<property name="&lt;Super&gt;Tab" type="string" value="switch_window_key"/>
+and change it to
+<property name="&lt;Super&gt;Tab" type="empty"/>
+Or go to "Settings->Window Manager", in the "Keyboard" tab, clear the binding of "Switch wndow for same application -> <Super> Tab"
+~~~
 
 
 
