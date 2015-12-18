@@ -145,10 +145,14 @@ Task:
       qdel job-ID 
       qsub hello_world.sh &
            
-)detach terminal from remote:
+)detach terminal from remote:			
+			#ssh to a server, the connection may fail if task run for hours,and given error : broken pipe, the solution is using, or nohup tmux once login via ssh
       aaron@localpc$ ssh root@remoteserver
       root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
       nohup ./local/run_dnn.sh </dev/null &      
+      tmux
+      tmux list-sessions
+      tmux attach-session -t #
 )run task at time interval, given time
       crontab -e
       01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
@@ -156,7 +160,8 @@ Task:
       gksu nautilus /var/www      
 )image resize
 			for f in ./s5/*.jpg ;do echo $f[1024x] ./resized/$f done;
-
+)text encoding change
+			opencc -i ~/Downloads/data/wiki_corpus/corpus_120520.txt -o ./120520.txt -c zht2zhs.ini
 )ping
 			for x in {11..255};do ssh 155.69.151.$x; done;
     
@@ -164,9 +169,10 @@ Task:
 )install update software
       sudo apt-get update
       sudo apt-get install xx
+      sudo apt-get install xx --reinstall
       sudo apt-get remove somepackage
       sudo apt-get purge somepackage
-      sudo apt-get -f install 
+      sudo apt-get -f install  #fix some missing package
       #install a package
       sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb 
       #force update
@@ -178,6 +184,7 @@ Task:
       sudo pip install -r your_file   #
       sudo pip -U #install and update
       sudo pip uninstall pycuda
+      sudo python setup.py install    #if there is a setup.py in download pyton package
 )list installed module package
       lsmod | grep nouveau
       sudo dpkg -L packagename  #find installed file location
@@ -191,6 +198,12 @@ Task:
 )build software
       ./configure
       make -j 4
+      sudo make install
+      or 
+      mkdir build
+      cd build
+      cmake ..
+      make all
       sudo make install
 )mount cd/dvd iamge (ISO) 
        sudo mount -o loop xxx.iso /media/xxxx
@@ -241,7 +254,10 @@ Task:
       #Then you can send commands to it from another terminal with the send-keys command. So to make w3m reload the current page do this:
       tmux send-keys -t browse R
 
+
+
 )mount folder to ram , put folder in ram
+	#to say you have lots of rams and would like to run program faster by preload them into memory, you can setup ramfs, then just copy/del file to that folder
 	# mkdir -p /mnt/tmp
 	# mount -t tmpfs -o size=20m tmpfs /mnt/tmp
 
