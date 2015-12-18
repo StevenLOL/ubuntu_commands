@@ -3,6 +3,7 @@ git rm
 git add .
 git reset --hard
 git remote show ..
+git checkout -b "0.1.2"
 github and bitbucket support SSH , if you upload your SSH key to them
 
 for bitbucket
