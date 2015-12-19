@@ -80,6 +80,8 @@ press tab for possible suggetions
     sudo useradd -d /home/testuser -m testuser
     sudo passwd testuser
     gksudo gnome-control-center user-accounts 
+    sudo adduser steven
+    sudo adduser steven sudo
 )rename
       rename s/"sd_under_classter"/"change to wat?"/g *
       /g = all matched
