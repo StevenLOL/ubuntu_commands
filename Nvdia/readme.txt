@@ -1,4 +1,4 @@
-The best way to install CUDA or Nvidia driver is through is deb package
+The best way to install CUDA or Nvidia driver is through its deb package
 
 1) download deb pakage
 https://developer.nvidia.com/cuda-downloads/
@@ -15,5 +15,5 @@ then:
 2.1) you may need to uninstall your driver before insall CUDA
 2.2) There is a cudnn,  cuDNN is our library for Deep Learning frameworks, and can be downloaded separately from the cuDNN home page.
 https://developer.nvidia.com/cudnn
-It will make your DNN training faster, to install copy * to your
+It will make your DNN training faster, to install just copy * to your cuda lib folder
 
