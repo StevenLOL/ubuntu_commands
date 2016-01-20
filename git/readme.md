@@ -17,23 +17,32 @@ for bitbucket
 https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html
 
 add ssh
+
 ssh-gen
+
 ssh-agent
+
 ssh-add .....your rsa
 
-#There are two script in this folder:
+#There are two type of scripts in this folder:
 
+##gitsave
 one for easy push , or as its name imply git save my files!
 
 ###gitsave
-or
 ###gitsave "some text please"
 
+##git-new-*
 
+Create a git repository in github/bitbuck from a local folder.
 
-To say you have already have a project one your local disk, let's push it to git...
-
+To say local foler "project_abc"
 Go to project directory then git-new-ssh "my_git_project_000"
+
+This will create a git repository in github/bitbuck called my_git_project_000 with the contain of project_abc.
+
+One need to configure account username and password in git-new-*
+
 
 
 
