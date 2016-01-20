@@ -6,8 +6,7 @@
 
 Create a git repository in github/bitbuck from a local folder.
 
-To say local foler "project_abc"
-Go to project directory then 
+To say local foler "project_abc". Go to project directory then 
 ```
 git-new-ssh "my_git_project_000"
 ```
@@ -20,12 +19,13 @@ gitsave for save all my files and publish to remote repository
 ###usage:
 ```
 gitsave
+#or
 gitsave "some text please"
 ```
 
 #Using SSH with bitbucket or github
 
-github and bitbucket support SSH , if upload your SSH key to your account
+github and bitbucket support SSH , if upload your SSH key to your account.
 for [bitbucket](https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html)
 
 add ssh
