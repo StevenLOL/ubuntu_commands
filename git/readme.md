@@ -1,30 +1,32 @@
-#There are two type of scripts in this folder:
+#There are two types of script in this folder:
 
-##gitsave
-one for easy push , or as its name imply git save my files!
 
-###gitsave
-###gitsave "some text please"
 
-##git-new-*
+##A) git-new-*
 
 Create a git repository in github/bitbuck from a local folder.
 
 To say local foler "project_abc"
-Go to project directory then git-new-ssh "my_git_project_000"
-
-This will create a git repository in github/bitbuck called my_git_project_000 with the contain of project_abc.
+Go to project directory then 
+```
+git-new-ssh "my_git_project_000"
+```
+This will create a git repository in github/bitbuck called my_git_project_000 with all files in folder project_abc.
 
 One need to configure account username and password in git-new-*
 
-
-
+##B) gitsave
+gitsave for save all my files and publish to remote repository
+###usage:
+```
+gitsave
+gitsave "some text please"
+```
 
 #Using SSH with bitbucket or github
 
 github and bitbucket support SSH , if upload your SSH key to your account
-for bitbucket
-https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html
+for [bitbucket](https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html)
 
 add ssh
 
