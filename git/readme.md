@@ -1,29 +1,3 @@
-
-#Git basic
-sudo apt-get install git
-
-git clone ...
-git rm
-git add .
-git reset --hard
-git remote show ..
-git checkout -b "0.1.2"
-
-
-#Using SSH with bitbucket or github
-
-github and bitbucket support SSH , if upload your SSH key to your account
-for bitbucket
-https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html
-
-add ssh
-
-ssh-gen
-
-ssh-agent
-
-ssh-add .....your rsa
-
 #There are two type of scripts in this folder:
 
 ##gitsave
@@ -45,6 +19,37 @@ One need to configure account username and password in git-new-*
 
 
 
+
+#Using SSH with bitbucket or github
+
+github and bitbucket support SSH , if upload your SSH key to your account
+for bitbucket
+https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html
+
+add ssh
+
+ssh-gen
+
+ssh-agent
+
+ssh-add .....your rsa
+
+
+
+#Git basic
+sudo apt-get install git
+
+git clone ...
+
+git rm
+
+git add .
+
+git reset --hard
+
+git remote show ..
+
+git checkout -b "0.1.2"
 
 
 #[Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
