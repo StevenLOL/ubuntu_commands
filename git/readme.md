@@ -54,6 +54,9 @@ git remote show ..
 git checkout -b "0.1.2"
 
 
+git commit --amend #change commit message
+
+
 #[Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
 
 You need to remove the files from the index.
