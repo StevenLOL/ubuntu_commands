@@ -101,7 +101,8 @@ Commonly used UBUNTU commands and scripts
 			echo ${stringZ:7:3}                          # 23A
                                              # Three characters of substring
 
-
+##Firefox flash plugin
+	sudo apt-get install flashplugin-nonfree
 
 #Folders in this project
 
