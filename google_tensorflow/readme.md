@@ -58,10 +58,23 @@ https://developer.nvidia.com/cudnn
 
 **Download and untar then copy files to cuda path**
 
+~~~
 cp ./include/* /usr/local/cuda-7.5/include/
-
 cp ./lib64/* /usr/local/cuda-7.5/lib64/
+~~~
 
+sudo pip install protobuf -I
+#Errors that may occur#
+##[No module named extern](https://github.com/pypa/pip/issues/3551)##
+~~~
+apt-get install --reinstall python-setuptools
+~~~
+##[ImportError: No module named protobuf ](https://github.com/tensorflow/tensorflow/issues/1336)##
 
+~~~
+##repeat till get error
+sudo pip uninstall tensorflow
+sudo pip uninstall protobuf
+~~~
 
 
