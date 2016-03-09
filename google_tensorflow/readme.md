@@ -53,9 +53,13 @@ import gensim
 
 
 The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks
+
 https://developer.nvidia.com/cudnn
+
 **Download and untar then copy files to cuda path**
+
 cp ./include/* /usr/local/cuda-7.5/include/
+
 cp ./lib64/* /usr/local/cuda-7.5/lib64/
 
 
