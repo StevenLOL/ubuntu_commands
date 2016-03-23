@@ -1,12 +1,15 @@
 #ipython notebook
 
 sudo apt-get purge ipython  #this ipython doesn't support ipython 4.0 format
-sudo pip install ipython
-sudo pip install jupyter
+sudo pip install ipython -U
+sudo pip install jupyter -U
+sudo pip install notebook -U
 ipython notebook --ip='your ip address' ---pylab=inline --port=7777
 or
 ipython notebook younotbook
 
+%If Error no extn 
+then sudo apt-get install --reinstall python-setuptools
 
 #to dispay a plot in ipython
 
