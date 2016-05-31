@@ -100,6 +100,9 @@ Commonly used UBUNTU commands and scripts
 			echo ${stringZ:7}                            # 23ABCabc
 			echo ${stringZ:7:3}                          # 23A
                                              # Three characters of substring
+                        #display first column of something
+                        cat feats.filtered.ark | awk '{print $1}'    #$0 is the whole line
+                        cat feats.filtered.ark | awk '{print $1,$1}'
 
 ##Firefox flash plugin
 	sudo apt-get install flashplugin-nonfree
