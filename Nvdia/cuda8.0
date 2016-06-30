@@ -1,0 +1,14 @@
+This is for cuda8.0RC and GTX 1080
+
+1) install cuda
+
+sudo apt-get install cuda
+
+2) del driver 361
+
+sudo apt-get remove cuda-drivers
+sudo apt-get remove nvidia-361
+
+3) install driver 367.27
+
+sudo ./NVIDIA-Linux-x86_64-367.27.run
