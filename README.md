@@ -86,6 +86,7 @@ Commonly used UBUNTU commands and scripts
     gksudo gnome-control-center user-accounts 
     sudo adduser steven
     sudo adduser steven sudo
+    sudo usermod -g root username
 ##Rename files
       rename s/"sd_under_classter"/"change to wat?"/g *
       /g = all matched
