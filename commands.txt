@@ -157,6 +157,8 @@ Task:
       tmux attach-session -t #
       #enable mouse model: in ~/.tmux.conf
       setw -g mode-mouse on
+      or setw -g mouse on
+      then tmux source-file ~/.tmux.conf
 )run task at time interval, given time
       crontab -e
       01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
