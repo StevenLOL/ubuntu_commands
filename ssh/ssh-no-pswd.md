@@ -9,11 +9,11 @@ ssh steven@155.69.149.215
 
 ### for git hub or bitbucket
 
-#1 generate ssh by
+#1 generate ssh key by
 ```
 ssh-keygen
 ```
-There will be two files: one prive key and one public key (*.pub)
+There will be two files: one private key and one public key (*.pub)
 #2 upload public to public...
 then copy the text in *.pub and to github or bitbucket
 
