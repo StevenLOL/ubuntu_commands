@@ -7,7 +7,29 @@ ssh steven@155.69.149.215
 
 
 
-### for git hub or...
+### for git hub or bitbucket
+
+#1 generate ssh by
+```
+ssh-keygen
+```
+There will be two files: one prive key and one public key (*.pub)
+#2 upload public to public...
+then copy the text in *.pub and to github or bitbucket
+
+#3 load private key locally:
+
+```
+ssh-agent bash
+eval ssh-agent -s
+ssh-add PATH_TO_YOUR_PRIVATE_KEY
+```
+
+
+
+
+
+
 
 https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 Set up SSH for Git
