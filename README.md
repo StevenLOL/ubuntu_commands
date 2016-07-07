@@ -109,7 +109,7 @@ Commonly used UBUNTU commands and scripts
 	sudo apt-get install flashplugin-nonfree
 
 
-#Mor in the [commands.txt]('./commands.txt')
+#More in the [commands.txt]('commands.txt')
 
 #Folders in this project
 
