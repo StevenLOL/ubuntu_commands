@@ -108,6 +108,9 @@ Commonly used UBUNTU commands and scripts
 ##Firefox flash plugin
 	sudo apt-get install flashplugin-nonfree
 
+
+#Mor in the [commands.txt]('./commands.txt')
+
 #Folders in this project
 
 There are many folders here, each contains guide to install or use that package.
