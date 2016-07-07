@@ -179,8 +179,12 @@ Task:
       sudo apt-get remove somepackage
       sudo apt-get purge somepackage
       sudo apt-get -f install  #fix some missing package
+      #chagne software source
+      sudo nano /etc/apt/sources.list
       #install a package
-      sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb 
+      sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb
+      #purge a installed deb
+      sudo dpkg -P ./wps-office_9.1.0.4751~a15_i386
       #force update
       sudo apt-get dist-upgrade
       #update from 12.04-12.10
