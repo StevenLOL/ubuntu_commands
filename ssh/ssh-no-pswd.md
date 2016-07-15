@@ -1,9 +1,10 @@
 
+```
 ssh-keygen -t rsa
 ssh <USER>@<HOST><SERVER_IP> mkdir -p .ssh
 cat .ssh/id_rsa.pub | ssh <USER>@<HOST><SERVER_IP> 'cat >> .ssh/authorized_keys'
 ssh <USER>@<HOST><SERVER_IP>
-
+```
 
 
 
@@ -21,7 +22,7 @@ then copy the text in *.pub and to github or bitbucket
 
 ```
 ssh-agent bash
-eval ssh-agent -s
+eval 'ssh-agent -s'
 ssh-add PATH_TO_YOUR_PRIVATE_KEY
 ```
 
