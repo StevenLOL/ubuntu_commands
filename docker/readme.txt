@@ -106,3 +106,9 @@ $ sudo docker stats
 #免交互执行命令
 
 $ sudo docker exec ID/NAME command
+
+
+More at 
+
+https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
