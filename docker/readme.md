@@ -11,6 +11,10 @@ sudo docker iamges
     sudo docker export $CONTAINER_ID > image.tar
     cat image.tar > sudo docker import - image_flat.tar
 
+# shared folder in host and vm
+
+docker run -d -v /Users/kishore/main_folder:/test_container k3_s3:latest
+
 
 # change default location of docker
 ```
