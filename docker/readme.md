@@ -12,6 +12,19 @@ sudo docker iamges
     cat image.tar > sudo docker import - image_flat.tar
 
 
+# change default location of docker
+```
+docker ps -q | xargs docker kill
+stop docker
+cd /var/lib/docker/devicemapper/mnt
+umount ./*
+mv /var/lib/docker $dest
+ln -s $dest /var/lib/docker
+start docker
+```
+
+
+
 $ sudo docker pull ubuntu
 
 #如果想下载14.04版本的，可以这样指定
