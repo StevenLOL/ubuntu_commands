@@ -15,7 +15,8 @@ sudo docker iamges
 # change default location of docker
 ```
 docker ps -q | xargs docker kill
-stop docker
+#stop docker
+sudo service docker stop
 cd /var/lib/docker/devicemapper/mnt
 umount ./*
 mv /var/lib/docker $dest
