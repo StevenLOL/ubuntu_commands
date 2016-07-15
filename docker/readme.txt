@@ -1,5 +1,16 @@
 ref: http://www.tuicool.com/articles/JBnQja
 
+Best source  https://developer.basespace.illumina.com/docs/content/documentation/native-apps/manage-docker-image
+
+#list installed images
+
+sudo docker iamges
+
+# export and import local iamges
+
+    sudo docker export $CONTAINER_ID > image.tar
+    cat image.tar > sudo docker import - image_flat.tar
+
 
 $ sudo docker pull ubuntu
 
