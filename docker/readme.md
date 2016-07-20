@@ -7,7 +7,7 @@ Best source  https://developer.basespace.illumina.com/docs/content/documentation
 sudo docker iamges
 
 # export and import local iamges
-
+    sudo docker commit whatever
     sudo docker export $CONTAINER_ID > image.tar
     cat image.tar > sudo docker import - image_flat.tar
 
