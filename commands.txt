@@ -30,6 +30,8 @@ press tab for possible suggetions
       pkill -u username
       #memory usage
       free -m
+      #drop cache memory
+      sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
       #disk usage
       df -h  #list harddisk size
       du -hs #list folder size
