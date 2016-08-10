@@ -33,6 +33,8 @@ Commonly used UBUNTU commands and scripts
       pkill process_id
       #kill all process of a user
       pkill -u username
+      #show program path 
+      pwdx $pid
       #memory usage
       free -m
       #disk usage
