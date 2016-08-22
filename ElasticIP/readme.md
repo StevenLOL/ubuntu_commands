@@ -6,6 +6,6 @@ In general you can ssh to your Visural PC via public IP address, but on that pc 
 
 In case your have some json-rpc service which blind to some public IP, in this case just change that IP to the one you have.
 
-You should be able to acess it through public with on problem as well as that port is not been blocked by firewall.
+You should be able to acess it through public IP with no problem as well as that port is not been blocked by firewall.
 
 
