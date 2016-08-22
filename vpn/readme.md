@@ -1,6 +1,9 @@
 
 #install openvpn
 
+```
+sudo apt-get install openvpn
+```
 
 #login via web interface and download connection profiles, it maybe a file named *.ovpn
 
