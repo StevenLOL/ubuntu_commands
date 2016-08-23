@@ -162,8 +162,8 @@ Task:
       or setw -g mouse on
       then tmux source-file ~/.tmux.conf
       #when in tmux
-      #list tmux session
-      ctrl-b l
+      #switch and list tmux session
+      ctrl-b s
       #detach session
       ctrl-b d
 )run task at time interval, given time
