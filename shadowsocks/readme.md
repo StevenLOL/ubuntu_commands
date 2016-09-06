@@ -7,7 +7,9 @@ sslocal -c /etc/shadowsocks/config.json
 
 Download and install https://github.com/FelisCatus/SwitchyOmega/releases for chrome
 
+Setup socket proxy point to 127.0.0.1 port 1080
 
+And enable proxy
 
 
 
