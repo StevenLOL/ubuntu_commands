@@ -81,7 +81,7 @@ REF https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyter-not
 ```
 ssh -L 8000:localhost:8888 your_server_username@your_server_ip
 ```
-The ssh command opens an SSH connection, but -L specifies that the given port on the local (client) host is to be forwarded to the given host and port on the remote side (Droplet). This means that whatever is running on the second port number (i.e. 8888) on the Droplet will appear on the first port number (i.e. 8000) on your local computer. You should change 8888 to the port which Jupyter Notebook is running on. Optionally change port 8000 to one of your choosing (for example, if 8000 is used by another process). 
+In the remote server, the jupyter is running locally (so it is not open to public) on port 8888, and in the client side one can open the remote jupyter via port 8000 on local machine.
 
 
 
