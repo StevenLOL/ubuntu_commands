@@ -28,3 +28,9 @@ plt.show()
 
 REF http://stackoverflow.com/questions/2801882/generating-a-png-with-matplotlib-when-display-is-undefined
 
+
+
+
+ipython  remote access
+
+
