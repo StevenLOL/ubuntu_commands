@@ -92,6 +92,8 @@ press tab for possible suggetions
       eg rename s/"Suria"/"suria"/g *
       #all to lower case
       find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
+      #replace '\t' with ' ':
+      cat a.txt | tr '\t' ' '
 )string 
 			#substring
 			stringZ=abcABC123ABCabc
