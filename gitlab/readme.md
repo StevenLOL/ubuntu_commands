@@ -1,0 +1,6 @@
+
+
+
+
+
+sudo gitlab-ctl reconfigure
