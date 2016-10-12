@@ -13,7 +13,7 @@ sudo apt-get install gitlab-ce
 
 ```
 
-#init or reconfigure if you had made some change
+#init or reconfigure if you had made some changes
 ```
 sudo gitlab-ctl reconfigure
 ```
@@ -34,7 +34,7 @@ Run sudo gitlab-ctl reconfigure for the changes to take effect.
 ```
 
 #where is the setting pannel ???
-First go to admin area, then on the right uper, click a gear button, the last one is setting pannel.
+First go to admin area, then at the top right corner, click a gear button, the last one is setting pannel.
 
 REF: 
 
