@@ -32,6 +32,13 @@ git_data_dirs({
 Note that the target directories and any of its subpaths must not be a symlink.
 Run sudo gitlab-ctl reconfigure for the changes to take effect.
 ```
+#Configuring the external URL for GitLab
+
+e in /etc/gitlab/gitlab.rb:
+
+external_url "http://gitlab.example.com"
+
+Run sudo gitlab-ctl reconfigure for the change to take effect.
 
 #where is the setting pannel ???
 First go to admin area, then at the top right corner, click a gear button, the last one is setting pannel.
@@ -41,3 +48,7 @@ REF:
 https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md#storing-git-data-in-an-alternative-directory
 
 https://about.gitlab.com/downloads/#ubuntu1404
+
+
+How to configure the domain name in the password reset email?
+https://gitlab.com/gitlab-org/omnibus-gitlab/issues/581
