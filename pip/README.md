@@ -20,3 +20,9 @@ in pip.conf
 download_cache = /data/.cache/pip
 index-url = https://pypi.douban.com/simple
 ```
+
+
+Download the package only
+```
+pip install package -d /path/to/downloaded/file
+```
