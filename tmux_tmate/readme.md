@@ -27,3 +27,5 @@ show log/message again:
 
 press prefix + ~ to list all previous tmux/tmate messages
 press prefix + : to get tmux prompt. Then type show-messages command to get the same results as in 1).
+
+prefix+b then pagedown/pageup
