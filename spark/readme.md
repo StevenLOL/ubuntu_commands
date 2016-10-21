@@ -38,3 +38,30 @@ import pyspark
 #blog on spark
 
 www.mccarroll.net/blog/pyspark/
+
+#Spark cluster
+##Active a master node
+REF: http://spark.apache.org/docs/latest/spark-standalone.html
+
+
+```
+./sbin/start-master.sh -i YOU_MUST_SET_THIS_VALUE
+```
+cat the log file, and it will says:
+```
+...
+Starting Spark master at spark://ubuntu-1080:7077
+16/10/21 14:28:37 INFO Master: Running Spark version 2.0.1
+...
+#and a web UI
+16/10/21 14:28:38 INFO MasterWebUI: Bound MasterWebUI to 192.168.0.183, and started at http://192.168.0.183:8080
+...
+
+#on the clinet side
+
+./sbin/start-slave.sh spark://192.168.0.183:7077
+
+```
+
+
+
