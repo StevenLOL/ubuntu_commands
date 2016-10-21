@@ -7,7 +7,7 @@ http://spark.apache.org/downloads.html
 
 PySpark is the Python API for Spark
 
-#Install Pyspark
+##Install Pyspark
 
 [PySpark: How to install and Integrate with the Jupyter Notebook](https://www.dataquest.io/blog/pyspark-installation-guide/)
 
@@ -21,7 +21,20 @@ export PYSPARK_SUBMIT_ARGS="--master local[2]"
 export SPARK_LOCAL_IP="192.168.0.183"
 ```
 
+And finally find the spark
+```
+sudo pip install findspark
+```
 
+now in any notebook:
+```
+import findspark
+findspark.init()
+import pyspark
+```
 #Enter interative mode
 /data/apps/spark-2.0.1-bin-hadoop2.7$ ./bin/pyspark
 
+#blog on spark
+
+www.mccarroll.net/blog/pyspark/
