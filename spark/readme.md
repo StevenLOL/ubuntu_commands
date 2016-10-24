@@ -79,3 +79,11 @@ MASTER=spark://192.168.0.183:7077 ./bin/pyspark
 The files in spark is sahred via Hadoop
 https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html
 
+
+http://doctuts.readthedocs.io/en/latest/hadoop.html
+
+sudo addgroup hadoop_group
+sudo adduser hduser1 sudo
+http://chaalpritam.blogspot.com/2015/05/hadoop-270-single-node-cluster-setup-on.html
+http://chaalpritam.blogspot.com/2015/05/hadoop-270-multi-node-cluster-setup-on.html
+
