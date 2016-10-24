@@ -73,3 +73,9 @@ In cluster open pyspark
 MASTER=spark://192.168.0.183:7077 ./bin/pyspark 
 ```
 
+
+#HDFS
+
+The files in spark is sahred via Hadoop
+https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html
+
