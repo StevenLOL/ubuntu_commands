@@ -86,4 +86,5 @@ sudo addgroup hadoop_group
 sudo adduser hduser1 sudo
 http://chaalpritam.blogspot.com/2015/05/hadoop-270-single-node-cluster-setup-on.html
 http://chaalpritam.blogspot.com/2015/05/hadoop-270-multi-node-cluster-setup-on.html
+https://www.tutorialspoint.com/hadoop/hadoop_multi_node_cluster.htm
 
