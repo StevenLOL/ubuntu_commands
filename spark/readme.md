@@ -65,3 +65,11 @@ Starting Spark master at spark://ubuntu-1080:7077
 
 
 
+#To verify
+
+In cluster open pyspark
+
+```
+MASTER=spark://192.168.0.183:7077 ./bin/pyspark 
+```
+
