@@ -26,3 +26,12 @@ Download the package only
 ```
 pip install package -d /path/to/downloaded/file
 ```
+
+
+
+To preserve environment
+
+``
+sudo -E pip install pydoop
+REF:https://github.com/crs4/pydoop/issues/170
+```
