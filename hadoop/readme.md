@@ -1,11 +1,12 @@
+#INSTALL
 
-#Java ssh rsync bashrc
+##Java ssh rsync bashrc
 
 ```
 sudo apt-get install default-jdk
 sudo apt-get install ssh rsync
 ssh-keygen -t dsa -P ' ' -f ~/.ssh/id_dsa
-cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys  #or scp  master >> to slaves
 sudo mv hadoop /usr/local/hadoop
 
 sudo nano ~/.bashrc
@@ -63,7 +64,7 @@ hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar wordcount /i
 ```
 
 
+#Hadoop example
 
-
-
+An example is provide for hadoop 2.7.3, each folder represents a node, the master node is ubuntu-1080. In each user home directoy there is a hidden file name .bashrc .
 
