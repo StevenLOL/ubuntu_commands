@@ -66,5 +66,5 @@ hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar wordcount /i
 
 #Hadoop example
 
-An example is provide for hadoop 2.7.3, each folder represents a node, the master node is ubuntu-1080. In each user home directoy there is a hidden file name .bashrc .
+An example is provided for hadoop 2.7.3, each folder represents a node, the master node is ubuntu-1080. In each user home directoy there is a hidden file name .bashrc .
 
