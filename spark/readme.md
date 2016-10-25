@@ -76,7 +76,10 @@ MASTER=spark://192.168.0.183:7077 ./bin/pyspark
 
 #HDFS
 
-The files in spark is sahred via Hadoop
+The files in spark is shared via Hadoop
+
+[See this to install hadoop](../hadoop)
+
 https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html
 
 
@@ -88,3 +91,11 @@ http://chaalpritam.blogspot.com/2015/05/hadoop-270-single-node-cluster-setup-on.
 http://chaalpritam.blogspot.com/2015/05/hadoop-270-multi-node-cluster-setup-on.html
 https://www.tutorialspoint.com/hadoop/hadoop_multi_node_cluster.htm
 
+##Inheriting Hadoop Cluster Configuration
+If you plan to read and write from HDFS using Spark, there are two Hadoop configuration files that should be included on Sparks classpath:
+
+hdfs-site.xml, which provides default behaviors for the HDFS client.
+core-site.xml, which sets the default filesystem name.
+The location of these configuration files varies across CDH and HDP versions, but a common location is inside of /etc/hadoop/conf. Some tools, such as Cloudera Manager, create configurations on-the-fly, but offer a mechanisms to download copies of them.
+
+To make these files visible to Spark, set HADOOP_CONF_DIR in $SPARK_HOME/spark-env.sh to a location containing the configuration files.
