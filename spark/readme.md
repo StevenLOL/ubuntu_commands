@@ -71,6 +71,13 @@ In cluster open pyspark
 
 ```
 MASTER=spark://192.168.0.183:7077 ./bin/pyspark 
+
+
+lines=sc.textFile('hdfs://ubuntu:9000/input/zhidao20161008.json')
+lines_nonempty = lines.filter( lambda x: len(x) > 0 )
+ lines_nonempty.count()
+
+
 ```
 
 
