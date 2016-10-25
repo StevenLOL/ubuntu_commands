@@ -75,7 +75,7 @@ MASTER=spark://192.168.0.183:7077 ./bin/pyspark
 
 lines=sc.textFile('hdfs://ubuntu-1080:9000/input/zhidao20161008.json')
 lines_nonempty = lines.filter( lambda x: len(x) > 0 )
- lines_nonempty.count()
+lines_nonempty.count()
 
 #ref http://www.mccarroll.net/blog/pyspark/
 
