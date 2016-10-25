@@ -48,6 +48,9 @@ hdfs namenode -format
 
 jps
 hdfs dfsadmin -report
+
+masterNode:50070
+
 ```
 
 ```
