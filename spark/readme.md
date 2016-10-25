@@ -77,6 +77,7 @@ lines=sc.textFile('hdfs://ubuntu:9000/input/zhidao20161008.json')
 lines_nonempty = lines.filter( lambda x: len(x) > 0 )
  lines_nonempty.count()
 
+#ref http://www.mccarroll.net/blog/pyspark/
 
 ```
 
