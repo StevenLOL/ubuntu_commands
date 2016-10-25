@@ -49,4 +49,21 @@ jps
 hdfs dfsadmin -report
 ```
 
+```
+#Create a new directoy 
+
+hdfs dfs -mkdir /input
+
+#put data in hadoop
+
+#word count 
+
+hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar wordcount /input -
+
+```
+
+
+
+
+
 
