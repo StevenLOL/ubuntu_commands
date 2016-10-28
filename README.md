@@ -30,6 +30,7 @@ Commonly used UBUNTU commands and scripts
       cat /proc/cpuinfo
       top iftop iotop glances     sudo iftop -i eth1
       ps aux
+      ps -auxwe
       pkill process_id
       #kill all process of a user
       pkill -u username
