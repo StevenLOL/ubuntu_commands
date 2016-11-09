@@ -52,3 +52,6 @@ https://about.gitlab.com/downloads/#ubuntu1404
 
 How to configure the domain name in the password reset email?
 https://gitlab.com/gitlab-org/omnibus-gitlab/issues/581
+
+
+#Default setting the master branch is protected, developer can not push to. To disable this protection, goto project > seting "Protected Branches" ...
