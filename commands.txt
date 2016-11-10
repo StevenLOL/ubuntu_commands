@@ -92,14 +92,16 @@ press tab for possible suggetions
       eg rename s/"Suria"/"suria"/g *
       #all to lower case
       find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
-      #replace '\t' with ' ':
-      cat a.txt | tr '\t' ' '
+
 )string 
 			#substring
 			stringZ=abcABC123ABCabc
 			echo ${stringZ:7}                            # 23ABCabc
 			echo ${stringZ:7:3}                          # 23A
                                              # Three characters of substring
+			#replace '\t' with ' ':
+			 cat a.txt | tr '\t' ' '
+			 or sed 's/old_string/new_string/g'
 )search sort
 			cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
       sort -nk 12 sort by 12 colloums
