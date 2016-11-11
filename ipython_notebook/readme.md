@@ -84,4 +84,11 @@ ssh -L 8000:localhost:8888 your_server_username@your_server_ip
 In the remote server, the jupyter is running locally (so it is not open to public) on port 8888, and in the client side one can open the remote jupyter via port 8000 on local machine.
 
 
+#install python2 or python3 kernel
 
+```
+python3 -m pip install jupyterhub notebook ipykernel
+python3 -m ipykernel install # register Python 3 kernel (not technically necessary at this point, but a good idea)
+python2 -m pip install ipykernel
+python2 -m ipykernel install # register Python 2 kernel
+```
