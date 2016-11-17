@@ -173,6 +173,8 @@ Task:
 )run task at time interval, given time
       crontab -e
       01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
+)run task during system startup
+sudo nano /etc/rc.local
 )open exploer as root
       gksu nautilus /var/www      
 )image resize
