@@ -71,3 +71,8 @@ Finally commit:
 
 git commit -a -m "Untrack ignored files!"
 
+
+#Faster clone by set depth =1
+```
+git clone --depth 1 ...
+```
