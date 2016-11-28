@@ -204,3 +204,19 @@ View my complete profile
 	
 Picture Window template. Powered by Blogger.
 
+
+
+
+
+
+#keras and theano
+
+ ~/.keras/keras.json
+
+{"epsilon": 1e-07, "floatx": "float32", "backend": "theano"}
+
+#keras theano without gpu
+
+```
+THEANO_FLAGS=mode=FAST_RUN,device=cpu python ./harpc_label_server.py
+```
