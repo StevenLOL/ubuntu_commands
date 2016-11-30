@@ -111,6 +111,9 @@ Commonly used UBUNTU commands and scripts
 ##Firefox flash plugin
 	sudo apt-get install flashplugin-nonfree
 
+##scan host in the network:
+	arp
+	sudo nmap -sn 10.99.23.1/24 > readme.txt
 
 #More in the [commands.txt](commands.txt)
 
