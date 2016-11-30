@@ -35,3 +35,12 @@ To preserve environment
 sudo -E pip install pydoop
 REF:https://github.com/crs4/pydoop/issues/170
 ```
+
+OR
+```
+[global]
+
+index-url = http://mirrors.aliyun.com/pypi/simple
+
+trusted-host = mirrors.aliyun.com
+```
