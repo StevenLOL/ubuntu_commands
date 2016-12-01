@@ -25,6 +25,7 @@ press tab for possible suggetions
       cat /proc/cpuinfo
       top iftop iotop glances     sudo iftop -i eth1
       ps aux
+      ps -aef
       pkill process_id
       #kill all process of a user
       pkill -u username
@@ -174,7 +175,8 @@ Task:
       crontab -e
       01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
 )run task during system startup
-sudo nano /etc/rc.local
+	sudo nano /etc/rc.local
+	REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
 )open exploer as root
       gksu nautilus /var/www      
 )image resize
