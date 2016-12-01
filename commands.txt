@@ -16,6 +16,7 @@ press tab for possible suggetions
       ls -d *bin # list all directories end with bin
       tree -d    # list all directory
 2) system vars/info
+      lsb_release -a    #show ubuntu version
       echo $PATH
       which ls
       #list hardware
@@ -373,7 +374,11 @@ Task:
 )pick random files 
 			find ./audio -type f | shuf -n 10
 
+)scan host in the network:
 
+	arp
+	sudo nmap -sn 10.99.23.1/24 > readme.txt
+	avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
 
 )disable mouse scroll
 			xinput list
