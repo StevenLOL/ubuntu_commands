@@ -158,7 +158,8 @@ Task:
 			#ssh to a server, the connection may fail if task run for hours,and given error : broken pipe, the solution is using, or nohup tmux once login via ssh
       aaron@localpc$ ssh root@remoteserver
       root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
-      nohup ./local/run_dnn.sh </dev/null &      
+      nohup ./local/run_dnn.sh </dev/null &   
+      nohup some_command > nohup2.out&
       tmux
       tmux list-sessions
       tmux attach-session -t #
