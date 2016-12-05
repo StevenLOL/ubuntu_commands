@@ -35,3 +35,36 @@ prefix+b then pagedown/pageup
 ```
 tmate -S /tmp/tmate-1002/x9fOaz attach
 ```
+
+#Build your own tmate server
+
+##[Server](https://tmate.io/)
+```
+
+#clone from source and build
+git clone https://github.com/tmate-io/tmate-slave.git && cd tmate-slave
+./create_keys.sh # This will generate SSH keys, remember the keys fingerprints,in the ./keys folder
+./autogen.sh && ./configure && make
+sudo ./tmate-slave    #this load the keys from ./keys folder
+#if on 14.04 one need to install libssh-0.7.x via:
+sudo add-apt-repository ppa:kedazo/libssh-0.7.x
+sudo apt-get update
+sudo apt-get install libssh-gcrypt-dev libmsgpack-dev
+
+
+```
+##Client
+One have to configure ~/.tmat.conf
+```
+#default setting 
+set -g tmate-server-host "ssh.tmate.io"
+set -g tmate-server-port 22
+set -g tmate-server-rsa-fingerprint   "af:2d:81:c1:fe:49:70:2d:7f:09:a9:d7:4b:32:e3:be"
+set -g tmate-server-ecdsa-fingerprint "c7:a1:51:36:d2:bb:35:4b:0a:1a:c0:43:97:74:ea:42"
+set -g tmate-identity ""              # Can be specified to use a different SSH key.
+
+```
+###[How do I find my RSA key fingerprint?](http://stackoverflow.com/questions/9607295/how-do-i-find-my-rsa-key-fingerprint)
+```
+ssh-keygen -lf ./keys/ssh_host_rsa_key.pub
+```
