@@ -51,6 +51,7 @@ sudo add-apt-repository ppa:kedazo/libssh-0.7.x
 sudo apt-get update
 sudo apt-get install libssh-gcrypt-dev libmsgpack-dev
 
+sudo  ./tmate-slave -b 105.159.14.17 -h My.name.shown.on.client  -k ./keys/  -p 30013 
 
 ```
 ##Client
@@ -68,3 +69,11 @@ set -g tmate-identity ""              # Can be specified to use a different SSH 
 ```
 ssh-keygen -lf ./keys/ssh_host_rsa_key.pub
 ```
+
+###[tmate] Error connecting: kex error : no match for method server host key algo: server [ssh-dss,ssh-rsa], client [ecdsa-sha2-nistp256] 
+
+Then [cleanup your known_hosts file](https://hackweek.suse.com/14/projects/1054)
+
+
+
+
