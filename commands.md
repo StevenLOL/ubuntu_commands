@@ -111,7 +111,7 @@ eg rename s/"Suria"/"suria"/g *
 find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 ```
 #string 
-
+```
 #substring
 stringZ=abcABC123ABCabc
 echo ${stringZ:7}                            # 23ABCabc
@@ -152,10 +152,6 @@ split -d -l 500 a.list
 split -d -n l/3 a.list # 3 parts without spliting the line;
 split -d -n l/3 a.list myprefix                                                         
 ```
-
-
-
-Task:
 #ssh
 ```
 ssh sjd601@155.69.146.214
