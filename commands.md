@@ -556,6 +556,7 @@ export CUDA_HOME=/usr/local/cuda
 export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/      
 export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/
 export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"    
+#-#
 
 ```
 
@@ -569,8 +570,6 @@ export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"
 device = gpu
 floatX = float32
 mode = FAST_RUN
-
-
 [dnn.conv]                                       
 algo_fwd = time_once
 algo_bwd_data = time_once
