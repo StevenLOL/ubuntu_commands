@@ -1,8 +1,9 @@
-terminal commands:
+Terminal commands:
 
 press tab for possible suggetions
 
-1) navigation & browsing
+#navigation & browsing
+```
       cd ~/         #go to home directory of current account ~/=home
       cd ..         #go to parent directory
       cat /data2/malay1307/s5/irun.sh   #display file content
@@ -15,7 +16,9 @@ press tab for possible suggetions
       ls -d */   # list all directory
       ls -d *bin # list all directories end with bin
       tree -d    # list all directory
-2) system vars/info
+```
+#system vars/info
+```
       lsb_release -a    #show ubuntu version
       echo $PATH
       which ls
@@ -54,10 +57,12 @@ press tab for possible suggetions
 			xinput set-prop 14 "Device Enabled" 0
 			xinput set-prop 14 "Device Enabled" 1			
 			sudo shutdown -r now # reboot now
-2.1)  system log
+```
+##system log
       /var/log/auth.log
       
-3) editing,create,copy modify files directories
+#editing,create,copy modify files directories
+```
       mkdir somedir
       #delete directory 
       #rm -rf *
@@ -81,13 +86,20 @@ press tab for possible suggetions
       rsync -r localfolder -v -e ssh steven@155.69.149.184
       sudo ln -s /usr/local/nginx/conf/ /etc/nginx   #link a folder(create a shortcut) target should not exists first
       ln -s /data2/malay1307/s5/ /home/sjd601/training/linkedMalay1307
-)add user
+```
+#add user
+```
+		sudo adduser steven
+    sudo adduser steven sudo
     sudo useradd -d /home/testuser -m testuser
     sudo passwd testuser
     gksudo gnome-control-center user-accounts 
-    sudo adduser steven
-    sudo adduser steven sudo
-)rename
+    sudo passwd  #change passwd of root user
+		sudo passwd -l root #To disable the root login
+		sudo passwd -S root #check if locked or not (will have L in output instead of P)
+```
+#rename
+```
       rename s/"sd_under_classter"/"change to wat?"/g *
       /g = all matched
       *=all files
@@ -95,8 +107,9 @@ press tab for possible suggetions
       eg rename s/"Suria"/"suria"/g *
       #all to lower case
       find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
-
-)string 
+```
+#string 
+```
 			#substring
 			stringZ=abcABC123ABCabc
 			echo ${stringZ:7}                            # 23ABCabc
@@ -105,7 +118,9 @@ press tab for possible suggetions
 			#replace '\t' with ' ':
 			 cat a.txt | tr '\t' ' '
 			 or sed 's/old_string/new_string/g'
-)search sort
+```
+#search sort
+```
 			cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
       sort -nk 12 sort by 12 colloums
       sort -r flist.txt > rflist.txt
@@ -126,37 +141,47 @@ press tab for possible suggetions
       egrep 'pattern1|pattern2' filename  #or
       grep -E 'pattern1.*pattern2' filename #and
       grep -v 'pattern1' filename           #not
-)split a file
+```
+#split a file
+```
       #split text by lines :
       split -l 500 a.list   #by lines
       split -d -l 500 a.list
       split -d -n l/3 a.list # 3 parts without spliting the line;
       split -d -n l/3 a.list myprefix                                                         
-
+```
 
 
 
 Task:
-)ssh
+#ssh
+```
       ssh sjd601@155.69.146.214
-)multi threads
+      ssh -l 23 sjd601@155.69.146.214
+```
+#multi threads
+```
       some_commands &
       with wait 
       a&
       b&
       wait
-      
-)two comands at same time |
+```   
+#two comands at same time |
+```
       lspci | grep Intel
-)wait
+```
+#wait
       sleep 60
-)work with queue
+#work with queue
+```
       check queue state
       qstat -u "*"
       qdel job-ID 
       qsub hello_world.sh &
-           
-)detach terminal from remote:			
+```        
+#detach terminal from remote:			
+```
 			#ssh to a server, the connection may fail if task run for hours,and given error : broken pipe, the solution is using, or nohup tmux once login via ssh
       aaron@localpc$ ssh root@remoteserver
       root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
@@ -174,23 +199,36 @@ Task:
       ctrl-b s
       #detach session
       ctrl-b d
-)run task at time interval, given time
+```
+#run task at time interval, given time
+```
       crontab -e
       01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
-)run task during system startup
+```
+#run task during system startup
+```
 	sudo nano /etc/rc.local
 	REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
-)open exploer as root
+```
+#open exploer as root
+```
       gksu nautilus /var/www      
-)image resize
+```
+#image resize
+```
 			for f in ./s5/*.jpg ;do echo $f[1024x] ./resized/$f done;
-)text encoding change
+```
+#text encoding change
+```
 			opencc -i ~/Downloads/data/wiki_corpus/corpus_120520.txt -o ./120520.txt -c zht2zhs.ini
-)ping
+```
+#ping
+```
 			for x in {11..255};do ssh 155.69.151.$x; done;
-    
+```    
 
-)install update software
+#install update software
+```
       sudo apt-get update
       sudo apt-get install xx
       sudo apt-get install xx --reinstall
@@ -213,17 +251,25 @@ Task:
       sudo pip -U #install and update
       sudo pip uninstall pycuda
       sudo python setup.py install    #if there is a setup.py in download pyton package
-)list installed module package
+```
+#list installed module package
+```
       lsmod | grep nouveau
       sudo dpkg -L packagename  #find installed file location
-)change repositories location with replace txt 
+```
+#change repositories location with replace txt 
+```
       /etc/apt/sources.list
       sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
       sudo cp ./sources.list /etc/apt/sources.list
-)play audio
+```
+#play audio
+```
       play a.wav
       sox suria102_262_1904.wav  -p trim 300 5 |play -p
-)build software
+```
+#build software
+```
       ./configure
       make -j 4
       sudo make install
@@ -233,9 +279,13 @@ Task:
       cmake ..
       make all
       sudo make install
-)mount cd/dvd iamge (ISO) 
+```
+#mount cd/dvd iamge (ISO) 
+```
        sudo mount -o loop xxx.iso /media/xxxx
-)mount USB drive
+```
+#mount USB drive
+```
       mount usb
       sudo fdisk -l
       sudo mkdir /media/external
@@ -243,7 +293,9 @@ Task:
       sudo mount -t ntfs-3g /dev/sdb1 /media/usb3tb
       sudo mount -t ntfs-3g /dev/sdc1 /media/usb3tb
       sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137 
-)mount network drive
+```
+#mount network drive
+```
       sftp://steven@155.69.149.215
       gvfs-mount sftp://sjd601@155.69.146.214     #mount with terminal or on the exploer
       gvfs-mount sftp://dcl603@155.69.146.214
@@ -257,22 +309,27 @@ Task:
       smb://workspace@155.69.149.240/workspace
       15569
       ftp://cclahadmin@www.cclah.com
-)change desktop pictures download home path
+```
+#change desktop pictures download home path
+```
       http://www.howtogeek.com/howto/17752/use-any-folder-for-your-ubuntu-desktop-even-a-dropbox-folder/
       gksu gedit .config/user-dirs.dirs
       not work if change to other place that not under home path?
       just ln some where to home also works
-)password
+```
+#password
       change root password
       sudo passwd root 
-)change machine name
+#change machine name
+```
       sudo apt-get install winbind
       You probably want to add 'wins' where it says "hosts:" in /etc/nsswitch.conf
       sudo gedit /etc/hostname
       sudo gedit /etc/hosts
       sudo apt-get install avahi-daemon
-
-)open webpage
+```
+#open webpage
+```
       #open webpage from ternimal
       links www.zaobao.com
       lynx
@@ -282,9 +339,10 @@ Task:
       #Then you can send commands to it from another terminal with the send-keys command. So to make w3m reload the current page do this:
       tmux send-keys -t browse R
 
+```
 
-
-)mount folder to ram , put folder in ram
+#mount folder to ram , put folder in ram
+```
 	#to say you have lots of rams and would like to run program faster by preload them into memory, you can setup ramfs, then just copy/del file to that folder
 	# mkdir -p /mnt/tmp
 	# mount -t tmpfs -o size=20m tmpfs /mnt/tmp
@@ -292,13 +350,16 @@ Task:
 	# mkdir -p /mnt/ram
 	# mount -t ramfs -o size=20m ramfs /mnt/ram
 
-
+```
 #scripting
-)passing args to a.sh
+```
+#passing args to a.sh
       a.sh 13 213 323
       in a.sh  $1 $2 $3 & will run in background
       in a.sh v1=$1 v2=$2
-)read text file and process line by lines
+```
+#read text file and process line by lines
+```
       FILE=wav.list
       ext=wav
       outputfolder=seg_remove_cm
@@ -318,7 +379,9 @@ Task:
       -o ./mfcc/$nameOnly.mfcc  
       # ./wave2mfcc.sh $line $ext
       done
-)read a fodler and process file one by one
+```
+#read a fodler and process file one by one
+```
       #loop and find names 
       eg1:
       
@@ -361,7 +424,9 @@ Task:
 				echo $name
 			done
       
-)split data and multithreading
+```
+#split data and multithreading
+```
       mkdir -p $outdir
 
       split -d -n l/15 /home/steven/apps/getgender/lium/magor_gt_merge_nodev.test.lst ${tid}
@@ -371,29 +436,31 @@ Task:
         echo $x
         ./getgender.sh $x $outdir &
       done
-
-)pick random files 
+```
+#pick random files 
+```
 			find ./audio -type f | shuf -n 10
-
-)scan host in the network:
-
+```
+#scan host in the network:
+```
 	arp
 	sudo nmap -sn 10.99.23.1/24 > readme.txt
 	avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
-
-)disable mouse scroll
+```
+#disable mouse scroll
+```
 			xinput list
 			xinput get-button-map 8
 			xinput set-button-map 8 1 2 3 0 0 
 			4,5 means scoring up/download
 			and sudo save to ~/.profile
+```
 
-
-)to make gonme-session-fallback look nice,right click on the bootom tray and group applictions and 4 rows for workspace
+#to make gonme-session-fallback look nice,right click on the bootom tray and group applictions and 4 rows for workspace
  or install kde-plasma
 
-)shorten command promt
-	
+#shorten command promt
+```	
 To change it for the current terminal instance only
 
 Just enter PS1='\u:\W\$ ' and press enter.
@@ -413,13 +480,10 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u:\W\$ '
+```
 
-
-
-
-
-
-
+#OTHERS
+```
 #=========================================================================================================================================
 
 
@@ -495,3 +559,4 @@ xinput set-button-map 8 1 2 3 0 0
 update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 60
 update-alternatives --config g++
 sudo update-initramfs -c -k all -u
+```
