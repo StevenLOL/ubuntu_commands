@@ -10,7 +10,9 @@ cat /data2/malay1307/s5/irun.sh   #display file content
 head somefile                     #display only the head part of a files
 tail somfile                     #display .... tail
 less somefile                    #display file by parts
+```
 #wordcount
+```
 wc /data/groundtrueE/text
 list file properties
 ls -l data/groundtrue
@@ -23,6 +25,8 @@ tree -d    # list all directory
 lsb_release -a    #show ubuntu version
 echo $PATH
 which ls
+#network states
+sudo netstat -tupn
 #list hardware
 sudo lshw
 lspci
