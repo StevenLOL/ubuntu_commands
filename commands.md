@@ -46,6 +46,7 @@ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
 df -h  #list harddisk size
 du -hs #list folder size
 ls -al /dev/disk/by-uuid/
+dd if=/dev/sda of /dev/sdd #clone harddisk sda to sdd, you must use sudo
 sudo mkdir /media/mountpoint
 #list show disks labels
 sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
