@@ -16,7 +16,7 @@ ls -d */   # list all directory
 ls -d *bin # list all directories end with bin
 tree -d    # list all directory
 #list files recurisively
-find ./path/ -exec ls -dl \{\} \; | awk '{print $9}'
+find ./path/ -type f -exec ls -dl \{\} \; | awk '{print $9}'
 ```
 #wordcount
 ```
