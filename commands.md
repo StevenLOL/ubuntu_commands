@@ -10,15 +10,17 @@ cat /data2/malay1307/s5/irun.sh   #display file content
 head somefile                     #display only the head part of a files
 tail somfile                     #display .... tail
 less somefile                    #display file by parts
-```
-#wordcount
-```
-wc /data/groundtrueE/text
 list file properties
 ls -l data/groundtrue
 ls -d */   # list all directory
 ls -d *bin # list all directories end with bin
 tree -d    # list all directory
+#list files recurisively
+find ./path/ -exec ls -dl \{\} \; | awk '{print $9}'
+```
+#wordcount
+```
+wc /data/groundtrueE/text
 ```
 #system vars/info
 ```
