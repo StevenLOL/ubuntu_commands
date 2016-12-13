@@ -64,9 +64,14 @@ xinput set-prop 14 "Device Enabled" 0
 xinput set-prop 14 "Device Enabled" 1			
 sudo shutdown -r now # reboot now
 ```
-##system log 
+##system log / history
 ```
 /var/log/auth.log
+~/.bash_history
+#set history size in ~/.bashrc
+#save history one command is entered:
+export PROMPT_COMMAND='history -a;history -c;history -r'
+#REF http://superuser.com/questions/555310/bash-save-history-without-exit
 ```  
 #editing,create,copy modify files directories
 ```
