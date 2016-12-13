@@ -84,6 +84,7 @@ rm -rf ./train_clean/*8k
 nano filename
 echo somthing > newfile
 rm somefile                     #del a file
+tar -czvf yourzip.tar.gz directory_to_zip/ 
 sudo chmod 777 ./dir -R
 sudo chmod 777 ./somescript.sh
 #change ownership of a folder and sub
