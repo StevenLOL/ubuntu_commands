@@ -1,0 +1,41 @@
+Thanks for the thread.  I just install 15.10 and this saved me from a lot of troubles.
+With the latest version 15.10.1, only hacking CUDA is not enough. The error is because google-glog got built with -D_GLIBCXX_USE_CXX11_ABI=0 while everything else use the default option!
+This is also the cause of the error that Locke Lee have shown.
+
+I have made a full guide, (feel free to correct my English :D)
+
+///////////////////////////////////////////////////////
+1. HACK CUDA
++As all other packages in ubuntu 15.10 is built with GCC 5(.2) but CUDA (7.5) not allow >4.9 gcc version!
++We would like to "hack" CUDA to compile cuda files with gcc-5 as follows:
+
+a) sudo gedit /usr/local/cuda/include/host_config.h
+
+b) change line 113 to #if __GNUC__ > 5 || (__GNUC__ == 5 && __GNUC_MINOR__ > 2)
+
+///////////////////////////////////////////////////////
+2. FIX google-glog
++Some bad guys build google-glog with wrong gcc abi config! And the wrong build is in 
+the official repository. Fack!
++i.e when all other package is built with -D_GLIBCXX_USE_CXX11_ABI=1 (default). They built it with 
+-D_GLIBCXX_USE_CXX11_ABI=0! We need to built it ourself!
+
+a) 
+sudo apt-get remove libgoogle-glog-dev libgoogle-glog0v5
+cd ~ //other folder is ok
+apt-get source libgoogle-glog-dev
+cd google-glog-0.3.4
+./configure
+
+b) The generated makefile have some mistakes (?)
+- change line 613 to ACLOCAL=aclocal-1.15
+- change line 619 to AUTOMAKE=automake-1.15
+
+c)
+make // this will have some errors, dont worry
+automake --add-missing
+make -j 16 //or 100,whatever
+sudo make install
+
+//////////////////////////////////////////////////////////
+Now we can build caffe! Profit!
