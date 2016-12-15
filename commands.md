@@ -37,8 +37,13 @@ cat /proc/cpuinfo
 top iftop iotop glances     sudo iftop -i eth1
 ps aux
 ps -aef
-pkill process_id
+ps -auwe | grep steven | grep server | grep 28166 | grep PWD
+#list binded port
+lsof -i :8080
+sudo netstat -peanut
+pkill process
 #kill all process of a user
+kill process_id
 pkill -u username
 #memory usage
 free -m
