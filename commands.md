@@ -138,6 +138,9 @@ echo ${stringZ:7:3}                          # 23A
 #replace '\t' with ' ':
 cat a.txt | tr '\t' ' '
 or sed 's/old_string/new_string/g'
+
+#get the first row of a csv or tsv file:
+cat ./myfile.tsv | awk '{print $1}'
 ```
 #search sort
 ```
