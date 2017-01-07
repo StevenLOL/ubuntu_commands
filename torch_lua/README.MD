@@ -1,3 +1,10 @@
+#Latest:
+
+http://torch.ch/docs/getting-started.html
+
+
+
+
 https://github.com/torch/distro
 
 
