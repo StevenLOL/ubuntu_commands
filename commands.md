@@ -548,6 +548,15 @@ sudo nano /etc/default/acpi-support
 
 
 
+
+
+#-#
+
+```
+
+#rc and conf files
+##.bashrc
+```
 ~/.profile or ~/.bashrc
 
 
@@ -583,14 +592,7 @@ export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"
 #http://stackoverflow.com/questions/13481582/pipe-output-of-python-script
 
 export PYTHONIOENCODING=utf-8  
-
-#-#
-
 ```
-
-#rc and conf files
-##.bashrc
-
 
 ##~/.theano.rc
 ```
