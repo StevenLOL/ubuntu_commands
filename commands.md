@@ -576,7 +576,14 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracl
 export CUDA_HOME=/usr/local/cuda                        
 export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/      
 export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/
-export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"    
+export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"   
+
+
+#allow to pipe a python output to a file in 'utf-8' 
+#http://stackoverflow.com/questions/13481582/pipe-output-of-python-script
+
+export PYTHONIOENCODING=utf-8  
+
 #-#
 
 ```
