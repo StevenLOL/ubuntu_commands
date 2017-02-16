@@ -56,6 +56,13 @@ git checkout -b "0.1.2"
 
 git commit --amend #change commit message
 
+#Git with submodule
+
+git clone https://....   --recursive
+
+git submodule update --recursive --remote
+
+[REF](http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules)
 
 #[Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
 
