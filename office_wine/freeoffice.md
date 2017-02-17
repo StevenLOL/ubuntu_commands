@@ -1,5 +1,5 @@
 
-http://www.freeoffice.com/en/support/tips-and-tricks
+[Freeoffice for Windows/Mac/Linux](http://www.freeoffice.com/en/support/tips-and-tricks)
 
 Ubuntu
 
