@@ -40,3 +40,13 @@ sudo apt-get install gnome-session-fallback
 
 sudo apt-get install qtnx
 
+
+
+
+#Install mate 
+
+sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
+sudo apt-update
+sudo apt-get install mate-desktop-environment
+echo mate-session >> ~/.xsession
+
