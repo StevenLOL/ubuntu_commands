@@ -44,3 +44,10 @@ index-url = http://mirrors.aliyun.com/pypi/simple
 
 trusted-host = mirrors.aliyun.com
 ```
+
+Install a known version:
+
+```
+pip install 'tensorflow>=0.8,<1.0'
+
+```
