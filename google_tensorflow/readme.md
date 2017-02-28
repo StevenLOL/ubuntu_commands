@@ -82,7 +82,7 @@ sudo pip uninstall protobuf
 
 #BUILD and  instal android demo
 
-In project rood,open the WORKSPACE (Line 24+) and setup android sdk and ndk eg:
+In tensorflow root,open the WORKSPACE (Line 24+) and setup android sdk and ndk eg:
 ```
 # Uncomment and update the paths in these entries to build the Android demo.
 android_sdk_repository(
