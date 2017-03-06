@@ -148,3 +148,8 @@ https://docs.docker.com/engine/installation/linux/ubuntulinux/
 ```
 sudo docker run -ti --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm <built-image> ./deviceQuery
 ```
+
+#find ip address of docker from host
+```
+docker inspect <container id>
+```
