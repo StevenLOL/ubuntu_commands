@@ -51,3 +51,21 @@ Install a known version:
 pip install 'tensorflow>=0.8,<1.0'
 
 ```
+
+
+#install tensorflow 0.12 on ubuntu 14.04
+
+```
+
+apt-get install software-properties-common
+sudo add-apt-repository ppa:fkrull/deadsnakes-python2.7
+sudo apt-get update
+sudo apt-get upgrade
+
+pip uninstall pip
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python ./get-pip.py
+
+pip install 'tensorflow<1.0'
+```
+
