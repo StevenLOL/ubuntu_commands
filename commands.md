@@ -597,13 +597,18 @@ export PYTHONIOENCODING=utf-8
 ##~/.theano.rc
 ```
 [global]
-device = gpu
 floatX = float32
-mode = FAST_RUN
+device = gpu0
+mode= FAST_RUN
+
+[nvcc]
+fastmath = True
+
 [dnn.conv]                                       
 algo_fwd = time_once
 algo_bwd_data = time_once
 algo_bwd_filter = time_once
+
 ```
 ##~/.pip/pip.conf
 ``` 
