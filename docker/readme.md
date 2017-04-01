@@ -2,31 +2,31 @@ ref: http://www.tuicool.com/articles/JBnQja
 
 Best source  https://developer.basespace.illumina.com/docs/content/documentation/native-apps/manage-docker-image
 
-#list installed images
+# list installed images
 
 ```
 sudo docker iamges
 ```
-#list running containers
+# list running containers
 ```
 sudo docker ps
 ```
-#search public containers repository
+# search public containers repository
 ```
 #eg:
 sudo docker search cuda
 ```
-#Download public contaienr to local
+# Download public contaienr to local
 ```
 sudo docker pull container_name
 ```
-#Run a local container with port forwarding and folder sharing:
+# Run a local container with port forwarding and folder sharing:
 
 ```
 sudo docker run -p 30011:30011 -p 30012:30012 -it -v /localfolder/:/container_folder/ contaienr_image_name_or_id
 ```
 
-#attach to a running container
+# attach to a running container
 ```
 sudo docer attach ######
 ```
@@ -64,38 +64,35 @@ In short:
 
 
 
-#Others:
+# Others:
 
-##start/restart docker
+## start/restart docker
 ```
 sudo docker stop ID
 ```
-##kill all docker ps
+## kill all docker ps
 ```
 sudo docker kill $(sudo docker ps -q)   
 ```
-##delete a docker iamge
+## delete a docker iamge
 ```
 sudo docker rm ID/NAME
 ```
 
-##show docker logs
+## show docker logs
 ```
 sudo docker logs ID/NAME  
 ```
 
 
-
-
-
-#Run docker with cuda 
+## Run docker with cuda 
 
 ```
 #better use nvidia-docker
 sudo docker run -ti --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm <built-image> ./deviceQuery
 ```
 
-#find ip address of docker from host
+## find ip address of docker from host
 ```
 docker inspect <container id>
 ```
