@@ -32,11 +32,16 @@ sudo docer attach ######
 ```
 
 # export and import local iamges
-```
+``` #export/import a saved container
     sudo docker commit whatever
     sudo docker export $CONTAINER_ID > image.tar
     cat image.tar > sudo docker import - image_flat.tar
 ```
+``` #save/load an images
+    docker save image_name > ~/save.tar
+    docker load < /home/save.tar
+```
+
 # change default location of docker
 ```
 docker ps -q | xargs docker kill
