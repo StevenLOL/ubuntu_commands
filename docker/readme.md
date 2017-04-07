@@ -104,7 +104,7 @@ docker inspect <container id>
 
 ## Publish images to docker clould
 1. create an account in https://cloud.docker.com
-2. create an enmpty repositories(new-repo) on line
+2. create an enmpty repositorie(new-repo) online
 3. sudo docker login with **user_name** (not the email account)
 4. tag a lcoal iamge with X
 ```
