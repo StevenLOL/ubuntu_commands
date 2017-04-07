@@ -101,3 +101,16 @@ sudo docker run -ti --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/
 ```
 docker inspect <container id>
 ```
+
+## Publish images to docker clould
+1. create an account in https://cloud.docker.com
+2. create an enmpty repositories(new-repo) on line
+3. sudo docker login with **user_name** (not the email account)
+4. tag a lcoal iamge with X
+```
+sudo docker tag local-image:tagname new-repo:tagname
+```
+5. docker push to the cloud
+```
+sudo docker push new-repo:tagname
+```
