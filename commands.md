@@ -2,7 +2,7 @@ Terminal commands:
 
 press tab for possible suggetions
 
-#navigation & browsing
+# navigation & browsing
 ```
 cd ~/         #go to home directory of current account ~/=home
 cd ..         #go to parent directory
@@ -18,11 +18,11 @@ tree -d    # list all directory
 #list files recurisively
 find ./path/ -type f -exec ls -dl \{\} \; | awk '{print $9}'
 ```
-#wordcount
+# wordcount
 ```
 wc /data/groundtrueE/text
 ```
-#system vars/info
+# system vars/info
 ```
 lsb_release -a    #show ubuntu version
 echo $PATH
@@ -72,7 +72,7 @@ xinput set-prop 14 "Device Enabled" 0
 xinput set-prop 14 "Device Enabled" 1			
 sudo shutdown -r now # reboot now
 ```
-##system log / history
+## system log / history
 ```
 /var/log/auth.log
 ~/.bash_history
@@ -81,7 +81,7 @@ sudo shutdown -r now # reboot now
 export PROMPT_COMMAND='history -a;history -c;history -r'
 #REF http://superuser.com/questions/555310/bash-save-history-without-exit
 ```  
-#editing,create,copy modify files directories
+# editing,create,copy modify files directories
 ```
 mkdir somedir
 #delete directory 
@@ -108,7 +108,7 @@ rsync -r localfolder -v -e ssh steven@155.69.149.184
 sudo ln -s /usr/local/nginx/conf/ /etc/nginx   #link a folder(create a shortcut) target should not exists first
 ln -s /data2/malay1307/s5/ /home/sjd601/training/linkedMalay1307
 ```
-#add user
+# add user
 ```
 sudo adduser steven
 sudo adduser steven sudo
@@ -119,7 +119,7 @@ sudo passwd  #change passwd of root user
 sudo passwd -l root #To disable the root login
 sudo passwd -S root #check if locked or not (will have L in output instead of P)
 ```
-#rename
+# rename
 ```
 rename s/"sd_under_classter"/"change to wat?"/g *
 /g = all matched
@@ -129,7 +129,7 @@ eg rename s/"Suria"/"suria"/g *
 #all to lower case
 find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 ```
-#string 
+# string 
 ```
 #substring
 stringZ=abcABC123ABCabc
@@ -143,7 +143,7 @@ or sed 's/old_string/new_string/g'
 #get the first row of a csv or tsv file:
 cat ./myfile.tsv | awk '{print $1}'
 ```
-#search sort
+# search sort
 ```
 cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
 sort -nk 12 sort by 12 colloums
@@ -166,7 +166,7 @@ egrep 'pattern1|pattern2' filename  #or
 grep -E 'pattern1.*pattern2' filename #and
 grep -v 'pattern1' filename           #not
 ```
-#split a file
+# split a file
 ```
 #split text by lines :
 split -l 500 a.list   #by lines
@@ -174,12 +174,12 @@ split -d -l 500 a.list
 split -d -n l/3 a.list # 3 parts without spliting the line;
 split -d -n l/3 a.list myprefix                                                         
 ```
-#ssh
+# ssh
 ```
 ssh sjd601@155.69.146.214
 ssh -l 23 sjd601@155.69.146.214
 ```
-#multi threads
+# multi threads
 ```
 some_commands &
 with wait 
@@ -187,20 +187,20 @@ a&
 b&
 wait
 ```   
-#two comands at same time |
+# two comands at same time |
 ```
 lspci | grep Intel
 ```
-#wait
+# wait
 sleep 60
-#work with queue
+# work with queue
 ```
 check queue state
 qstat -u "*"
 qdel job-ID 
 qsub hello_world.sh &
 ```        
-#detach terminal from remote:			
+# detach terminal from remote:			
 ```
 #ssh to a server, the connection may fail if task run for hours,and given error : broken pipe, the solution is using, or nohup tmux once login via ssh
 aaron@localpc$ ssh root@remoteserver
@@ -220,12 +220,12 @@ ctrl-b s
 #detach session
 ctrl-b d
 ```
-#run task at time interval, given time
+# run task at time interval, given time
 ```
 crontab -e
 01 * * * * python /home/steven/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
 ```
-#run task during system startup
+# run task during system startup
 ```
 sudo nano /etc/rc.local
 REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
@@ -236,24 +236,24 @@ sudo update-rc.d myscript.sh defaluts 90
 #to remove
 suod update-rc.d -f myscript.sh remove
 ```
-#open exploer as root
+# open exploer as root
 ```
 gksu nautilus /var/www      
 ```
-#image resize
+# image resize
 ```
 for f in ./s5/*.jpg ;do echo $f[1024x] ./resized/$f done;
 ```
-#text encoding change
+# text encoding change
 ```
 opencc -i ~/Downloads/data/wiki_corpus/corpus_120520.txt -o ./120520.txt -c zht2zhs.ini
 ```
-#ping
+# ping
 ```
 for x in {11..255};do ssh 155.69.151.$x; done;
 ```    
 
-#install update software
+# install update software
 ```
 sudo apt-get update
 sudo apt-get install xx
@@ -278,25 +278,25 @@ sudo pip -U #install and update
 sudo pip uninstall pycuda
 sudo python setup.py install    #if there is a setup.py in download pyton package
 ```
-#list installed module package
+# list installed module package
 ```
 lsmod | grep nouveau
 sudo dpkg -L packagename  #find installed file location
 ```
-#change repositories location with replace txt 
+# change repositories location with replace txt 
 ```
 /etc/apt/sources.list
 sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
 sudo cp ./sources.list /etc/apt/sources.list
 ```
-#play audio
+# play audio
 ```
 play a.wav
 sox suria102_262_1904.wav  -p trim 300 5 |play -p
 #formate change
 sox a.mp3 -c 1 -r 16000  -b 16 a.wav  #change mp3 to wav format with sampling rate of 16khz 16bits per sample and mono channel 
 ```
-#build software
+# build software
 ```
 ./configure
 make -j 4
@@ -309,11 +309,11 @@ make all
 sudo make install 
 autoconf
 ```
-#mount cd/dvd iamge (ISO) 
+# mount cd/dvd iamge (ISO) 
 ```
 sudo mount -o loop xxx.iso /media/xxxx
 ```
-#mount USB drive
+# mount USB drive
 ```
 mount usb
 sudo fdisk -l
@@ -323,7 +323,7 @@ sudo mount -t ntfs-3g /dev/sdb1 /media/usb3tb
 sudo mount -t ntfs-3g /dev/sdc1 /media/usb3tb
 sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137 
 ```
-#mount network drive
+# mount network drive
 ```
 sftp://steven@155.69.149.215
 gvfs-mount sftp://sjd601@155.69.146.214     #mount with terminal or on the exploer
@@ -339,7 +339,7 @@ smb://workspace@155.69.149.240/workspace
 15569
 ftp://cclahadmin@www.cclah.com
 ```
-#change desktop pictures download home path
+# change desktop pictures download home path
 ```
 http://www.howtogeek.com/howto/17752/use-any-folder-for-your-ubuntu-desktop-even-a-dropbox-folder/
 gksu gedit .config/user-dirs.dirs
@@ -348,7 +348,7 @@ just ln some where to home also works
 ```
 
  
-#change machine name
+# change machine name
 ```
 sudo apt-get install winbind
 You probably want to add 'wins' where it says "hosts:" in /etc/nsswitch.conf
@@ -356,7 +356,7 @@ sudo gedit /etc/hostname
 sudo gedit /etc/hosts
 sudo apt-get install avahi-daemon
 ```
-#open webpage
+# open webpage
 ```
 #open webpage from ternimal
 links www.zaobao.com
@@ -368,7 +368,7 @@ tmux new-session -s browse 'w3m google.com'
 tmux send-keys -t browse R 
 ```
 
-#mount folder to ram , put folder in ram
+# mount folder to ram , put folder in ram
 ```
 #to say you have lots of rams and would like to run program faster by preload them into memory, you can setup ramfs, then just copy/del file to that folder
 mkdir -p /mnt/tmp
@@ -376,14 +376,14 @@ mount -t tmpfs -o size=20m tmpfs /mnt/tmp
 mkdir -p /mnt/ram
 mount -t ramfs -o size=20m ramfs /mnt/ram
 ```
-#scripting
+# scripting
 ```
 #passing args to a.sh
 a.sh 13 213 323
 in a.sh  $1 $2 $3 & will run in background
 in a.sh v1=$1 v2=$2
 ```
-#read text file and process line by lines
+# read text file and process line by lines
 ```
 FILE=wav.list
 ext=wav
@@ -405,7 +405,7 @@ edu.cmu.sphinx.tools.feature.FeatureFileDumper \
 # ./wave2mfcc.sh $line $ext
 done
 ```
-#read a fodler and process file one by one
+# read a fodler and process file one by one
 ```
 #loop and find names 
 eg1:
@@ -449,7 +449,7 @@ do
 	echo $name
 done
 ```
-#split data and multithreading
+# split data and multithreading
 ```
 mkdir -p $outdir
 
@@ -461,17 +461,17 @@ do
   ./getgender.sh $x $outdir &
 done
 ```
-#pick random files 
+# pick random files 
 ```
 find ./audio -type f | shuf -n 10
 ```
-#scan host in the network:
+# scan host in the network:
 ```
 arp
 sudo nmap -sn 10.99.23.1/24 > readme.txt
 avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
 ```
-#disable mouse scroll
+# disable mouse scroll
 ```
 xinput list
 xinput get-button-map 8
@@ -483,7 +483,7 @@ and sudo save to ~/.profile
 #to make gonme-session-fallback look nice,right click on the bootom tray and group applictions and 4 rows for workspace
  or install kde-plasma
 
-#shorten command promt
+# shorten command promt
 ```	
 To change it for the current terminal instance only
 
@@ -506,7 +506,7 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u:\W\$ '
 ```
 
-#OTHERS
+# OTHERS
 ```
 #=========================================================================================================================================
 
@@ -561,8 +561,8 @@ sudo nano /etc/default/acpi-support
 
 ```
 
-#rc and conf files
-##.bashrc
+# rc and conf files
+## .bashrc
 ```
 ~/.profile or ~/.bashrc
 
@@ -601,7 +601,7 @@ export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"
 export PYTHONIOENCODING=utf-8  
 ```
 
-##~/.theano.rc
+## ~/.theano.rc
 ```
 [global]
 floatX = float32
@@ -617,17 +617,17 @@ algo_bwd_data = time_once
 algo_bwd_filter = time_once
 
 ```
-##~/.pip/pip.conf
+## ~/.pip/pip.conf
 ``` 
 [global]
 download_cache = /data/.cache/pip
 index-url = https://pypi.douban.com/simple
 ```
-##~/.tmux.conf 
+## ~/.tmux.conf 
 ```
 setw -g mouse on
 ```
-##~/.tmat.conf
+## ~/.tmat.conf
 ```
 #more in folder tmux tmat
 set -g tmate-server-host "x.x.x.x"
