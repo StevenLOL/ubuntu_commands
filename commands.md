@@ -230,6 +230,12 @@ crontab -e
 sudo nano /etc/rc.local
 REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
 ```
+```
+cp myscript.sh /etc/init.d/
+sudo update-rc.d myscript.sh defaluts 90
+#to remove
+suod update-rc.d -f myscript.sh remove
+```
 #open exploer as root
 ```
 gksu nautilus /var/www      
