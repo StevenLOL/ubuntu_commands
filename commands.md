@@ -74,13 +74,21 @@ sudo shutdown -r now # reboot now
 ```
 ## system log / history
 ```
+
 /var/log/auth.log
+
 ~/.bash_history
 #set history size in ~/.bashrc
 #save history one command is entered:
 export PROMPT_COMMAND='history -a;history -c;history -r'
 #REF http://superuser.com/questions/555310/bash-save-history-without-exit
 ```  
+###Fail2ban
+```
+sudo apt install fail2ban
+sudo cat /var/log/fail2ban.log
+```
+
 # editing,create,copy modify files directories
 ```
 mkdir somedir
