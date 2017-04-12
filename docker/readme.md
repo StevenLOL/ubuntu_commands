@@ -58,7 +58,18 @@ Yes, check the [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
 In short:
 1) install the latest docker
+
+```
+#only support 14.04 and 16.04 (TBC)
+sudo add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+```
 2) install nvidia-docker
+```
+wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+```
 3) install driver on you host machine
 4) pull a cuda enabled images 
 
