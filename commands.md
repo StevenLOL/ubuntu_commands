@@ -83,10 +83,14 @@ sudo shutdown -r now # reboot now
 export PROMPT_COMMAND='history -a;history -c;history -r'
 #REF http://superuser.com/questions/555310/bash-save-history-without-exit
 ```  
-###Fail2ban
+### Fail2ban
 ```
 sudo apt install fail2ban
 sudo cat /var/log/fail2ban.log
+sudo cat /etc/fail2ban/jail.conf     #check jial rules
+sudo service fail2ban restart
+sudo fail2ban-client status ssh      #check status
+sudo fail2ban-client set ssh unbanip 149.210.253.75  #unban ip address 
 ```
 
 # editing,create,copy modify files directories
