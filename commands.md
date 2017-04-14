@@ -65,6 +65,13 @@ sudo mount /dev/sdb1/ /media/mountpoint
 #related error: mount: you must specify the filesystem type if mout /dev/sdb/ ...
 #/dev/sdb/ is the device  /dev/sdb1/ is the voloum of that disk, so one must volume voloum but not a disk
 sudo chown -R steven /media/mountpoint
+#auto mount on startup
+1. create a mount folder
+sudo mkdir /media/DATA
+2. find the disk you want to mount via df
+3. change the /etc/fstab file
+
+
 for D in *; do echo $D; find $D -type f| wc -l; done    #get files count in sub folder
 ##touchpad
 xinput list
