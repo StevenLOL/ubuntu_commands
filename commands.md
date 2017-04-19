@@ -251,7 +251,7 @@ REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questio
 ```
 ```
 cp myscript.sh /etc/init.d/
-sudo update-rc.d myscript.sh defaluts 90
+sudo update-rc.d myscript.sh defaults 90
 #to remove
 suod update-rc.d -f myscript.sh remove
 ```
