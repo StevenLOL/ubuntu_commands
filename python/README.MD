@@ -23,3 +23,6 @@ then in your .bashrc file, add
 ```
 export PYTHONSTARTUP=~/.pythonrc
 ```
+REF:
+
+http://stackoverflow.com/questions/246725/how-do-i-add-tab-completion-to-the-python-shell
