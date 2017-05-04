@@ -126,3 +126,8 @@ sudo docker tag local-image:tagname new-repo:tagname
 ```
 sudo docker push new-repo:tagname
 ```
+# Change password a auto launched jupyter notebook
+```
+add option "-e PASSWORD=password" to set the environment variable. The set password is then the password for the jupyter login. 
+```
+REF: http://stackoverflow.com/questions/41202983/login-password-required-to-access-jupyter-notebook-running-in-nvidia-docker-cont
