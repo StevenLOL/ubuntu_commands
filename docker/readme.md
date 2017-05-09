@@ -25,6 +25,11 @@ sudo docker pull container_name
 ```
 sudo docker run -p 30011:30011 -p 30012:30012 -it -v /localfolder/:/container_folder/ contaienr_image_name_or_id
 ```
+# if program hangs after run -it, try launch /bin/bash :
+
+```
+sudo docker run -it contaienr_image_name_or_id /bin/bash
+```
 
 # attach to a running container
 ```
