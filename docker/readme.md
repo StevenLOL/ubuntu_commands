@@ -60,12 +60,38 @@ In short:
 1) install the latest docker
 
 ```
-#only support 14.04 and 16.04 (TBC)
+Prerequisites
+
+To install Docker CE, you need the 64-bit version of one of these Ubuntu versions:
+
+    Yakkety 16.10
+    Xenial 16.04
+    Trusty 14.04
+
+1. Set up the repository
+
+Set up the Docker CE repository on Ubuntu. The lsb_release -cs sub-command prints the name of your Ubuntu version, like xenial or trusty.
+
+sudo apt-get -y install \
+  apt-transport-https \
+  ca-certificates \
+  curl
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
 sudo add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) \
        stable"
-sudo apt-get install docker-ce
+
+sudo apt-get update
+
+2. Get Docker CE
+
+Install the latest version of Docker CE on Ubuntu:
+
+sudo apt-get -y install docker-ce
+
 ```
 2) install nvidia-docker
 ```
