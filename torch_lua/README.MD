@@ -1,4 +1,4 @@
-#Latest:
+# Latest:
 
 http://torch.ch/docs/getting-started.html
 
@@ -24,3 +24,14 @@ export LUA_PATH="$TORCH_DIR/install/share/lua/5.1/?.lua;$TORCH_DIR/install/share
 export LUA_CPATH="$TORCH_DIR/install/lib/lua/5.1/?.so"
 
 
+# Torch with LUA5.2
+```
+
+git clone https://github.com/torch/distro.git ~/torch --recursive 
+cd torch
+./clean.sh
+
+sudo TORCH_LUA_VERSION=LUA52
+sudo luarocks install tds
+sudo luarocks install lua-zlib
+```
