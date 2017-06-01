@@ -34,4 +34,6 @@ cd torch
 sudo TORCH_LUA_VERSION=LUA52 ./install.sh
 sudo luarocks install tds
 sudo luarocks install lua-zlib
+sudo apt-get install libreadline-dev
+
 ```
