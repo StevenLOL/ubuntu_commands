@@ -31,7 +31,7 @@ git clone https://github.com/torch/distro.git ~/torch --recursive
 cd torch
 ./clean.sh
 
-sudo TORCH_LUA_VERSION=LUA52
+sudo TORCH_LUA_VERSION=LUA52 ./install.sh
 sudo luarocks install tds
 sudo luarocks install lua-zlib
 ```
