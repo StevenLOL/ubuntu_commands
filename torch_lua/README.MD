@@ -37,3 +37,18 @@ sudo luarocks install lua-zlib
 sudo apt-get install libreadline-dev
 
 ```
+
+# In case luarocks breaks, just reinstall it via
+
+```
+$ wget https://luarocks.org/releases/luarocks-2.4.1.tar.gz
+$ tar zxpf luarocks-2.4.1.tar.gz
+$ cd luarocks-2.4.1
+$ ./configure; sudo make bootstrap
+$ sudo luarocks install luasocket
+$ lua
+Lua 5.3.3 Copyright (C) 1994-2016 Lua.org, PUC-Rio
+> require "socket"
+
+#ref https://luarocks.org/#quick-start
+```
