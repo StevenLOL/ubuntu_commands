@@ -1,8 +1,8 @@
-#There are two types of script in this folder:
+# There are two types of script in this folder:
 
 
 
-##A) git-new-*
+## A) git-new-*
 
 Create a git repository in github/bitbuck from a local folder.
 
@@ -14,7 +14,7 @@ This will create a git repository in github/bitbuck called my_git_project_000 wi
 
 One need to configure account username and password in git-new-*
 
-##B) gitsave
+## B) gitsave
 gitsave for save all my files and publish to remote repository
 ###usage:
 ```
@@ -23,7 +23,7 @@ gitsave
 gitsave "some text please"
 ```
 
-#Using SSH with bitbucket or github
+# Using SSH with bitbucket or github
 
 github and bitbucket support SSH , if upload your SSH key to your account.
 for [bitbucket](https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html)
@@ -38,7 +38,7 @@ ssh-add .....your rsa
 
 
 
-#Git basic
+# Git basic
 sudo apt-get install git
 
 git clone ...
@@ -56,7 +56,7 @@ git checkout -b "0.1.2"
 
 git commit --amend #change commit message
 
-#Git with submodule
+# Git with submodule
 
 git clone https://....   --recursive
 
@@ -64,7 +64,7 @@ git submodule update --recursive --remote
 
 [REF](http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules)
 
-#[Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
+# [Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
 
 You need to remove the files from the index.
 
@@ -79,7 +79,13 @@ Finally commit:
 git commit -a -m "Untrack ignored files!"
 
 
-#Faster clone by set depth =1
+# Faster clone by set depth =1
 ```
 git clone --depth 1 ...
+```
+# clone a folder only
+```
+#REF:https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
+
+git archive --format tar --remote ssh://server.org/path/to/git HEAD docs/usage > /tmp/usage_docs.tgz
 ```
