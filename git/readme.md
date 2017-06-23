@@ -88,4 +88,10 @@ git clone --depth 1 ...
 #REF:https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
 
 git archive --format tar --remote ssh://server.org/path/to/git HEAD docs/usage > /tmp/usage_docs.tgz
+
+#OR
+# if target folder is https://github.com/StevenLOL/jygame_ShanZhaiJiangHu_SiYeBan/tree/master/山寨江湖四叶版/script
+
+svn checkout https://github.com/StevenLOL/jygame_ShanZhaiJiangHu_SiYeBan/trunk/山寨江湖四叶版/script
+
 ```
