@@ -52,3 +52,17 @@ Lua 5.3.3 Copyright (C) 1994-2016 Lua.org, PUC-Rio
 
 #ref https://luarocks.org/#quick-start
 ```
+
+
+# install zeromq
+## install zeromq packages
+Download and install [Legacy Stable Release 3.2.5](https://github.com/zeromq/zeromq3-x/releases/download/v3.2.5/zeromq-3.2.5.tar.gz) from http://zeromq.org/intro:get-the-software .
+```
+./autogen.sh && ./configure && make -j 4
+make check && make install && sudo ldconfig
+```
+
+## install lua-zmq
+```
+luarocks install https://raw.github.com/Neopallium/lua-zmq/master/rockspecs/lua-zmq-scm-1.rockspec
+```
