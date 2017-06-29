@@ -61,6 +61,7 @@ git commit --amend #change commit message
 git clone https://....   --recursive
 
 git submodule update --recursive --remote
+git submodule update --init
 
 [REF](http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules)
 
