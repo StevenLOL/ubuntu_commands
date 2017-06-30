@@ -111,9 +111,9 @@ To install
 
 
 
-```
 [REF: 如何使用SyntaxNet进行中文模型的使用 ](http://blog.csdn.net/xu_erni/article/details/53924791)
 
+```
 使用Chinese模型
 1.在网上下载Chinese模型文件，网址：http://download.tensorflow.org/models/parsey_universal/Chinese.zip
 2.上传模型文件，路径为：
