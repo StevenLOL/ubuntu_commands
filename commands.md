@@ -1,6 +1,6 @@
 Terminal commands:
 
-press tab for possible suggetions
+press tab for possible suggetions, command ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completetion.
 
 # navigation & browsing
 ```
