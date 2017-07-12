@@ -38,6 +38,7 @@ top iftop iotop glances     sudo iftop -i eth1
 ps aux
 ps -aef
 ps -auwe | grep steven | grep server | grep 28166 | grep PWD
+pwdx #pid            # get process working directoy of #pid
 #list binded port
 lsof -i :8080
 sudo netstat -peanut
