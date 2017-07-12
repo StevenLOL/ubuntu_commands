@@ -128,7 +128,7 @@ rsync -r localfolder -v -e ssh steven@155.69.149.184
 sudo ln -s /usr/local/nginx/conf/ /etc/nginx   #link a folder(create a shortcut) target should not exists first
 ln -s /data2/malay1307/s5/ /home/sjd601/training/linkedMalay1307
 ```
-# add user
+# add user accout
 ```
 sudo adduser steven
 sudo adduser steven sudo
@@ -138,7 +138,21 @@ gksudo gnome-control-center user-accounts
 sudo passwd  #change passwd of root user
 sudo passwd -l root #To disable the root login
 sudo passwd -S root #check if locked or not (will have L in output instead of P)
+
+who    #check users
+Expire Account
+# disallow peter from logging in
+sudo usermod --expiredate 1 peter
+# set expiration date of peter to Never
+sudo usermod --expiredate "" peter
+
+# take away peters password
+sudo passwd -l peter
+# give peter back his password
+sudo passwd -u peter
 ```
+
+
 # rename
 ```
 rename s/"sd_under_classter"/"change to wat?"/g *
