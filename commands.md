@@ -8,7 +8,8 @@ cd ~/         #go to home directory of current account ~/=home
 cd ..         #go to parent directory
 cat /data2/malay1307/s5/irun.sh   #display file content
 head somefile                     #display only the head part of a files
-tail somfile                     #display .... tail
+tail somefile                     #display .... tail
+tail -f some file                #tail and follow, the display will be updated upon filechagne
 less somefile                    #display file by parts
 list file properties
 ls -l data/groundtrue
