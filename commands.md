@@ -417,6 +417,7 @@ mount -t ramfs -o size=20m ramfs /mnt/ram
 a.sh 13 213 323
 in a.sh  $1 $2 $3 & will run in background
 in a.sh v1=$1 v2=$2
+pid=$(fuser - tcp 139 | awk '{print $1}')  # get output of a script
 ```
 # read text file and process line by lines
 ```
