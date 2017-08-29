@@ -5,7 +5,11 @@ ssh <USER>@<HOST><SERVER_IP> mkdir -p .ssh
 cat .ssh/id_rsa.pub | ssh <USER>@<HOST><SERVER_IP> 'cat >> .ssh/authorized_keys'
 ssh <USER>@<HOST><SERVER_IP>
 ```
-
+### only allow locate ssh login
+```
+add sshd:ALL to /etc/hosts.deny
+add sshd:192.168.0.0/16 to /etc/hosts.allow
+```
 
 
 ### for git hub or bitbucket
