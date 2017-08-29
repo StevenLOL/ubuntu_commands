@@ -5,7 +5,11 @@ ssh steven@155.69.149.215 mkdir -p .ssh
 cat .ssh/id_rsa.pub | ssh steven@155.69.149.215 'cat >> .ssh/authorized_keys'
 ssh steven@155.69.149.215
 ```
-
+### only allow locate ssh login
+```
+add sshd:ALL to /etc/hosts.deny
+add sshd:192.168.0.0/16 to /etc/hosts.allow
+```
 
 
 ### for git hub or bitbucket
