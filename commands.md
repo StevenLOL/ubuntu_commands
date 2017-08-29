@@ -40,6 +40,10 @@ ps aux
 ps -aef
 ps -auwe | grep steven | grep server | grep 28166 | grep PWD
 pwdx #pid            # get process working directoy of #pid
+#list users and pts and what they are doing
+w
+#kill a user's pts
+ps -t pts/1 | awk '/[0-9]/ {print $1}' | xargs sudo kill 
 #list binded port
 lsof -i :8080
 sudo netstat -peanut
