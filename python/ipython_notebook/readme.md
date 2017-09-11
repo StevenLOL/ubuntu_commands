@@ -92,3 +92,8 @@ python3 -m ipykernel install # register Python 3 kernel (not technically necessa
 python2 -m pip install ipykernel
 python2 -m ipykernel install # register Python 2 kernel
 ```
+or 
+```
+ipython3 kernelspec install-self
+ipython2 kernelspec install-self
+```
