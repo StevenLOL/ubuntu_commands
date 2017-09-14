@@ -169,7 +169,7 @@ REF: http://stackoverflow.com/questions/41202983/login-password-required-to-acce
 sudo nano /etc/rc.local
 REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
 ```
-2
+Or 2
 ```
 cp runserver.sh /etc/init.d/
 sudo update-rc.d runserver.sh defaults 90
