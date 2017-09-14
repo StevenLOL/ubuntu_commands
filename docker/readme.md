@@ -164,15 +164,17 @@ add option "-e PASSWORD=password" to set the environment variable. The set passw
 REF: http://stackoverflow.com/questions/41202983/login-password-required-to-access-jupyter-notebook-running-in-nvidia-docker-cont
 
 # run task during system startup
+1
 ```
 sudo nano /etc/rc.local
 REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
 ```
+2
 ```
-cp myscript.sh /etc/init.d/
-sudo update-rc.d myscript.sh defaults 90
+cp runserver.sh /etc/init.d/
+sudo update-rc.d runserver.sh defaults 90
 #to remove
-suod update-rc.d -f myscript.sh remove
+sudo update-rc.d -f runserver.sh remove
 ```
 ## example: start a docker image during startup
 
