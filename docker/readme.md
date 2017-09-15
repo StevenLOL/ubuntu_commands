@@ -16,7 +16,7 @@ sudo docker ps
 #eg:
 sudo docker search cuda
 ```
-# Download public contaienr to local
+# Download public container to local
 ```
 sudo docker pull container_name
 ```
