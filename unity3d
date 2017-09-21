@@ -1,0 +1,12 @@
+
+# Releases:
+
+https://forum.unity.com/threads/unity-on-linux-release-notes-and-known-issues.350256/
+
+
+```
+
+sudo apt install lib32stdc++6
+sudo dpkg -i ./unity-editor_amd64-2017.2.0b11.deb
+
+```
