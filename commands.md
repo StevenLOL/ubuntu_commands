@@ -28,6 +28,8 @@ wc /data/groundtrueE/text
 lsb_release -a    #show ubuntu version
 echo $PATH
 which ls
+#show system limits
+ulimit -a
 #network states
 sudo netstat -tupn
 #list hardware
