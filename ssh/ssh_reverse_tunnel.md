@@ -8,7 +8,7 @@ LocalPC <<=================>> Public Server(ServerB)
 
 From LocalPC:
 ```
-ssh -f -N -R 30012:localhost:22 steven@136.73.147.169
+ssh -f -N -R 30012:localhost:22 steven@ServerB
 ```
 To login to LocalPC,
 
@@ -18,16 +18,21 @@ ssh -p 30015 localhost
 ```
 2. Through public network
 ```
-ssh -p 30015 ServerBIP
+ssh -p 30015 ServerB
 ```
 ## FAQ
 
-If "Connection refused", add following to /et/ssh/sshd_config
+If "Connection refused", add following to /et/ssh/sshd_config @ ServerB
 
 ```
-"GatewayPorts yes"
+GatewayPorts yes
 ```
 To check if a port is open:
 ```
-nmap -p 30015 ServerBIP
+nmap -p 30015 ServerB
+```
+
+Use autossh to build a stable tunnel
+```
+autossh -M 9000 -f -N -R 30012:localhost:22 steven@ServerB
 ```
