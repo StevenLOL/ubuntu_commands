@@ -18,6 +18,8 @@ ls -d *bin # list all directories end with bin
 tree -d    # list all directory
 #list files recurisively
 find ./path/ -type f -exec ls -dl \{\} \; | awk '{print $9}'
+find . -exec ls -dl \{\} \; | awk '{print $3, $5, $9}'
+find ./ -iname "train_lm.sh"
 ```
 # wordcount
 ```
@@ -477,6 +479,12 @@ done
 # read a fodler and process file one by one
 ```
 #loop and find names 
+eg0:
+
+for file in *.html; do
+   mv "$file" "$(basename "$file" .html).txt"
+done
+
 eg1:
 
 for file in ./input/gt_ctm/*.ctm
