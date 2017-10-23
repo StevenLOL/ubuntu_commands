@@ -2,7 +2,9 @@
 sox is a command line tool for audio file format conversion, and audio recoding/play.
 ## install
 ```
-sudo apt install sox
+sudo apt-get install lame
+sudo apt-get install libsox-fmt-mp3
+sudo apt-get install sox
 ```
 ## format conversion
 
