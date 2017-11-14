@@ -100,6 +100,12 @@ sudo shutdown -r now # reboot now
 export PROMPT_COMMAND='history -a;history -c;history -r'
 #REF http://superuser.com/questions/555310/bash-save-history-without-exit
 ```  
+## Send message to other users
+```
+who
+write username tty
+#control+d  to stop
+```
 ### Fail2ban
 ```
 sudo apt install fail2ban
