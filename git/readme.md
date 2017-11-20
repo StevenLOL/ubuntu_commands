@@ -53,8 +53,9 @@ git remote show ..
 
 git checkout -b "0.1.2"
 
-
 git commit --amend #change commit message
+
+\# .gitkeep or [.gitignore](https://github.com/github/gitignore) to keep of ignore files/folders
 
 # Git with submodule
 
