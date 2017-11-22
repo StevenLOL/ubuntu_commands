@@ -12,16 +12,18 @@ sudo apt-get install sox
 #covnert mp3 to wav format, resampleing frequency 16khz , mono channel
 
 sox my-audio.mp3 -r 16000 -c 1 mywav.wav
-``
+```
 
 ## others
 
+```
 sudo apt-get install libasound2-plugins libasound2-python libsox-fmt-all
-
+```
 REF: http://quadloops.com/installing-sox-in-ubuntu-12-04-and-working-with-ogg-and-vorbis-formats/
 
 
 ## egs
+
 ```
 extend1=mp3
 for file in *.$extend1; do
