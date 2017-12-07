@@ -1,11 +1,12 @@
 #ipython notebook
 ```
-sudo apt-get purge ipython  #this ipython doesn't support ipython 4.0 format
+# sudo apt-get purge ipython  #this ipython doesn't support ipython 4.0 format
+sudo apt install python-dev   # else error "fatal error: Python.h: No such file or directory"
 sudo pip install ipython -U
 sudo pip install jupyter -U
 sudo pip install notebook -U
 
-# sudo pip install "ipython==5.5.0" jupyter notebook -U  ## for python 2.7
+# sudo pip install "ipython==5.5.0" jupyter notebook -U  ## for python 2.7 , the ipython 6.0+ only support python 3.3 +
 ipython notebook --ip='your ip address' ---pylab=inline --port=7777
 or
 ipython notebook younotbook
