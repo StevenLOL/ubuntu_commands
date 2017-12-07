@@ -4,6 +4,8 @@ sudo apt-get purge ipython  #this ipython doesn't support ipython 4.0 format
 sudo pip install ipython -U
 sudo pip install jupyter -U
 sudo pip install notebook -U
+
+# sudo pip install "ipython==5.5.0" jupyter notebook -U  ## for python 2.7
 ipython notebook --ip='your ip address' ---pylab=inline --port=7777
 or
 ipython notebook younotbook
