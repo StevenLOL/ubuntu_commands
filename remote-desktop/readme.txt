@@ -1,8 +1,8 @@
 #install remote desktop for UBUNTU >14.04
 
 sudo apt-get install xrdp
-sudo apt-get install xfce-4
 sudo apt-get install xfce4
+## sudo apt remove xscreensaver  #remove screensaver
 echo xfce4-session >~/.xsession
 sudo service xrdp restart
 
