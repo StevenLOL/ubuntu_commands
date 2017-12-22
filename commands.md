@@ -684,6 +684,38 @@ export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"
 
 export PYTHONIOENCODING=utf-8  
 ```
+## /etc/profile
+```
+export GREP_OPTIONS=--color=auto
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/usr/lib64/:$LD_LIBRARY_PATH
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_101
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+PS1="`whoami`@`hostname`:"'[$PWD]'
+history
+USER_IP=`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'`
+if [ "$USER_IP" = "" ]
+then
+	USER_IP=`hostname`
+fi
+if [ ! -d /tmp/dbasky ]
+then
+	mkdir /tmp/dbasky
+	chmod 777 /tmp/dbasky
+fi
+if [ ! -d /tmp/dbasky/${LOGNAME} ]
+then
+	mkdir /tmp/dbasky/${LOGNAME}
+	chmod 300 /tmp/dbasky/${LOGNAME}
+fi
+export HISTSIZE=4096
+DT=`date "+%Y-%m-%d_%H:%M:%S"`
+export HISTFILE="/tmp/dbasky/${LOGNAME}/${USER_IP} dbasky.$DT"
+chmod 600 /tmp/dbasky/${LOGNAME}/*dbasky* 2>/dev/null
+
+
+```
 
 ## ~/.theano.rc
 ```
