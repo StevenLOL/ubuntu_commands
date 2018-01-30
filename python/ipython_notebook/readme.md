@@ -15,6 +15,7 @@ If Error no extn
 ```
 then sudo apt-get install --reinstall python-setuptools
 ```
+https://www.reddit.com/r/IPython/comments/4z26o7/setup_and_configure_jupyter_how_to_set_up_a/
 #to dispay a plot in ipython
 ```
 #coding=utf-8
@@ -42,11 +43,22 @@ REF http://stackoverflow.com/questions/2801882/generating-a-png-with-matplotlib-
 ## Via password
 REF http://blog.csdn.net/suzyu12345/article/details/51037905
 ```
-In [1]: from IPython.lib import passwd
-In [2]: passwd()
+and then we create a configuration file with the following:
+jupyter notebook --generate-config
+
+The output given will be the path where this file has been created, /.jupyter/jupyter_notebook_config.py. 
+Now, in order for users to have a password, users must open python in the terminal, enter the commands
+>>> from notebook.auth import passwd
+>>> passwd()
 Enter password:
 Verify password:
-Out[2]: ‘sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed‘
+'sha1:d66351142f0a:9eea3d7f99e434a6837f5e73af18d03cf0353392'
+>>> ctrl+z
+
+copy the hashed password, and paste it in the configuration file at 
+c.NotebookApp.password = u''
+ 
+
 ```
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
