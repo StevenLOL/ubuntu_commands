@@ -88,7 +88,11 @@ Restart nbserver
 ```
 ipython notebook --profile=nbserver
 ```
+Save notebook to python script
 
+```
+jupyter nbconvert --to script ./0001.NN.baseline.GridSearch.Manual.ipynb
+```
 
 ## via SSH tunneling
 
