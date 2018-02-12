@@ -41,7 +41,7 @@ OR
 [global]
 
 index-url = http://mirrors.aliyun.com/pypi/simple
-
+#or http://mirrors.zte.com.cn/pypi/simple/
 trusted-host = mirrors.aliyun.com
 ```
 
