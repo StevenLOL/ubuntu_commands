@@ -6,7 +6,7 @@
 
 ## Download chinese true type font
 ## Copy to your matplotlib/mpl-data/fonts/ttf/
-if you have no idear where matplotlib is:
+if you have no idea where matplotlib is:
 ```
 #python
 import matplotlib
