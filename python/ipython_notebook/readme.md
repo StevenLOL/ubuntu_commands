@@ -34,10 +34,15 @@ plt.show()
 REF http://stackoverflow.com/questions/2801882/generating-a-png-with-matplotlib-when-display-is-undefined
 
 
-#Show running time of cell
+# Show running time of cell
 ```
 %%time
 ```
+## auto reload libs
+'''
+%load_ext autoreload 
+%autoreload 2
+'''
 
 #ipython  remote access
 ## Via password
