@@ -21,3 +21,6 @@ It will make your DNN training faster, to install just copy * to your cuda lib f
 
 https://developer.nvidia.com/cuda-toolkit-70
 wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.28_linux.run
+
+
+4) nvidia-smi -l 1
