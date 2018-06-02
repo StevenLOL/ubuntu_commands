@@ -215,6 +215,8 @@ grep -E 'Tech|Sales' employee.txt   #or
 egrep 'pattern1|pattern2' filename  #or
 grep -E 'pattern1.*pattern2' filename #and
 grep -v 'pattern1' filename           #not
+locate libname # sudo apt install locate then updatedb
+
 ```
 # split a file
 ```
