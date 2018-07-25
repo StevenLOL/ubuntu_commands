@@ -5,6 +5,7 @@
 
 
 ## Download chinese true type font
+eg simhei.ttf
 ## Copy to your matplotlib/mpl-data/fonts/ttf/
 if you have no idea where matplotlib is:
 ```
