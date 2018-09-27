@@ -10,3 +10,14 @@ cd Python-3.6.0/
 ./configure
 sudo make altinstall
 ```
+ Install python 3.6 on Ubuntu 16.04 from PPA
+
+You can install Python 3.6  from PPA using the commands below
+```
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt update
+sudo apt install python3.6
+```
+
+
+REF:https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
