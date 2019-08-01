@@ -35,9 +35,10 @@ plt.show()
 
 
 # 方案二
-
+'''
 font=FontProperties(fname='/home/liyang/simhei.ttf',size=10)
 plt.subplots(figsize=(18, 10)) 
 #plt.fontproperties=font
 plt.title('中文',fontproperties=font)
 plt.show()
+'''
