@@ -69,7 +69,7 @@ c.NotebookApp.password = u''
 
 ## install extensions
 ```
-pip install nbextensions_configurator jupyter_contrib_nbextensions -i https://pypi.douban.com/simple
+pip install jupyter_nbextensions_configurator jupyter_contrib_nbextensions -i https://pypi.douban.com/simple
 jupyter contrib nbextension install --user --skip-running-check
 jupyter nbextensions_configurator enable --user
 ```
