@@ -232,6 +232,12 @@ split -d -n l/3 a.list myprefix
 ssh <USER>@<HOST><SERVER_IP>
 ssh -l 23 <USER>@<HOST><SERVER_IP>
 ```
+# Apache ab test
+```
+apt-get install apache2-utils
+ab -n 10000 -c 100 https://www.baidu.com/
+```
+
 # multi threads
 ```
 some_commands &
