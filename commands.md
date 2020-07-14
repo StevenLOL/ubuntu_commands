@@ -232,6 +232,12 @@ split -d -n l/3 a.list myprefix
 ssh sjd601@155.69.146.214
 ssh -l 23 sjd601@155.69.146.214
 ```
+# Apache ab test
+```
+apt-get install apache2-utils
+ab -n 10000 -c 100 https://www.baidu.com/
+```
+
 # multi threads
 ```
 some_commands &
