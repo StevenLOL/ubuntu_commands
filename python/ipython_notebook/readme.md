@@ -65,6 +65,14 @@ c.NotebookApp.password = u''
  
 
 ```
+
+
+# install extensions
+```
+pip install jupyter_contrib_nbextensions -i https://pypi.douban.com/simple
+jupyter contrib nbextension install --user --skip-running-check
+```
+
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 ```
