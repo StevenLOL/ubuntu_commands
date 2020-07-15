@@ -1,5 +1,7 @@
 # sequence语法
 
+Typora can support sequence 
+
 先给出一张语法大全图，看不懂就算了（哈哈哈哈，刚开始我也看不懂）。
 
 ```sequence
