@@ -1,3 +1,8 @@
+# Basic usage
+
+https://www.jianshu.com/p/307a13c79fe4
+
+
 # sequence语法
 
 Typora can support sequence 
