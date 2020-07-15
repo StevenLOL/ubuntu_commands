@@ -6,6 +6,9 @@
 https://pythonhosted.org/PyPDF2/
 ```
 pip install pypdf2
+
+
+
 ```
 
 # Usage
@@ -31,3 +34,8 @@ if __name__ == '__main__':
                  password='badao')
 ```
 # Test
+
+
+# Bug default encoding is not utf-8
+At line 238 /usr/local/lib/python3.8/dist-packages/PyPDF2/utils.py
+
