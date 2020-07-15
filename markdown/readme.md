@@ -2,10 +2,10 @@
 
 Typora can support sequence 
 
-先给出一张语法大全图，看不懂就算了（哈哈哈哈，刚开始我也看不懂）。
+https://upload-images.jianshu.io/upload_images/3830893-9f78bc169040ec84.png?imageMogr2/auto-orient/strip|imageView2/2/w/709/format/webp
 
 ```sequence
-title: MarkDown 画sequence图
+title: MarkDown sequence
 participant finefine as ff
 participant kunkun as kk
 ff-->kk: this is kunkun?
