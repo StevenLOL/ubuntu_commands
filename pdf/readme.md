@@ -4,6 +4,9 @@
 # Install
 
 https://pythonhosted.org/PyPDF2/
+```
+pip install pypdf2
+```
 
 # Usage
 ```
