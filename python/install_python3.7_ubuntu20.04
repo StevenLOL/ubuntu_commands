@@ -1,0 +1,34 @@
+```
+1. 升级
+# sudo apt update
+# sudo apt upgrade -y
+1
+2
+2. 安装编译Python源程序所需的包
+# sudo apt install build-essential -y
+# sudo apt install libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
+# sudo apt-get install zlib1g-dev
+1
+2
+3
+3. 下载Python3.7 源程序压缩包
+（或者直接在Python官网下载Linux安装包）
+
+# wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz
+1
+4. 解压
+# tar -xzvf Python-3.7.8.tgz
+1
+5. 配置
+# cd Python-3.7.8
+# ./configure --enable-optimizations
+1
+2
+6. 编译和安装
+# sudo make
+# sudo make install
+1
+2
+7. 查看Python版本
+# python3
+```
