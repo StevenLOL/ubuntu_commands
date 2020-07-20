@@ -32,3 +32,7 @@ http://stackoverflow.com/questions/246725/how-do-i-add-tab-completion-to-the-pyt
 ```
 https://www.lfd.uci.edu/~gohlke/pythonlibs/
 ```
+
+
+# the whl
+The whl file is a zip file.
