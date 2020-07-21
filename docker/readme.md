@@ -214,4 +214,10 @@ python face_v_server_extract_features_tf.py
     "https://docker.mirrors.ustc.edu.cn"
   ]
 }
+
+
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
+$ sudo docker info
 ```
