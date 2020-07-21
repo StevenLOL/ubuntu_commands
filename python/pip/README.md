@@ -23,7 +23,7 @@ index-url = https://pypi.douban.com/simple
 timeout = 9000
 #index-url = https://mirrors.aliyun.com/pypi/simple
 #or https://mirrors.zte.com.cn/pypi/simple/
-trusted-host = mirrors.aliyun.com
+#trusted-host = mirrors.aliyun.com
 
 
 #index-url = https://pypi.tuna.tsinghua.edu.cn/simple
@@ -33,7 +33,7 @@ trusted-host = mirrors.aliyun.com
 
 Download the package only
 ```
-pip install package -d /path/to/downloaded/file
+pip download package -d /path/to/downloaded/file
 ```
 
 
