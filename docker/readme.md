@@ -205,7 +205,7 @@ python face_v_server_extract_features_tf.py
 
 # Docker 中国镜像
 
-···
+```
 创建或修改 /etc/docker/daemon.json 文件，修改为如下形式
 {
   "registry-mirrors": [
@@ -214,4 +214,4 @@ python face_v_server_extract_features_tf.py
     "https://docker.mirrors.ustc.edu.cn"
   ]
 }
-···
+```
