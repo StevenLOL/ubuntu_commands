@@ -24,6 +24,8 @@ sudo docker pull container_name
 
 ```
 sudo docker run -p 30011:30011 -p 30012:30012 -it -v /localfolder/:/container_folder/ contaienr_image_name_or_id
+# with GPU and memroy limits
+sudo docker run --gpus device=1 -m 64g -p 30012:8080 -it -v /mnt/steven/:/steven/ ubuntu20.04-jupyter
 ```
 # if program hangs after run -it, try launch /bin/bash :
 
