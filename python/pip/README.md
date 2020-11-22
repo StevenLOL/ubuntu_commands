@@ -13,7 +13,7 @@ In case line to pypi.python.org is not stable, using mirrors as listed in:
 
 https://pypi-mirrors.org/
 
-in pip.conf
+in ~/.pip/pip.conf
 
 ```
 [global]
