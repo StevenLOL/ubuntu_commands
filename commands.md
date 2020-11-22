@@ -373,6 +373,8 @@ sudo dpkg -L packagename  #find installed file location
 ```
 /etc/apt/sources.list
 sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
+sudo cat /etc/apt/sources.list | sed 's/archive.ubuntu.com/mirrors.aliyun.com\/mirror/'  > ./sources.list
+
 sudo cp ./sources.list /etc/apt/sources.list
 ```
 # play audio
