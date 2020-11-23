@@ -10,5 +10,5 @@ There are many folders here, each contains guide to install or use a particular 
 
 Contact:
 
-<YOUR_EMAIL> or <YOUR_EMAIL>
+<YOUR_EMAIL>
 
