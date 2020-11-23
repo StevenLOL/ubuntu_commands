@@ -10,5 +10,5 @@ There are many folders here, each contains guide to install or use a particular 
 
 Contact:
 
-stevenlol@qq.com or steven@aicyber.com
+stevenlol@qq.com
 
