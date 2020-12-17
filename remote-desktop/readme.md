@@ -44,13 +44,13 @@ sudo apt-get install qtnx
 ```
 
 
-#Install mate 
-
+# Install mate 
+```
 sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
 sudo apt-update
 sudo apt-get install mate-desktop-environment
 echo mate-session >> ~/.xsession
-
+```
 
 # For 18.04 19.04 ?
 ```
