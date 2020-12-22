@@ -15,6 +15,8 @@ sudo docker ps
 ```
 #eg:
 sudo docker search cuda
+
+#or by online search : https://hub.docker.com/
 ```
 # Download public container to local
 ```
@@ -216,6 +218,12 @@ python face_v_server_extract_features_tf.py
     "https://docker.mirrors.ustc.edu.cn"
   ]
 }
+
+
+
+# 中文资料
+
+https://blog.csdn.net/pcb931126/article/details/106882074/
 
 
 
