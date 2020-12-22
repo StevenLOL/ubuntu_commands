@@ -221,9 +221,6 @@ python face_v_server_extract_features_tf.py
 
 
 
-# 中文资料
-
-https://blog.csdn.net/pcb931126/article/details/106882074/
 
 
 
@@ -231,3 +228,8 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 $ sudo docker info
 ```
+
+# 中文资料
+
+https://blog.csdn.net/pcb931126/article/details/106882074/
+
