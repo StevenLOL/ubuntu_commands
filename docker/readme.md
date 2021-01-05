@@ -129,6 +129,7 @@ sudo docker kill $(sudo docker ps -q)
 ## delete a docker iamge
 ```
 sudo docker rm ID/NAME
+sudo docker rmi -f ID/NAME
 ```
 
 ## show docker logs
