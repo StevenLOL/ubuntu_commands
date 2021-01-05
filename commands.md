@@ -100,6 +100,16 @@ sudo shutdown -r now # reboot now
 #save history one command is entered:
 export PROMPT_COMMAND='history -a;history -c;history -r'
 #REF http://superuser.com/questions/555310/bash-save-history-without-exit
+
+#history append in tmux
+#in ~/.bashrc
+shopt -s histappend
+shopt -s histreedit
+shopt -s histverify
+HISTCONTROL='ignoreboth'
+PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
+
+
 ```  
 ## Send message to other users
 ```
