@@ -84,6 +84,7 @@ git commit -a -m "Untrack ignored files!"
 # Faster clone by set depth =1
 ```
 git clone --depth 1 ...
+git clone --depth 1 https://github.com/keras-team/keras.git -b 2.2.0
 ```
 # clone a folder only
 ```
