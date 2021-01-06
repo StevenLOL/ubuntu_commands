@@ -72,6 +72,7 @@ c.NotebookApp.password = u''
 pip install jupyter_nbextensions_configurator jupyter_contrib_nbextensions -i https://pypi.douban.com/simple
 jupyter contrib nbextension install --user --skip-running-check
 jupyter nbextensions_configurator enable --user
+jupyter nbextension enable
 
 [Tools] 分享几个实用的 jupyter notebook 扩展功能
 https://blog.csdn.net/su_2018/article/details/89378015?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.edu_weight#%C2%A01.%E4%BB%A3%E7%A0%81%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD
