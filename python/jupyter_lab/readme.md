@@ -1,5 +1,7 @@
 
 https://www.cnblogs.com/jscs/p/13724589.html
+https://jupyter.org/install.html
+
 
 ```
 jupyter lab --ip 0.0.0.0 --allow-root
