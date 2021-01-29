@@ -60,6 +60,8 @@ pkill -u username
 free -m
 #drop cache memory
 sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+#stress test
+stress -c 2 -t 10000
 #disk usage
 df -h  #list harddisk size
 du -hs #list folder size
