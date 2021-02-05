@@ -18,5 +18,11 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 ```
 
 
+# set password for jupyterlab
+
+```
+jupyter server --generate-config
+jupyter server password
+```
 
 
