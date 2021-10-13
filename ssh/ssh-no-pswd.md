@@ -34,7 +34,7 @@ ssh-add PATH_TO_YOUR_PRIVATE_KEY
 
 
 
-
+```
 
 https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 Set up SSH for Git
@@ -137,6 +137,7 @@ In Mac OSX, the following command copies the output to the clipboard:
 $ pbcopy < ~/.ssh/id_rsa.pub
 Back in your browser, enter a Label for your new key, for example, Default public key.
 Paste the copied public key into the SSH Key field
+```
 ```
 ssh -o StrictHostKeyChecking=no -o TCPKeepAlive=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -N -f -R 2001:localhost:22 -l username ipaddress "uptime"
 ```
