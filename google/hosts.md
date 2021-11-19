@@ -58,7 +58,7 @@
 # GitHub520 Host End
 ~~~
 ## 2 直接修改 hosts 文件 
-找到系统内容的hosts 文件，添加上述github内容
+找到系统内的hosts 文件（一般 C:\Windows\System32\drivers\etc\hosts），添加上述github内容
 ## 3 firfox + livehosts
 手工添加上述内容，适用于没有系统权限的用户
 
