@@ -14,7 +14,7 @@
 
 则 会从云端拉取最新 github的配置，如：
 
-···
+~~~
 # GitHub520 Host Start
 140.82.113.25                 alive.github.com
 140.82.113.25                 live.github.com
@@ -56,7 +56,7 @@
 # Update url: https://raw.hellogithub.com/hosts
 # Star me: https://github.com/521xueweihan/GitHub520
 # GitHub520 Host End
-···
+~~~
 ## 2 直接修改 hosts 文件 
 找到系统内容的hosts 文件，添加上述github内容
 ## 3 firfox + livehosts
