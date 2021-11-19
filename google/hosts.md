@@ -1,4 +1,6 @@
-# 在某国，github 经常打不开，有人说是DNS被污染了，这时候需要配置 hosts 文件来链接 github
+# 在某国，github 经常打不开
+
+有人说是DNS被污染了，这时候需要配置 hosts 文件来链接 github
 
 
 ## How to change hosts ?
@@ -55,9 +57,11 @@
 # Star me: https://github.com/521xueweihan/GitHub520
 # GitHub520 Host End
 ···
-## 2 firfox + livehosts
+## 2 直接修改 hosts 文件 
+找到系统内容的hosts 文件，添加上述github内容
+## 3 firfox + livehosts
+手工添加上述内容，适用于没有系统权限的用户
 
-手工添加上述内容
 
 # reCAPTCHA打不开的解决方法
 
