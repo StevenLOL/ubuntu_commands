@@ -98,3 +98,11 @@ git archive --format tar --remote ssh://server.org/path/to/git HEAD docs/usage >
 svn checkout https://github.com/StevenLOL/jygame_ShanZhaiJiangHu_SiYeBan/trunk/山寨江湖四叶版/script
 
 ```
+
+
+
+### git pull all branches
+```
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all; git pull --all
+```
+
