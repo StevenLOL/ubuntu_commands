@@ -9,9 +9,11 @@
 ## 车机重启
 	a) ./adb.exe reboot
 ## 获得操作系统目录权限
+```
 ./adb.exe root
 ./adb.exe remount
 ./adb.exe shell #进入系统目录
+```
 ## 启动某个应用
 adb shell am start -n com.xxx.xwallpager/.view.xActivity
 ## Log
