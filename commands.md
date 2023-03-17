@@ -205,6 +205,9 @@ or sed 's/old_string/new_string/g'
 cat a.txt | sed 's/ //g'
 #get the first row of a csv or tsv file:
 cat ./myfile.tsv | awk '{print $1}'
+
+#get strings in binary file
+strings a.exe 
 ```
 # search sort
 ```
