@@ -206,8 +206,9 @@ cat a.txt | sed 's/ //g'
 #get the first row of a csv or tsv file:
 cat ./myfile.tsv | awk '{print $1}'
 
-#get strings in binary file
+#get strings in any file
 strings a.exe 
+strings ./001.txt --encoding={s,S}
 ```
 # search sort
 ```
