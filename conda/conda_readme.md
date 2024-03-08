@@ -1,4 +1,4 @@
-### ref [https://blog.csdn.net/SongyaoLee/article/details/132873034](https://blog.csdn.net/lx_ros/article/details/123597208)https://blog.csdn.net/lx_ros/article/details/123597208
+### ref https://blog.csdn.net/lx_ros/article/details/123597208
 
 # Conda使用指南
 1.Conda是什么？
