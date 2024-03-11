@@ -54,6 +54,15 @@ index-url = http://mirrors.aliyun.com/pypi/simple
 trusted-host = mirrors.aliyun.com
 ```
 
+OR
+
+```
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+pip config list
+
+```
+
 Install a known version:
 
 ```
