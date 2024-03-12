@@ -207,7 +207,7 @@ cat a.txt | sed 's/ //g'
 cat ./myfile.tsv | awk '{print $1}'
 
 #get strings in any files eg  text/binary files
-```
+
 strings a.exe 
 strings ./001.txt --encoding={s,S}   # get the unicode string
 strings ./001.txt --encoding={s,S} >  your_output_file  # | tee your_output_file 
