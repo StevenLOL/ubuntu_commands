@@ -214,7 +214,7 @@ strings ./001.txt --encoding={s,S} >  your_output_file  # | tee your_output_file
 
 ```
 
-```
+
 # search sort
 ```
 cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
