@@ -1,7 +1,37 @@
 
 # Introducation 
 
-# Install
+# QPDF Installation & PDF Decryption
+## Installation
+### Windows (via winget)
+
+powershell
+```
+winget install QPDF.QPDF
+```
+Restart your terminal after installation to refresh system PATH.
+
+### Ubuntu / Debian
+```
+sudo apt update && sudo apt install -y qpdf
+```
+
+### Remove PDF Print/Edit Restrictions
+Navigate to your PDF file directory first.
+```
+#Without document password
+qpdf --decrypt input.pdf output_unlocked.pdf
+
+
+#With known password
+qpdf --password=your_password --decrypt input.pdf output_unlocked.pdf
+```
+
+
+
+# PyPDF2 
+
+## Install
 
 https://pythonhosted.org/PyPDF2/
 ```
@@ -11,7 +41,7 @@ pip install pypdf2
 
 ```
 
-# Usage
+## Usage
 ```
 from PyPDF2 import PdfFileWriter, PdfFileReader
  
@@ -33,9 +63,9 @@ if __name__ == '__main__':
                  output_pdf='badadoencrypted.pdf',
                  password='badao')
 ```
-# Test
+## Test
 
 
-# Bug default encoding is not utf-8
+## Bug default encoding is not utf-8
 At line 238 /usr/local/lib/python3.8/dist-packages/PyPDF2/utils.py
 
