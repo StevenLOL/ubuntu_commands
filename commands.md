@@ -112,6 +112,10 @@ HISTCONTROL='ignoreboth'
 PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
 
 
+# 查看内核日志
+
+dmesg | tail -30
+
 ```  
 ## Send message to other users
 ```
@@ -424,6 +428,8 @@ sudo mount -o loop xxx.iso /media/xxxx
 ```
 # mount USB drive
 ```
+# 查看 USB 设备
+lsusb
 mount usb
 sudo fdisk -l
 sudo mkdir /media/external
