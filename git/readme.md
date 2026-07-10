@@ -106,3 +106,11 @@ svn checkout https://github.com/<YOUR_GITHUB>/jygame_ShanZhaiJiangHu_SiYeBan/tru
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all; git pull --all
 ```
 
+### if github is not accessible‌ ‌‌ 
+
+Try gitclone.com :
+```
+git clone https://github.com/wazuh/wazuh-docker.git
+
+git clone https://gitclone.com/github.com/wazuh/wazuh-docker.git
+```
