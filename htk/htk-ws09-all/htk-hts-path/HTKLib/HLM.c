@@ -579,7 +579,7 @@ static void ReadBoNGram(LModel *lm,char *fn)
 
    nglm=CreateBoNGram(lm,counts[1],counts);
    for (i=1;i<=nglm->nsize;i++) {
-      sprintf(syc,"\\%d-grams:",i);
+      snprintf(syc, sizeof(syc), "\\%d-grams:",i);
       SyncStr(buf,syc);
       ReadNGrams(nglm,i,nglm->counts[i], ngBin[i]);
    }
