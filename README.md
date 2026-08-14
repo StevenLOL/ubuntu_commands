@@ -42,8 +42,8 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Office & Media
 - [format_convert](format_convert/) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [google](google/googler.md)
 
-### Audio (音频处理)
-- [ffmpeg](audio/ffmpeg.md) · [sox](audio/sox/install_sox.md) · [elan](audio/elan/elan.md)
+### Media (多媒体 / 音频与音视频)
+- [ffmpeg](media/ffmpeg.md) · [sox](media/sox/install_sox.md) · [elan](media/elan/elan.txt) · [audacity](media/audacity.md) · [vlc](media/vlc.md)
 
 ### Misc
 - [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [unity3d](unity3d)
