@@ -17,7 +17,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [git](git/readme.md) · [git/github-hosts](git/github-hosts.md) · [git/gitlab-ce](git/gitlab-ce.md)
 
 ### Container & Virtualization
-- [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](system/RamDisk/README.md)
+- [docker](virtualization/docker/readme.md) · [lxc](virtualization/lxc/readme.md) · [vbox](virtualization/vbox/README.md) (incl. [sharefolder](virtualization/vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](system/RamDisk/README.md)
 
 ### Security (信息安全)
 - [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](cloud/vpn/openvpn.md) · [shadowsocks](cloud/vpn/shadowsocks.md) · [wireless](cloud/vpn/wireless.md)
