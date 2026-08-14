@@ -1,35 +1,50 @@
-```
-1. 升级
-# sudo apt update
-# sudo apt upgrade -y
-1
-2
-2. 安装编译Python源程序所需的包
-# sudo apt install build-essential -y
-# sudo apt install libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
-# sudo apt-get install -y gcc make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
-# sudo apt-get install zlib1g-dev
-1
-2
-3
-3. 下载Python3.7 源程序压缩包
-（或者直接在Python官网下载Linux安装包）
+# Build Python 3.7 from source on Ubuntu 20.04
 
-# wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz
-1
-4. 解压
-# tar -xzvf Python-3.7.8.tgz
-1
-5. 配置
-# cd Python-3.7.8
-# ./configure --enable-optimizations
-1
-2
-6. 编译和安装
-# sudo make
-# sudo make install
-1
-2
-7. 查看Python版本
-# python3
+## 1. What is it?
+
+A scripted recipe to compile and install Python 3.7.8 from source on Ubuntu 20.04 (useful when the distro only ships 3.8+).
+
+## 2. What is it for?
+
+- Getting a specific Python version not available via apt.
+- Building a self-contained `python3.7` alongside the system Python.
+
+## 3. How to download / install
+
+```bash
+# 1. update
+sudo apt update && sudo apt upgrade -y
+
+# 2. build dependencies
+sudo apt-get install -y gcc make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+  libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+
+# 3. fetch source
+wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz
+# (or download the Linux tarball from python.org directly)
+
+# 4. extract
+tar -xzvf Python-3.7.8.tgz
+
+# 5. configure
+cd Python-3.7.8
+./configure --enable-optimizations
+
+# 6. build & install
+sudo make
+sudo make install
 ```
+
+## 4. How to use
+
+```bash
+python3.7 --version
+```
+
+## 5. Pitfalls
+
+- **`make install` can overwrite `python3`** if you don't use `--enable-optimizations` + altinstall; safer is `sudo make altinstall` to keep `python3` pointing at the system version.
+- **`--enable-optimizations` is slow** (runs PGO); omit for a faster build.
+- **Missing `libssl-dev`** → no `ssl`/`pip` over HTTPS; install it before configure.
+- The original note had Chinese inline comments; this version keeps only the working commands.

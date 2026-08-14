@@ -1,7 +1,7 @@
 # Terminal Commands Cheatsheet
 
 > This is the main entry point. Full categorized notes live in `cheatsheet/`; tool-specific topics are in each subdirectory's `readme.md`.
-> Press `tab` for completion suggestions: `command` ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completion.
+> Press `Tab` for shell completion. Topic index: see [README.md](README.md).
 
 ## Categories
 

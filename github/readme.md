@@ -1,28 +1,52 @@
-# 国内无法访问 github 方案
-## 修改HOST
-## windows 工具 UsbEAm Hosts Editor
+# GitHub access from restricted networks (HOSTS fix)
 
-![image](https://github.com/<YOUR_GITHUB>/ubuntu_commands/assets/5893788/4eb95499-667c-41a9-b9f5-a99d790f7a74)
+## 1. What is it?
 
-下面是我的host
-···
-185.199.109.153 assets-cdn.github.com #UHE_
-185.199.109.154 github.githubassets.com #UHE_
-20.205.243.165 codeload.github.com #UHE_
-151.101.76.133 github-releases.githubusercontent.com #UHE_
-151.101.76.133 objects.githubusercontent.com #UHE_
-185.64.142.19 github.blog #UHE_
-20.27.177.116 api.github.com #UHE_
-20.207.73.82 gist.github.com #UHE_
-151.101.76.133 raw.githubusercontent.com #UHE_
-151.101.76.133 raw.github.com #UHE_
-151.101.76.133 camo.githubusercontent.com #UHE_
-151.101.76.133 cloud.githubusercontent.com #UHE_
-151.101.76.133 avatars.githubusercontent.com #UHE_
-151.101.76.133 avatars0.githubusercontent.com #UHE_
-151.101.76.133 avatars1.githubusercontent.com #UHE_
-151.101.76.133 avatars2.githubusercontent.com #UHE_
-151.101.76.133 avatars3.githubusercontent.com #UHE_
-151.101.76.133 user-images.githubusercontent.com #UHE_
-20.205.243.166 github.com #UHE_
-···
+When `github.com` is unreachable or images/assets fail to load (common on restricted networks), mapping GitHub's hostnames to current IPs in the system `hosts` file often restores access.
+
+## 2. What is it for?
+
+- Fixing "connection reset" / "image not showing up" issues for github.com and its asset CDNs.
+- A stop-gap when DNS resolution to GitHub is blocked or poisoned.
+
+## 3. How to download / install
+
+No software — you edit a text file.
+
+- **Linux/macOS**: `/etc/hosts` (edit with `sudo`).
+- **Windows**: `C:\Windows\System32\drivers\etc\hosts` (edit as Administrator).
+- **Windows GUI tool**: *UsbEAm Hosts Editor* can auto-fill these entries.
+
+## 4. How to use
+
+Append entries like the following (IPs change over time — verify current ones before use):
+
+```text
+185.199.109.153 assets-cdn.github.com
+185.199.109.154 github.githubassets.com
+20.205.243.165 codeload.github.com
+151.101.76.133 github-releases.githubusercontent.com
+151.101.76.133 objects.githubusercontent.com
+20.27.177.116 api.github.com
+20.207.73.82 gist.github.com
+151.101.76.133 raw.githubusercontent.com
+151.101.76.133 avatars.githubusercontent.com
+20.205.243.166 github.com
+```
+
+Save and flush DNS (`ipconfig /flushdns` on Windows, or just reopen the browser).
+
+Minimal version (from `github_image_not_show_up.md`):
+```text
+140.82.114.4    github.com
+140.82.114.3    github.com
+140.82.112.3    github.com
+199.232.96.133 raw.githubusercontent.com
+```
+
+## 5. Pitfalls
+
+- **IPs go stale fast** — GitHub rotates CDN IPs; an entry that works today may break next week. Treat as temporary.
+- **Wrong entries break more than they fix** — a bad mapping can block access entirely; comment out lines to debug.
+- **Not a real proxy/VPN** — hosts edits don't bypass IP-level blocking; if GitHub is fully blocked, use a mirror (`gitclone.com`) or a proxy.
+- **Prefer the system resolver** when it works; only fall back to hosts when needed.

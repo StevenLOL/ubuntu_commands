@@ -1,13 +1,29 @@
+# Lightweight Linux distros for old computers
 
+## 1. What is it?
 
-### **MX Linux**
-*   **Purpose:** To provide a highly stable, elegant, and efficient desktop operating system that offers a perfect balance of high performance and user-friendly features for both new and experienced Linux users.
-*   **Introduction:** MX Linux is a cooperative venture between the antiX and MX Linux communities. Based on Debian Stable, it utilizes the Xfce desktop environment as its flagship edition. It is widely praised for its excellent hardware detection, low resource consumption, and a comprehensive suite of custom-built "MX Tools" that simplify system management, backup, and troubleshooting.
-*   **Official Website:** [https://mxlinux.org/](https://mxlinux.org/)
+Two Debian-based, systemd-free distros built to run well on aging / low-RAM hardware:
 
-### **antiX Linux**
-*   **Purpose:** To deliver an extremely lightweight, fast, and fully functional operating system specifically designed to breathe new life into older computers and low-resource hardware.
-*   **Introduction:** antiX is an independent, Debian-based Linux distribution that is completely free of systemd. It is renowned for its minimal footprint, capable of running smoothly on as little as 256MB of RAM. By utilizing lightweight window managers (like IceWM or JWM) instead of heavy desktop environments, antiX maximizes system resources and provides a highly responsive experience on aging 32-bit or 64-bit machines.
-*   **Official Website:** [https://antixlinux.com/](https://antixlinux.com/)
+- **MX Linux** — stable, polished Xfce desktop with a rich "MX Tools" suite; good balance of performance and usability.
+  Site: https://mxlinux.org/
+- **antiX Linux** — extremely lightweight (runs on ~256 MB RAM), no systemd, uses IceWM/JWM window managers; revives very old machines.
+  Site: https://antixlinux.com/
 
+## 2. What is it for?
 
+- Giving old laptops/desktops a second life with a fast, responsive OS.
+- A low-overhead environment when you don't need a heavy desktop (GNOME/KDE).
+
+## 3. How to download / install
+
+Download the ISO from the official sites above, flash to a USB stick (e.g. `dd` or BalenaEtcher), and boot the installer. Both offer a live-USB that you can try before installing.
+
+## 4. How to use
+
+Boot the live medium, then run the included installer (MX has "MX Live USB Maker" / antiX has its installer). Use the MX Tools / control-center applets for updates, backups, and package management.
+
+## 5. Pitfalls
+
+- **32-bit support**: antiX still ships 32-bit images; MX's 32-bit edition was discontinued for newer releases — check before putting it on very old hardware.
+- **No systemd**: some tutorials assume `systemctl`; use the distro's `sysVinit`/service tools instead.
+- **Hardware quirks**: very old Wi-Fi/Broadcom chips may need extra firmware packages.

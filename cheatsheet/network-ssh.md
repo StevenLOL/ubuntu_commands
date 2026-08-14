@@ -1,54 +1,53 @@
-# 网络�?SSH / Network & SSH
+# Network & SSH cheatsheet
+
+Quick reference for SSH, network scanning, load testing, parallel commands, job queues, and text-mode browsers.
 
 ## SSH
 ```
 ssh <USER>@<SERVER_IP>
-ssh -l 23 <USER>@<SERVER_IP>
+ssh -l 23 <USER>@<SERVER_IP>      # login via port 23
 ```
 
-## Ping / 扫描网内主机
+## Ping / scan hosts on the LAN
 ```
 for x in {11..255};do ssh <SERVER_IP_PREFIX>.$x; done;
-
-# scan host in the network:
+# scan hosts:
 arp
-sudo nmap -sn <PRIVATE_SUBNET> > readme.txt
-avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
+sudo nmap -sn <SERVER_IP>/24 > readme.txt
+avahi-browse -a -v -r -t -d local   # sudo apt-get install avahi-discover
 ```
 
-## Apache ab 压力测试
+## Apache ab load test
 ```
 apt-get install apache2-utils
 ab -n 10000 -c 100 https://www.baidu.com/
 ```
 
-## 多线�?/ 同时跑两条命�?
+## Run commands in parallel
 ```
 some_commands &
-with wait
+# with wait:
 a&
 b&
 wait
 
-lspci | grep Intel    # two comands at same time |
+lspci | grep Intel    # pipe two commands at once
 ```
 
-## 队列 / work with queue
+## Work with a job queue (SGE)
 ```
-check queue state
-qstat -u "*"
+qstat -u "*"          # check queue state
 qdel job-ID
 qsub hello_world.sh &
 ```
 
-## 打开网页 / open webpage
+## Open a webpage from the terminal
 ```
-#open webpage from ternimal
 links www.zaobao.com
 lynx
 w3m
-# As far as I know, these browsers do not support programmed reloading, however it can easily be accomplished by using a terminal multiplexer like tmux. For example if you start the browser in one terminal like this:
+# These text browsers don't support programmed reloading by themselves; use a multiplexer like tmux:
 tmux new-session -s browse 'w3m google.com'
-# Then you can send commands to it from another terminal with the send-keys command. So to make w3m reload the current page do this:
+# then send keys from another terminal, e.g. reload:
 tmux send-keys -t browse R
 ```

@@ -1,42 +1,51 @@
-# 1. 查看可用发行版
-wsl --list --online
+# WSL2 (Windows Subsystem for Linux)
 
-# 2. 安装 Ubuntu（推荐）
-wsl --install -d Ubuntu-22.04
+## 1. What is it?
 
-# 3. 运行 Ubuntu
-wsl-d Ubuntu-22.04
-## 以指定定用户名
-wsl-d Ubuntu-22.04 -u <USER>
-# 4. 关闭 Ubuntu
-wsl --shutdown
-# 5. 设置网络
+WSL2 runs a real Linux kernel inside Windows 10/11. This note covers installing Ubuntu on WSL2 and putting it in **mirrored network mode** so it shares the Windows IP (acts like a bridged adapter).
 
-WSL2 默认是 NAT 模式，和 Windows 不在同一网段。要实现"桥接"效果（同一局域网、同网段 IP），可以用镜像模式（最推荐，Windows 11 22H2+）这是微软现在官方推荐的方式，效果等同于桥接——WSL2 和 Windows 共享同一个 IP，局域网其他设备可以直接访问 WSL 里的服务。
+## 2. What is it for?
 
-## Step 1：创建/编辑 .wslconfig
-powershell
+- Running Ubuntu (bash, apt, Docker, dev tools) directly on Windows.
+- Making WSL2 services reachable from the LAN (same IP segment as Windows).
+
+## 3. How to download / install
+
+In PowerShell (Admin):
+```powershell
+wsl --list --online                 # see available distros
+wsl --install -d Ubuntu-22.04       # install Ubuntu
+wsl -d Ubuntu-22.04                 # run it
+wsl -d Ubuntu-22.04 -u <USER>       # run as a specific user
+wsl --shutdown                      # stop WSL
 ```
-notepad "$env:USERPROFILE\.wslconfig"
-```
-## Step 2：写入以下内容：
-```
-ini
-[wsl2]
-networkingMode=mirrored
-dnsTunneling=true
-firewall=true
-autoProxy=true
-```
-## Step 3：重启 WSL
-powershell
-```
-wsl --shutdown
-wsl
-```
-## 验证：
-bash
-```
-# 在 WSL 里查看 IP，应该和 Windows 主机同一个网段
-ip addr
-```
+
+## 4. How to use
+
+**Mirrored networking (recommended, Win 11 22H2+):** WSL2 defaults to NAT; mirrored mode makes WSL share Windows's IP so LAN devices reach WSL services directly.
+
+1. Edit/create `.wslconfig` in your Windows user profile:
+   ```powershell
+   notepad "$env:USERPROFILE\.wslconfig"
+   ```
+2. Write:
+   ```ini
+   [wsl2]
+   networkingMode=mirrored
+   dnsTunneling=true
+   firewall=true
+   autoProxy=true
+   ```
+3. Restart:
+   ```powershell
+   wsl --shutdown
+   wsl
+   ```
+4. Verify inside WSL: `ip addr` should show an IP on the same segment as Windows.
+
+## 5. Pitfalls
+
+- **Mirrored mode needs Windows 11 22H2+**; on older builds use `networkingMode=bridged` with a vEthernet bridge, or accept NAT.
+- **`.wslconfig` lives in the Windows profile**, not in WSL's filesystem.
+- **`wsl-d` typo**: the correct flag is `wsl -d` (space), not `wsl-d`.
+- After changing `.wslconfig` you must `wsl --shutdown` (not just restart) for it to apply.

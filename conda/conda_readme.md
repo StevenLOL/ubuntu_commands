@@ -1,125 +1,92 @@
-### ref https://blog.csdn.net/lx_ros/article/details/123597208
+# Conda (package & environment manager)
 
-# Conda使用指南
-1.Conda是什么？
-2.管理Conda
-3.使用conda实现环境管理
-4.包管理
-5.配置管理
+> Ref: https://blog.csdn.net/lx_ros/article/details/123597208
 
-# 1.Conda是什么？
+## 1. What is it?
 
-Conda是Anaconda中的一个开源的包和环境管理工具，可以在终端窗口通过命令行使用，也可以在Anaconda Navigator中通过图形化界面使用,对编程创建独立的环境和包管理，最初是为Python语言开发，现在已不限制语言，支持Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN等。
+Conda is an open-source package and environment manager, shipped with Anaconda/Miniconda. It runs from the command line (or the Anaconda Navigator GUI) and creates isolated environments. Originally for Python, it now manages packages for R, Ruby, Lua, Scala, Java, JavaScript, C/C++, FORTRAN, etc.
 
-# 2.管理Conda
-查看版本
-···
+## 2. What is it for?
+
+- Isolating project dependencies in separate environments.
+- Installing, upgrading, and removing packages without touching the system Python.
+- Reproducing environments via `environment.yml`.
+
+## 3. How to download / install
+
+```bash
+# Miniconda (recommended, lightweight)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# or full Anaconda
+wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
+bash Anaconda3-latest-Linux-x86_64.sh
+```
+
+Restart the shell, then verify:
+
+```bash
 conda --version
-···
+```
 
-更新至最新版本
+## 4. How to use
+
+### Manage Conda itself
+```bash
+conda --version
 conda update conda
-
-更新anaconda
 conda update anaconda
+```
 
-# 3.使用conda实现环境管理
-默认创建base环境
+### Environment management
+```bash
+conda create --name your-env                  # create empty env
+conda create --name snakes python=3.5         # create with a package + version
+conda activate your-env                       # activate
+conda deactivate                              # deactivate
+conda info --envs                             # list environments
+conda remove --name ENVNAME --all             # delete an env
+conda create --clone ENVNAME --name NEWENV    # clone
 
-创建环境
-conda create --name your-env
-
-创建环境并同时安装指定包
-conda create --name your-env your-pkg
-conda create --name snakes python=3.5
-
-
-激活环境
-conda activate your-env
-
-取消激活环境
-conda deactivate
-
-查看已经创建的环境
-conda info --envs
-
-完整的删除一个环境
-conda remove --name ENVNAME --all
-
-复制1个环境
-conda create --clone ENVNAME --name NEWENV
-
-将环境导出到yaml文件，用于创建新的环境
+# export / recreate
 conda env export --name ENVNAME > envname.yml
-conda env create -f=/path/to/environment.yml -n your-env-name
+conda env create -f envname.yml -n your-env-name
 
-
-查看某个环境的修订版
+# revisions
 conda list --revisions
-
-将一个环境恢复到指定版本
 conda list --name ENVNAME --revisions
-conda install --name ENVNAME --revision
-REV_NUMBER
+conda install --name ENVNAME --revision REV_NUMBER
+```
 
-
-# 4.包管理
-查看一个未安装的包在Anaconda库中是否存在
+### Package management
+```bash
 conda search pkg-name
-
-安装一个包
 conda install pkg-name
-
-查看刚安装的包是否存在
-conda list
-
-查看某个环境下的包
+conda list                                     # list installed (current env)
 conda list --name ENVNAME
-
-将当前环境下包的列表导出指定文件，用于创建新的环境
-conda create --name NEWENV --file pkgs.txt
-
-更新某个环境下的所有包
+conda create --name NEWENV --file pkgs.txt     # create env from a pkg list
 conda update --all --name ENVNAME
-
-删除某个环境下的包
 conda uninstall PKGNAME --name ENVNAME
-
-一次安装多个包
 conda install --yes PKG1 PKG2
 
-安装指定版本的包
-# 在当前通道查找大于3.1.0小于3.2的包
-conda search PKGNAME=3.1 "PKGNAME
-[version='>=3.1.0,<3.2']"
-# 使用ananconda 客户端，在所有通道下模糊查找某个包
-anaconda search FUZZYNAME
-# 从指定通道中安装某个包
-conda install conda-forge::PKGNAME
-# 安装指定版本的包
+# version pinning
 conda install PKGNAME==3.1.4
-# 限定包的版本范围
 conda install "PKGNAME[version='3.1.2|3.1.4']"
 conda install "PKGNAME>2.5,<3.2"
+conda install conda-forge::PKGNAME             # install from a channel
+```
 
-# 5.配置管理
-conda使用的源管理，查看
+### Configuration (channels / mirrors)
+```bash
 conda config --show channels
-
-增加源，解决下载慢的问题
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-
-移除源
 conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda clean -i                                 # clear index cache
+```
 
-清除索引缓存
-conda clean -i
-
-常用源
-默认源：
-https://repo.anaconda.com/
-
-清华源：
+A common Tsinghua `.condarc`:
+```yaml
 channels:
   - defaults
 show_channel_urls: true
@@ -130,49 +97,17 @@ default_channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
 custom_channels:
   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
 
+`.condarc` search order (Linux): `~/.condarc`, `$CONDA_PREFIX/.condarc`, `$CONDARC`, `/etc/conda/.condarc`, etc.
 
+## 5. Pitfalls
 
-使用yaml形式的配置文件.condarc
-
-
-.condarc文件通常在这些目录下：
-支持的配置见手册
-if on_win:
- SEARCH_PATH = (
-     'C:/ProgramData/conda/.condarc',
-     'C:/ProgramData/conda/condarc',
-     'C:/ProgramData/conda/condarc.d',
- )
- else:
- SEARCH_PATH = (
-     '/etc/conda/.condarc',
-     '/etc/conda/condarc',
-     '/etc/conda/condarc.d/',
-     '/var/lib/conda/.condarc',
-     '/var/lib/conda/condarc',
-     '/var/lib/conda/condarc.d/',
-  )
-
- SEARCH_PATH += (
-     '$CONDA_ROOT/.condarc',
-     '$CONDA_ROOT/condarc',
-     '$CONDA_ROOT/condarc.d/',
-     '~/.conda/.condarc',
-     '~/.conda/condarc',
-     '~/.conda/condarc.d/',
-     '~/.condarc',
-     '$CONDA_PREFIX/.condarc',
-     '$CONDA_PREFIX/condarc',
-     '$CONDA_PREFIX/condarc.d/',
-     '$CONDARC',
- )
-
+- **`conda activate` fails**: run `source <conda_root>/etc/profile.d/conda.sh` first, or open a new login shell.
+- **Mixing pip and conda**: prefer `conda install`; if you must `pip install`, do it inside an activated env and expect possible conflicts.
+- **Channel priority**: too many mirrored channels can cause solver slowdown; keep the list short.
+- **`base` auto-activate**: disable with `conda config --set auto_activate_base false` if annoying.
+- **Version spec syntax**: `PKGNAME==3.1.4` (exact) vs `PKGNAME=3.1` (search/build string) are different.

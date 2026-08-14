@@ -1,41 +1,49 @@
-download vbox from website
-1)vbox
-2)extention pack
+# VirtualBox (desktop virtualization)
 
+## 1. What is it?
 
+VirtualBox is Oracle's free, cross-platform desktop hypervisor for running guest OSes (Windows, Linux, Android-x86, ...) inside Ubuntu.
 
-http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html#vbox
+## 2. What is it for?
 
+- Running another OS alongside Ubuntu without dual-booting.
+- A fast Android-x86 emulator for app development/testing (much quicker than the ARM emulator).
 
+## 3. How to download / install
 
-sudo usermod -aG vboxusers yourusername #logout
+Download the installer + **Extension Pack** from:
+https://www.virtualbox.org/wiki/Downloads
 
+Then add your user to the `vboxusers` group (so USB/devices work):
+```bash
+sudo usermod -aG vboxusers yourusername     # then log out/in
+```
 
-Intalling the amazingly fast Android x86 emulator
-Here's how I installed Android x86 on VirtualBox and use it for Android development:
-1. Download an image of Android x86. For example, android-x86-4.0-RC1-eeepc.iso.
-2. Download and install VirtualBox.
-3. Create a new virtual machine, choose Linux 2.6, 512MB RAM, 2GB HD, Network: PCnet-FAST III, attached to Bridged Adapter.
-4. Install Android and start it.
-5. On the virtual device, switch to Alt-F1 and set up the network:
-$dhcpcd eth0
-$setprop net.dns1 <ROUTER_IP> <--your router IP
-$netcfg <--notice the IP address
-6. Switch to Alt-F7 and test the network. It should work now.
-7. On the host computer, connect to the device:
-$adb connect <your device IP address>
-7. In Eclipse, go "Run Configurations..." > Target. Choose "Manual" mode, and select the device when you hit run.
+(Optionally rebuild kernel modules after a kernel upgrade: `sudo /etc/init.d/vboxdrv setup`.)
 
-Hopefully everything works. Expect a speed boost of 10000% on the deploying and testing phase (so you won't have to wait that long to run a test). Done.
+## 4. How to use
 
-sudo /etc/init.d/vboxdrv setup
+**Android-x86 as a fast emulator:**
+1. Download an Android-x86 ISO (e.g. `android-x86-4.0-RC1-eeepc.iso`) and install VirtualBox.
+2. New VM: Linux 2.6, 512 MB RAM, 2 GB disk, Network = `PCnet-FAST III` (Bridged Adapter).
+3. Install Android and start it.
+4. In the VM: `Alt-F1` → `dhcpcd eth0` → `setprop net.dns1 <ROUTER_IP>` → `netcfg` (note the IP). `Alt-F7` to return to the UI.
+5. On the host: `adb connect <VM_IP>` to talk to the Android VM.
+6. In Eclipse, set the Run target to "Manual" and pick the device.
 
-
-
-
-
-su <-goto super user mode
+**Networking a guest (manual):**
+```bash
+su
 netcfg eth0 dhcp
 echo nameserver <ip> > /etc/resolv.conf
-dnsmasq 
+dnsmasq
 setprop net.dns1 8.8.8.8
+```
+
+## 5. Pitfalls
+
+- **`vboxusers` group needs a re-login** to take effect.
+- **Kernel upgrades break modules**: run `sudo /etc/init.d/vboxdrv setup` after a kernel update, or install the DKMS package so it rebuilds automatically.
+- **Bridged networking** requires the host interface to be up; NAT is simpler for basic internet access.
+- **Android-x86 version must match** the ISO you downloaded; old RC images are dated.
+- The original note mixed in Android adb steps — keep host (`adb connect`) and guest (`dhcpcd`) commands on the right side.

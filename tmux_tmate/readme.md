@@ -1,79 +1,78 @@
+# tmux & tmate (terminal multiplexers)
 
-#Tmux
+## 1. What is it?
+
+- **tmux**: a terminal multiplexer — keep multiple sessions/windows alive after you disconnect (great for long server jobs).
+- **tmate**: a fork of tmux that shares your session over SSH so others can join remotely (pairing / remote support).
+
+## 2. What is it for?
+
+- Persistent shell sessions on a server (detach, reconnect later).
+- Sharing a terminal session with a collaborator via a public tmate server (or your own).
+
+## 3. How to download / install
+
+**tmux:**
+```bash
+sudo apt-get install tmux
 ```
-      tmux
-      tmux list-sessions
-      tmux attach-session -t #
-      #enable mouse model: in ~/.tmux.conf
-      setw -g mode-mouse on
-      or setw -g mouse on
-      then tmux source-file ~/.tmux.conf
-      #when in tmux
-      #switch and list tmux session
-      ctrl-b s
-      #detach session
-      ctrl-b d
-```      
-      
-      
-#Tmate
-```
-sudo apt-get install software-properties-common && \
-sudo add-apt-repository ppa:tmate.io/archive    && \
-sudo apt-get update                             && \
+
+**tmate:**
+```bash
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:tmate.io/archive
+sudo apt-get update
 sudo apt-get install tmate
 ```
-show log/message again:
 
-press prefix + ~ to list all previous tmux/tmate messages
-press prefix + : to get tmux prompt. Then type show-messages command to get the same results as in 1).
+## 4. How to use
 
-prefix+b then pagedown/pageup
-
-
-##Attach tmate session from loacal:
-```
-tmate -S /tmp/tmate-1002/x9fOaz attach
-```
-
-#Build your own tmate server
-
-##[Server](https://tmate.io/)
+### tmux basics
+```bash
+tmux                                  # new session
+tmux list-sessions                   # list
+tmux attach-session -t <id>           # re-attach
+# inside tmux:
+#   Ctrl-b s   -> switch/list sessions
+#   Ctrl-b d   -> detach
 ```
 
-#clone from source and build
+Enable mouse mode in `~/.tmux.conf`:
+```text
+setw -g mouse on
+```
+then `tmux source-file ~/.tmux.conf`.
+
+View past messages: prefix (`Ctrl-b`) + `~` to list messages, or `Ctrl-b :` then `show-messages`. Scroll: prefix + `PageUp`/`PageDown`.
+
+### tmate
+```bash
+tmate                                 # prints a shareable SSH/Web URL
+tmate -S /tmp/tmate-1002/x9fOaz attach   # attach an existing tmate session
+```
+
+### Build your own tmate server
+```bash
 git clone https://github.com/tmate-io/tmate-slave.git && cd tmate-slave
-./create_keys.sh # This will generate SSH keys, remember the keys fingerprints,in the ./keys folder
+./create_keys.sh                      # generates keys in ./keys; note the fingerprints
 ./autogen.sh && ./configure && make
-sudo ./tmate-slave    #this load the keys from ./keys folder
-#if on 14.04 one need to install libssh-0.7.x via:
-sudo add-apt-repository ppa:kedazo/libssh-0.7.x
-sudo apt-get update
-sudo apt-get install libssh-gcrypt-dev libmsgpack-dev
-
-sudo  ./tmate-slave -b 105.159.14.17 -h My.name.shown.on.client  -k ./keys/  -p 30013 
-
+sudo ./tmate-slave -b <SERVER_IP> -h "MyServer" -k ./keys/ -p 30013
 ```
-##Client
-One have to configure ~/.tmat.conf
-```
-#default setting 
+Client `~/.tmat.conf`:
+```text
 set -g tmate-server-host "ssh.tmate.io"
 set -g tmate-server-port 22
 set -g tmate-server-rsa-fingerprint   "af:2d:81:c1:fe:49:70:2d:7f:09:a9:d7:4b:32:e3:be"
 set -g tmate-server-ecdsa-fingerprint "c7:a1:51:36:d2:bb:35:4b:0a:1a:c0:43:97:74:ea:42"
-set -g tmate-identity ""              # Can be specified to use a different SSH key.
-
-```
-###[How do I find my RSA key fingerprint?](http://stackoverflow.com/questions/9607295/how-do-i-find-my-rsa-key-fingerprint)
-```
-ssh-keygen -lf ./keys/ssh_host_rsa_key.pub
 ```
 
-###[tmate] Error connecting: kex error : no match for method server host key algo: server [ssh-dss,ssh-rsa], client [ecdsa-sha2-nistp256] 
+Find your RSA fingerprint: `ssh-keygen -lf ./keys/ssh_host_rsa_key.pub`.
 
-Then [cleanup your known_hosts file](https://hackweek.suse.com/14/projects/1054)
+## 5. Pitfalls
 
-
-
-
+- **Typo fixes vs original**: it's `tmux`, not `tmux_tmate`; `setw -g mouse on` (not the deprecated `mode-mouse`).
+- **`tmate.io/archive` PPA may be stale**; on modern Ubuntu, install `tmate` from the main repos if available.
+- **`tmate-server-rsa-fingerprint` mismatch** → "kex error: no match for method" — clean `~/.ssh/known_hosts` and re-check the fingerprint with `ssh-keygen -lf`.
+- **Old libssh (0.7.x) on 14.04**: the `kedazo/libssh-0.7.x` PPA is dead; the current tmate builds against modern libssh.
+- **tmate shares your terminal** — only share with people you trust; the public server exposes a live shell URL.
+- Refs: tmate.io · stackoverflow RSA fingerprint question.

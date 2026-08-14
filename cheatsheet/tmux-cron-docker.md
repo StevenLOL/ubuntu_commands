@@ -1,42 +1,42 @@
-# 终端复用 / 定时 / 容器 / tmux-cron-docker
+# tmux / cron / Docker startup cheatsheet
 
-## 从远程分离终端 / detach terminal from remote
+Quick reference for keeping long tasks alive (nohup/tmux), scheduling (cron), starting tasks at boot, and an example Docker auto-start.
+
+## Detach a terminal from a remote (survive broken pipe)
 ```
-#a ssh to a server, the connection may fail if task run for hours, error: broken pipe
-# solution: use nohup or tmux once login via ssh
+# an ssh task that runs for hours can die with "broken pipe"; use nohup or tmux:
 aaron@localpc$ ssh root@remoteserver
 root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
 nohup ./local/run_dnn.sh </dev/null &
-nohup some_command > nohup2.out&
+nohup some_command > nohup2.out &
 tmux
 tmux list-sessions
 tmux attach-session -t #
-#enable mouse model: in ~/.tmux.conf
-setw -g mode-mouse on
-or setw -g mouse on
-then tmux source-file ~/.tmux.conf
-#when in tmux
-ctrl-b s    #switch and list tmux session
-ctrl-b d    #detach session
+# enable mouse mode in ~/.tmux.conf:
+setw -g mouse on
+tmux source-file ~/.tmux.conf
+# inside tmux:
+ctrl-b s    # switch / list sessions
+ctrl-b d    # detach session
 ```
 
-## 定时任务 / run task at time interval
+## Run a task on a schedule (cron)
 ```
 crontab -e
 01 * * * * python <YOUR_HOME>/Dropbox/workspace/python_lib/utli/remote_script/<HOSTNAME>loop.py
 ```
 
-## 开机启动 / run task during system startup
+## Run a task at system startup
 ```
 sudo nano /etc/rc.local
 # REF: http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup
 cp myscript.sh /etc/init.d/
 sudo update-rc.d myscript.sh defaults 90
-#to remove
+# to remove:
 sudo update-rc.d -f myscript.sh remove
 ```
 
-## 开机启动 Docker 示例 / example: start a docker image during startup
+## Example: start a Docker image at startup
 ```
 sudo cat /etc/init.d/runserver.sh
 ```
@@ -49,7 +49,7 @@ sudo cat <YOUR_HOME>/face_release/runme.indocker.sh
 ```
 ```bash
 #!/bin/bash
-export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:/usr/sbin/:/usr/local/sbin:/usr/local/cuda/bin:$PATH
+export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/cuda/bin:$PATH
 export PYTHONIOENCODING=utf-8
 export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/
 export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/

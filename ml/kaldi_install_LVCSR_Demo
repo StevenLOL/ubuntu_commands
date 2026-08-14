@@ -1,18 +1,31 @@
+# Kaldi LVCSR demo install
+
+## 1. What is it?
+
+A step-by-step installer script for the Kaldi **LVCSR (Large Vocabulary Continuous Speech Recognition)** demo, pulling the code from Bitbucket/GitHub + SVN and building the online (PortAudio) binaries.
+
+## 2. What is it for?
+
+- Reproducing a working Kaldi speech-recognition demo on a fresh Ubuntu box.
+- Setting up the online recognition binaries (`src/online`) used for live mic input.
+
+## 3. How to download / install
+
+```bash
 echo 1. Register a user with Bitbucket (using my invitation email)
-echo 2. Install git on your Linux, if it's Ubuntu: 
-echo sudo apt-get install git
-echo 3. Clone from the repository: 
+echo 2. Install git on your Linux, if it's Ubuntu:
+sudo apt-get install git
+echo 3. Clone from the repository:
 sudo apt-get install libblas-dev
 sudo apt-get install libalsa
 sudo apt-get install python-dev
 sudo git clone https://<USER>@bitbucket.org/pckben/lvcsr_demo.git ./lvcsr_demo
-
-password=123456
+# password=123456  (set your own)
 sudo chmod 777 ./lvcsr_demo -R
 
-echo 4 install automake
-echo sudo apt-get install automake
-echo sudo apt-get install subversion
+echo 4 install automake / subversion
+sudo apt-get install automake
+sudo apt-get install subversion
 svn co https://svn.code.sf.net/p/kaldi/code/trunk ./kaldi-trunk
 cd kaldi-trunk
 cd tools
@@ -20,18 +33,29 @@ make -j 4
 ./install_portaudio.sh
 cd ../src
 ./configure
-#make clean #if already build
+# make clean  # if already built
 make depend
 make
 cd ../src/online
 make
+```
 
-echo read install in kaldi and model from haihua or ben
-
+Then fetch the model data and link OpenFST:
+```bash
 scp -r <USER>@<SERVER_IP>:~/lvcsr_demo_data <path/to/destination>
-
-username: <USER>
-password: <YOUR_PASSWORD>
-
+# username: <USER>  password: <YOUR_PASSWORD>
 cd /lib
 sudo ln -s <YOUR_HOME>/kaldi-trunk/tools/openfst/lib/libfst.so.0.0.0 libfst.so.0
+```
+
+## 4. How to use
+
+After building, run the demo using the model data you copied; the `online` binaries enable mic-based recognition.
+
+## 5. Pitfalls
+
+- **Replace placeholders**: `<USER>`, `<SERVER_IP>`, `<YOUR_HOME>`, `<YOUR_PASSWORD>` are templates — fill them in.
+- **`chmod 777 -R` is risky** — it makes everything world-writable; prefer correct ownership instead.
+- **OpenFST symlink**: the `libfst.so.0` link is required or Kaldi binaries fail to load; point it at your real OpenFST build.
+- **PortAudio** must be installed (`install_portaudio.sh`) before building `src/online`.
+- Prefer the GitHub Kaldi mirror over the old SVN/Bitbucket sources, which may be gone.

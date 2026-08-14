@@ -1,3 +1,20 @@
+# ~/.theanorc (Theano GPU config)
+
+## 1. What is it?
+
+A sample `~/.theanorc` telling Theano to use the GPU via CUDA.
+
+## 2. What is it for?
+
+- Configuring Theano's default device (`gpu0`), float precision, and CUDA root without env vars.
+
+## 3. How to download / install
+
+Place this content in `~/.theanorc` (adjust `root` to your CUDA path).
+
+## 4. How to use
+
+```ini
 [global]
 floatX = float32
 device = gpu0
@@ -5,5 +22,12 @@ device = gpu0
 [nvcc]
 fastmath = True
 
-[cuda] 
+[cuda]
 root = /usr/local/cuda
+```
+
+## 5. Pitfalls
+
+- **`device = gpu0`** vs `[global] device = gpu` — use the syntax your Theano version expects (`gpu0` for older, `gpu` for newer).
+- **`root` must point at your CUDA install** (`/usr/local/cuda` or `/usr/local/cuda-6.5`).
+- This config is only valid for legacy Theano; it has no effect on PyTorch/TensorFlow.

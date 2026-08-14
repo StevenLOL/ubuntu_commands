@@ -1,9 +1,9 @@
-# 开发环境配置 / Dev Config Files
+# Dev environment config files (examples)
 
-## ~/.bashrc
+A collection of dotfile snippets for a DL/speech dev box: PATH setup, Java/CUDA/Spark/Hadoop env, Theano/Makefile/pip/tmux configs. Copy what you need into your own dotfiles. Replace `<YOUR_HOME>` with your real home path.
+
+## ~/.bashrc (PATH + env)
 ```
-~/.profile or ~/.bashrc
-
 PATH=<YOUR_HOME>/apps/getmfcc/utils:$PATH
 PATH=<YOUR_HOME>/kaldi-trunk/src/utils:$PATH
 PATH=<YOUR_HOME>/kaldi-trunk/src/bin:$PATH
@@ -30,8 +30,7 @@ export CUDA_HOME=/usr/local/cuda
 export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/
 export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/
 export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"
-#allow to pipe a python output to a file in 'utf-8'
-#http://stackoverflow.com/questions/13481582/pipe-output-of-python-script
+# allow piping python output to a file in utf-8 (http://stackoverflow.com/questions/13481582)
 export PYTHONIOENCODING=utf-8
 ```
 
@@ -40,26 +39,15 @@ export PYTHONIOENCODING=utf-8
 export GREP_OPTIONS=--color=auto
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/usr/lib64/:$LD_LIBRARY_PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_101
-export JRE_HOME=${JAVA_HOME}/jre
+export JRE_HOME=${JAVA_HOME}/re
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
-PS1="`whoami`@`hostname`:"'[$PWD]'
+PS1="`whoami`@`hostname`:"'$PWD]'
 history
 USER_IP=`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'`
-if [ "$USER_IP" = "" ]
-then
-    USER_IP=`hostname`
-fi
-if [ ! -d /tmp/dbasky ]
-then
-    mkdir /tmp/dbasky
-    chmod 777 /tmp/dbasky
-fi
-if [ ! -d /tmp/dbasky/${LOGNAME} ]
-then
-    mkdir /tmp/dbasky/${LOGNAME}
-    chmod 300 /tmp/dbasky/${LOGNAME}
-fi
+if [ "$USER_IP" = "" ]; then USER_IP=`hostname`; fi
+if [ ! -d /tmp/dbasky ]; then mkdir /tmp/dbasky; chmod 777 /tmp/dbasky; fi
+if [ ! -d /tmp/dbasky/${LOGNAME} ]; then mkdir /tmp/dbasky/${LOGNAME}; chmod 300 /tmp/dbasky/${LOGNAME}; fi
 export HISTSIZE=4096
 DT=`date "+%Y-%m-%d_%H:%M:%S"`
 export HISTFILE="/tmp/dbasky/${LOGNAME}/${USER_IP} dbasky.$DT"
@@ -88,6 +76,7 @@ algo_bwd_filter = time_once
 download_cache = /data/.cache/pip
 index-url = https://pypi.douban.com/simple
 ```
+> Note: Douban mirror is retired; use `https://pypi.tuna.tsinghua.edu.cn/simple` instead.
 
 ## ~/.tmux.conf
 ```
@@ -96,7 +85,7 @@ setw -g mouse on
 
 ## ~/.tmat.conf
 ```
-#more in folder tmux_tmate
+# more in folder tmux_tmate
 set -g tmate-server-host "x.x.x.x"
 set -g tmate-server-port your port
 set -g tmate-server-rsa-fingerprint   "x...xxx.x.x.x"

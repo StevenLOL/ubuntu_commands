@@ -1,57 +1,62 @@
+# GitLab CE (self-hosted Git server)
 
+## 1. What is it?
 
-#install
-```
-sudo apt install curl openssh-server ca-certificates 
-#install postfix in internet mode
-sudo apt-get install postfix
+GitLab Community Edition (CE) is a self-hosted Git platform (like a private GitHub) with repos, CI, issues, and a web UI. Installed via the Omnibus package.
 
-#check the gitlab for you os
+## 2. What is it for?
+
+- Hosting private Git repositories on your own server.
+- Team collaboration with merge requests, CI runners, and container registry.
+
+## 3. How to download / install
+
+```bash
+sudo apt install curl openssh-server ca-certificates postfix   # postfix in "Internet" mode
 curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
-#install gitlab, it will take some time to complete
 sudo apt-get install gitlab-ce
-
 ```
 
-#init or reconfigure if you had made some changes
-```
+Then apply config and start:
+```bash
 sudo gitlab-ctl reconfigure
 ```
-then using the ip to access your machine from browser and reset your password
+Open the server IP in a browser and reset the root password.
 
+Refs:
+- https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md
+- https://about.gitlab.com/downloads/#ubuntu1404
 
-#configure dirs/path of repository
+## 4. How to use
 
-```
-/etc/gitlab/gitlab.rb.
-
+### Move repository data to another disk
+Edit `/etc/gitlab/gitlab.rb`:
+```ruby
 git_data_dirs({
   "default" => "/var/opt/gitlab/git-data",
   "alternative" => "/mnt/nas/git-data"
 })
-Note that the target directories and any of its subpaths must not be a symlink.
-Run sudo gitlab-ctl reconfigure for the changes to take effect.
+# target dirs must NOT be symlinks
 ```
-#Configuring the external URL for GitLab
+Then `sudo gitlab-ctl reconfigure`.
 
-e in /etc/gitlab/gitlab.rb:
-
+### Set the external URL
+```ruby
 external_url "http://gitlab.example.com"
+```
+Then `sudo gitlab-ctl reconfigure`.
 
-Run sudo gitlab-ctl reconfigure for the change to take effect.
+### Settings panel
+Admin Area → top-right gear icon → the last item is the settings panel.
 
-#where is the setting pannel ???
-First go to admin area, then at the top right corner, click a gear button, the last one is setting pannel.
+### Unprotect master for developers
+Project → Settings → "Protected Branches" → disable protection so developers can push.
 
-REF: 
+## 5. Pitfalls
 
-https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md#storing-git-data-in-an-alternative-directory
-
-https://about.gitlab.com/downloads/#ubuntu1404
-
-
-How to configure the domain name in the password reset email?
-https://gitlab.com/gitlab-org/omnibus-gitlab/issues/581
-
-
-#Default setting the master branch is protected, developer can not push to. To disable this protection, goto project > seting "Protected Branches" ...
+- **`reconfigure` is required** after every `gitlab.rb` change — edits won't apply until then.
+- **No symlinks** in `git_data_dirs` paths; Omnibus rejects them.
+- **Postfix prompts** during install — choose "Internet" mode or skip and configure mail later.
+- **First reconfigure is slow** (runs migrations); wait for it to finish.
+- **External URL mismatch** makes clone links / password-reset emails point at the wrong host — set it before inviting users.
+- **Resource heavy**: GitLab CE wants ≥4 GB RAM; on small VMs it may OOM.

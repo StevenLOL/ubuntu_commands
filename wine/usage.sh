@@ -1,17 +1,35 @@
+# Wine usage snippets
 
-windows visual folder is in home/.wine
+## 1. What is it?
 
-is 64bits but most win program need 32bits
+Two shell snippets for working with Wine: installing Wine 1.3 (old) and configuring a 32-bit prefix.
 
-calling a program in v driver:
+## 2. What is it for?
 
-env WINEPREFIX="<YOUR_HOME>/.wine" wine C:\\windows\\command\\start.exe /Unix <YOUR_HOME>/.wine/dosdevices/c:/users/Public/Desktop/Cool\ Edit\ Pro\ 2.1.lnk
+- Quick reference for the old `wine1.3` install and setting Windows 7 mode.
 
+## 3. How to download / install
 
-create a v drive :
+```bash
+# deprecated old install:
+# sudo add-apt-repository ppa:ubuntu-wine/ppa
+# sudo apt-get update
+# sudo apt-get install wine1.3
+# modern:
+sudo apt-get install wine
+```
 
-export WINEPREFIX=fodlername
+## 4. How to use
 
-export WINEARCH=win32
+After install, open **Wine → Configure Wine** and set the Windows version to **Windows 7**.
 
-winecfg
+Create/use a 32-bit prefix:
+```bash
+WINEARCH=win32 WINEPREFIX=~/.wine winecfg
+```
+
+## 5. Pitfalls
+
+- **`wine1.3` / `ubuntu-wine` PPA is dead** — use the current `wine` package.
+- **Windows 7 mode** is a good default for older apps; some need XP mode instead.
+- The original note's first line had a garbled `sudo` (`udo`) — it's `sudo add-apt-repository`.

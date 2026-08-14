@@ -1,116 +1,91 @@
-# There are two types of script in this folder:
+# Git (version control)
 
+## 1. What is it?
 
+Git is a distributed version-control system. This folder also holds helper scripts (`git-new-ssh.sh`, `gitsave.sh`) that automate "create remote repo from a local folder" and "save & push" workflows.
 
-## A) git-new-*
+## 2. What is it for?
 
-Create a git repository in github/bitbuck from a local folder.
+- Tracking source changes, branching, and collaborating via GitHub/Bitbucket.
+- One-command publishing of a local folder to a new remote repo (`git-new-ssh.sh`).
+- Quick "save everything and push" (`gitsave.sh`).
 
-To say local foler "project_abc". Go to project directory then 
-```
-git-new-ssh.sh "my_git_project_000"
-```
-This will create a git repository in github/bitbuck called my_git_project_000 with all files in folder project_abc.
+## 3. How to download / install
 
-One need to configure account username and password in git-new-*.sh
-
-## B) gitsave
-gitsave.sh for save all my files and publish to remote repository
-###usage:
-```
-gitsave.sh
-#or
-gitsave.sh "some text please"
-```
-
-# Using SSH with bitbucket or github
-
-github and bitbucket support SSH , if upload your SSH key to your account.
-for [bitbucket](https://confluence.atlassian.com/bitbucket/how-to-install-a-public-key-on-your-bitbucket-cloud-account-276628835.html)
-
-add ssh
-
-ssh-gen
-
-ssh-agent
-
-ssh-add .....your rsa
-
-
-
-# Git basic
+```bash
 sudo apt-get install git
+git config --global user.name  "Your Name"
+git config --global user.email "you@example.com"
+```
 
-git clone ...
+SSH setup (recommended for GitHub/Bitbucket):
+```bash
+ssh-keygen -t rsa -b 4096      # creates ~/.ssh/id_rsa(.pub)
+ssh-agent bash
+ssh-add ~/.ssh/id_rsa
+# upload ~/.ssh/id_rsa.pub to your account settings
+```
 
-git rm
+## 4. How to use
 
+### Basics
+```bash
+git clone <url>
 git add .
-
+git rm <file>
 git reset --hard
+git remote show origin
+git checkout -b "0.1.2"        # new branch
+git commit --amend             # change last commit message
+```
 
-git remote show ..
-
-git checkout -b "0.1.2"
-
-git commit --amend #change commit message
-
-\# .gitkeep or [.gitignore](https://github.com/github/gitignore) to keep of ignore files/folders
-
-# Git with submodule
-
-git clone https://....   --recursive
-
+### Submodules
+```bash
+git clone <url> --recursive
 git submodule update --recursive --remote
 git submodule update --init
+```
+Ref: http://stackoverflow.com/questions/1030169/
 
-[REF](http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules)
-
-# [Git, how can I untrack files according to .gitignore? ](http://stackoverflow.com/questions/20840866/git-how-can-i-untrack-files-according-to-gitignore)
-
-You need to remove the files from the index.
-
-git rm -r --cached . 
-
-and then add
-
+### Untrack files that are now in .gitignore
+```bash
+git rm -r --cached .
 git add .
-
-Finally commit:
-
 git commit -a -m "Untrack ignored files!"
-
-
-# Faster clone by set depth =1
 ```
-git clone --depth 1 ...
+
+### Shallow / partial clone
+```bash
+git clone --depth 1 <url>
 git clone --depth 1 https://github.com/keras-team/keras.git -b 2.2.0
-```
-# clone a folder only
-```
-#REF:https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
 
+# clone a single folder (sparse, via archive)
 git archive --format tar --remote ssh://server.org/path/to/git HEAD docs/usage > /tmp/usage_docs.tgz
-
-#OR
-# if target folder is https://github.com/<YOUR_GITHUB>/jygame_ShanZhaiJiangHu_SiYeBan/tree/master/山寨江湖四叶版/script
-
-svn checkout https://github.com/<YOUR_GITHUB>/jygame_ShanZhaiJiangHu_SiYeBan/trunk/山寨江湖四叶版/script
-
+# or via svn:
+svn checkout https://github.com/USER/repo/trunk/some/folder
 ```
 
-
-
-### git pull all branches
+### Pull all branches
+```bash
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+git fetch --all; git pull --all
 ```
-git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all; git pull --all
-```
 
-### if github is not accessible‌ ‌‌ 
+### Helper scripts
+- `git-new-ssh.sh "my_project"` — creates a new **private** Bitbucket repo and pushes the current folder. Edit `USERNAME`/`PASSWORD` in the script first.
+- `gitsave.sh ["message"]` — `git add .` + commit (default "save") + `git push origin master`.
 
-Try gitclone.com :
-```
-git clone https://github.com/wazuh/wazuh-docker.git
-
+### If github.com is unreachable
+Use a mirror such as `gitclone.com`:
+```bash
 git clone https://gitclone.com/github.com/wazuh/wazuh-docker.git
 ```
+
+## 5. Pitfalls
+
+- **Storing password in `git-new-ssh.sh`** is insecure — use SSH keys or a token, not plaintext credentials.
+- **`git reset --hard` discards uncommitted work** — unrecoverable.
+- **`git rm -r --cached .`** unstages everything; re-add carefully so you don't drop intended files.
+- **`--depth 1`** gives no history; you can't `checkout` old commits or push non-fast-forward easily.
+- **Default branch name**: older scripts use `master`; modern GitHub defaults to `main`. Adjust `git push origin master` accordingly.
+- **HOSTS workaround**: hard-coded IPs in `/etc/hosts` go stale; prefer a working DNS or the `gitclone.com` mirror.

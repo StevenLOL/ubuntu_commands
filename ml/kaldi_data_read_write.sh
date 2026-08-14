@@ -1,115 +1,67 @@
+# Kaldi data IO (ark / scp / iVector)
 
-1.1 read from ark, first thing first you need to know what data it is
-	copy-vector ark:vad_NIST_SRE08_3summed.model.8.ark ark,t:- > vad.ark.t.text
-1.2 write back to ark
-	copy-vector ark:vad.ark.t.text ark:- >001.ark
-	
-	copy-feats scp:./data/ngmm/feats.scp ark,t:- | head
+## 1. What is it?
 
+A cheat-sheet of Kaldi commands for reading and writing **features** (MFCC, stored as `ark`/`scp`) and **i-vectors** (stored as vectors in `ark`). These are the building blocks for inspecting/transforming Kaldi data.
 
-feats-to-dim ark:./input.ark ark,t:- | head -n 1
+## 2. What is it for?
 
+- Dumping Kaldi binary features to text for debugging.
+- Converting between `ark` and `scp`, and between text and binary.
+- Reading/writing i-vectors the same way.
 
-feats select 0 index
+## 3. How to download / install
 
+No install — these are Kaldi commands (available after building Kaldi, see `kaldi.md`). Ensure `src/{featbin,bin}` are on `PATH`.
 
+## 4. How to use
 
-copy-vector ark:./ivector.1.ark ark,t: |sed -e 's/\[\|\]//g'
-
-
-
-
-
-#Read/write Kaldi features
-
-##Read Kaldi MFCC features
-
-###Raw Feature location
-
-Most Kaldi features are stored in mfcc folder with an extension of ark or scp.
-
-####The ark file
-
-The ark stores raw features, its size is normally in few hundred MBs.
-
-Eg: 20 dimensional MFCC features matrix is stored in the ark file like following:
-
-UtteranceID1 [d1 d2 d3 d4 d5 .. d20\n d1 d2 d3 d4 d5 .. d20\n d1 d2 d3 d4 d5 .. d20\n ...]\n
-
-UtteranceID2 [d1 d2 d3 d4 d5 .. d20\n d1 d2 d3 d4 d5 .. d20\n ]\n
-
-Where \n means new line.
-
-To view raw feature, type the following command in the terminal
-```
+### Read features from ark (print to terminal)
+```bash
 copy-feats ark:./abc.ark ark,t:
 ```
-This command means copy the feature from input source (ark:source) to output target (ark,t:target),here we leave "target" empty so the feature will print to the terminal.
-Following two commands will dump the features to text file
-```
+### Dump features to text / binary
+```bash
 copy-feats ark:./abc.ark ark,t: > a.txt
 copy-feats ark:./abc.ark ark,t:a.txt
-```
-And dump to binary file:
-```
 copy-feats ark:./abc.ark ark:a.bin
 ```
 
-
-####The scp file
-
-It is often saw a scp file which describes the content of an ark file.
-
-The scp is only a text file, with following format:
-
-UtteranceID1 arkLocation1:offset1 
-
-UtteranceID2 arkLocation2:offset2
-
-
-
-
-Following two commands will give same results
-```
+### Via scp (same content)
+```bash
 copy-feats scp:./abc.scp ark,t:
 copy-feats ark:./abc.ark ark,t:
 ```
-####Features in the data folder
 
-feats.scp and vad.scp are two feature descriptors in the Kaldi data folder.
-
-
-##Write kaldi MFCC features
-
-One can write kaldi feature to the ark follow the given text format. However most script in Kaldi require its scp file, one way to create scp file is:
-```
+### Write features + generate scp
+```bash
 copy-feats ark:./abc.ark ark,scp:b.ark,b.scp
 ```
 
-
-##Read/write kaldi iVector 
-Read/write kaldi iVector is similar to read/write MFCC feature, only replace the copy-feats with copy-vector command.
-
-###Read Kaldi iVector
-The MFCC feature is matrix like data structure, the iVector is sorted in the ark file too, but in a vector format:
-
-UtteranceID1 [d1 d2 d3 d4 d5 .. d400]\n
-
-UtteranceID2 [d1 d2 d3 d4 d5 .. d400]\n
-
-Similar to read MFCC feature,following command will read the iVector:
-```
+### i-vectors (use copy-vector)
+```bash
 copy-vector ark:./ivector.1.ark ark,t:
 copy-vector ark:./ivector.1.ark ark,t:YOUR_TEXT_FILE
-
-```
-
-###Write Kaldi iVector
-
-Once you know the iVector format, you can write it back easily.
-Following command will convert your ark file to Kaldi format, and generate a scp file.
-
-```
+# text -> kaldi ark (also emits scp)
 copy-vector ark,t:./your.ark ark,t:
-
 ```
+
+### Other helpers
+```bash
+copy-vector ark:vad_NIST_SRE08_3summed.model.8.ark ark,t:- > vad.ark.t.text
+copy-vector ark:vad.ark.t.text ark:- > 001.ark
+copy-feats scp:./data/ngmm/feats.scp ark,t:- | head
+feats-to-dim ark:./input.ark ark,t:- | head -n 1
+copy-vector ark:./ivector.1.ark ark,t: | sed -e 's/\[\|\]//g'
+```
+
+### Data layout
+- `mfcc/` holds `.ark` (raw matrix, hundreds of MB) + `.scp` (text index `UtteranceID arkLocation:offset`).
+- `feats.scp` and `vad.scp` in the data folder are feature descriptors.
+
+## 5. Pitfalls
+
+- **`ark,t:`** = text mode (human readable); **`ark:`** = binary. Mixing them wrong produces unreadable files.
+- **scp offsets**: an `scp` points into an `ark` by byte offset; if you move the `ark` without the `scp`, paths break.
+- **`sed` stripping `[ ]`** is only for text inspection; don't feed stripped text back as binary ark.
+- **Dimension checks**: `feats-to-dim` is your friend to confirm feature sizes before feeding a model.
