@@ -6,7 +6,7 @@ A one-liner to wipe the Thunderbird mail-client profile and reinstall it — a q
 
 
 - Fixing a corrupted Thunderbird profile (stuck sync, broken UI, extension errors).
-- Starting fresh without残留 old account/cache data.
+- Starting fresh without leftover old account/cache data.
 
 ## 2. How to download / install
 
