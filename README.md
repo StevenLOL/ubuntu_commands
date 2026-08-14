@@ -20,26 +20,27 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](RamDisk/README.md)
 
 ### Network & Security
-- [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md) · [wazuh](wazuh/Wazuh%20Day%201.md) · [uniscan](uniscan/readme.md)
+- [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md)
+- [network-security](network-security/) — [monitoring/wazuh](network-security/monitoring/wazuh/Wazuh%20Day%201.md) · [uniscan](network-security/uniscan/readme.md) · [reverse-engineering/Decompilation](network-security/reverse-engineering/Decompilation/README.md)
 
 ### System
-- [apt_dpkg](apt_dpkg/readme.md) (incl. [sources.list mirror](apt_dpkg/sources_list.md)) · [release_update](release_update/readme.md) · [linux4OldComputers](linux4OldComputers/readme.md) · [swap](swap/add_swap_ubuntu_14.04.md) · [recovery](recovery/recovery.sh) · [tmux/tmate](ssh/tmux-tmate.md) · [threads](threads/readme.md) · [desktop](desktop/readme.md) (incl. [KDE Plasma](desktop/kde-plasma-desktop.md)) · [markdown](markdown/readme.md) · [makefile](makefile/readme.md) · [binwalk](binwalk/binwalk.md)
+- [apt_dpkg](apt_dpkg/readme.md) (incl. [sources.list mirror](apt_dpkg/sources_list.md)) · [release_update](release_update/readme.md) · [linux4OldComputers](linux4OldComputers/readme.md) · [swap](swap/add_swap_ubuntu_14.04.md) · [recovery](recovery/recovery.sh) · [tmux/tmate](ssh/tmux-tmate.md) · [threads](threads/readme.md) · [desktop](desktop/readme.md) (incl. [KDE Plasma](desktop/kde-plasma-desktop.md)) · [markdown](markdown/readme.md) · [binwalk](binwalk/binwalk.md)
 
 ### Machine Learning / Speech / Vision
-- [tensorflow](tensorflow/readme.md) · [tensorflow install](tensorflow/install_tensorflow.md) · [skflow](tensorflow/skflow.md) · [ml index](ml/xgboost.md) · [ml/bob](ml/bob.md) · [Alink](ml/alink.md) · [shogun](ml/shogun_install.sh) · [torch](ml/torch.md) · [torch_lua](ml/torch_lua.md) · [caffe](ml/caffe.md) · [theano](ml/theano.md) · [lightgbm](ml/lightgbm.md) · [RAPIDSAI](ml/rapidsai.md) · [opencv](ml/opencv.md) · [kaldi](ml/kaldi.md) · [huggingface](ml/huggingface.md) · [crf++](ml/crf++.md) · [alize](ml/alize.md) · [sailalign](ml/sailalign.md) · [hts](ml/hts.sh) · [scipy](ml/scipy.md)
+- [tensorflow](machine-learning/readme_tensorflow.md) · [tensorflow install](machine-learning/install_tensorflow.md) · [skflow](machine-learning/skflow.md) · [ml index](machine-learning/xgboost.md) · [ml/bob](machine-learning/bob.md) · [Alink](machine-learning/alink.md) · [shogun](machine-learning/shogun_install.sh) · [torch](machine-learning/torch.md) · [torch_lua](machine-learning/torch_lua.md) · [caffe](machine-learning/caffe.md) · [theano](machine-learning/theano.md) · [lightgbm](machine-learning/lightgbm.md) · [RAPIDSAI](machine-learning/rapidsai.md) · [opencv](machine-learning/opencv.md) · [kaldi](machine-learning/kaldi.md) · [huggingface](machine-learning/huggingface.md) · [crf++](machine-learning/crf++.md) · [alize](machine-learning/alize.md) · [sailalign](machine-learning/sailalign.md) · [hts](machine-learning/hts.sh) · [scipy](machine-learning/scipy.md)
 
 ### Big Data
 - [spark](spark/readme.md) · [sge](sge/start.sge.sh) · [elasticip](ElasticIP/readme.md)
 - Hadoop: source/config removed from repo (too large). Get it from the official site — https://hadoop.apache.org/releases.html
 
-### Languages
-- [python](python/README.md) · [python/ipython](python/ipython.md) · [conda](conda/conda_readme.md) · [perl](perl/readme.md) · [java](java/install-java.md) · [mono](mono/readme.md) · [latex](latex/readme.md)
+### Programming Languages
+- [python](programming-languages/python/README.md) · [python/ipython](programming-languages/python/ipython.md) · [conda](programming-languages/conda/conda_readme.md) · [perl](programming-languages/perl/readme.md) · [java](programming-languages/java/install-java.md) · [mono](programming-languages/mono/readme.md) · [latex](programming-languages/latex/readme.md) · [makefile](programming-languages/makefile/readme.md) · [LLM](programming-languages/LLM/readme.md) · [chinese](programming-languages/chinese/readme.md)
 
 ### Office & Media
 - [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
 
 ### Misc
-- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [chinese](chinese/readme.md) · [natilus](natilus/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)
+- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [natilus](natilus/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)
 
 ## Privacy
 
