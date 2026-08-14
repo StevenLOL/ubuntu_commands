@@ -75,3 +75,35 @@ ffmpeg -i input.mp3 -ac 1 mono.mp3                      # 转单声道
 ```bash
 ffmpeg -f pulse -i default -t 10 recording.mp3         # 用 PulseAudio 录 10 秒
 ```
+
+### RTSP 流（拉流 / 录制 / 低延迟预览）
+
+RTSP 常用于 IP 摄像头等设备的实时视频。用 `-rtsp_transport` 选 UDP（低延迟）或 TCP（稳）。
+
+```bash
+# 保存为文件（流复制，不重编码）
+ffmpeg -rtsp_transport tcp -i rtsp://HOST:554/stream -c copy out.mp4
+
+# 低延迟实时预览
+ffplay -rtsp_transport udp -fflags nobuffer -flags low_delay rtsp://HOST:554/stream
+
+# 低延迟拉流：裸帧输出到 stdout（供程序逐帧读取，丢弃音频）
+ffmpeg -rtsp_transport udp \
+  -probesize 500000 -analyzeduration 1000000 \
+  -fflags +discardcorrupt+nobuffer -max_delay 0 -reorder_queue_size 0 \
+  -i rtsp://HOST:554/stream \
+  -f rawvideo -pix_fmt bgr24 -s 1920x1080 -an -
+
+# 转推为新 RTSP 流（relay）
+ffmpeg -rtsp_transport tcp -i rtsp://HOST:554/stream \
+  -c:v copy -f rtsp rtsp://localhost:8554/relay
+```
+
+| 参数 | 作用 |
+| --- | --- |
+| `-rtsp_transport tcp/udp` | 传输方式（UDP 延迟低，TCP 更稳） |
+| `-probesize 500000` | 限制探测字节数，加速起流 |
+| `-analyzeduration 1000000` | 限制分析时长（微秒），加速起流 |
+| `-fflags +discardcorrupt+nobuffer` | 丢弃损坏帧、不缓冲，降低延迟 |
+| `-max_delay 0` / `-reorder_queue_size 0` | 关闭重排序延迟 |
+| `-f rawvideo -pix_fmt bgr24` | 输出裸帧（BGR24），供 OpenCV 等逐帧读 |
