@@ -1,15 +1,16 @@
 # pip (Python package manager)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
-`pip` installs Python packages. This note covers getting pip, caching, mirrors, version pinning, offline download, and a TensorFlow 0.12 install example.
+`pip` installs Python packages. This note covers getting pip, caching, mirrors, version pinning, offline download, and (historically) a TensorFlow 0.12 install example.
 
-## 2. What is it for?
+> **As of 2026:** pip itself is unchanged and all commands below still work. `get-pip.py` still bootstraps pip. The TensorFlow 0.12 example at the bottom is **historical** — current TF is 2.x (`pip install tensorflow`). The Tsinghua mirror (`pypi.tuna.tsinghua.edu.cn`) is still live; the old `douban` pip mirror is dead.
+
 
 - Installing/managing Python packages from PyPI or a mirror.
 - Caching downloads, pinning versions, and fetching wheels offline.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 # bootstrap pip
@@ -31,7 +32,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip config list
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 pip install 'tensorflow>=0.8,<1.0'     # version range
@@ -51,10 +52,3 @@ sudo python ./get-pip.py
 pip install 'tensorflow<1.0'
 ```
 
-## 5. Pitfalls
-
-- **The Douban/Alibaba/ZTE mirrors** in the original note are retired or unreliable — prefer Tsinghua (`pypi.tuna.tsinghua.edu.cn`) or the official index.
-- **`pip uninstall pip`** is dangerous — it can remove pip itself; reinstall via get-pip.py.
-- **Version pins**: `'tensorflow<1.0'` is ancient; use current releases for new work.
-- **`download_cache` directive is deprecated** in modern pip (it uses `~/.cache/pip` automatically); the `pip.conf` key may be ignored.
-- `sudo -E pip` preserves env vars but runs pip as root — prefer a virtualenv.

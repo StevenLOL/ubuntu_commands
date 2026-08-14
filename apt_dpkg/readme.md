@@ -1,16 +1,15 @@
 # apt / dpkg Troubleshooting
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 `apt` is the high-level package manager for Debian/Ubuntu; `dpkg` is the low-level backend that actually installs `.deb` files. This note collects common breakages and their fixes.
 
-## 2. What is it for?
 
 - Fixing broken package installs, half-configured packages, and dependency hell.
 - Recovering from a corrupted `source.list` or a deleted core binary (e.g. `ldconfig`).
 - Installing software offline (without Internet).
 
-## 3. How to download / install
+## 2. How to download / install
 
 apt/dpkg are part of the base system — nothing to install. Inspect the active sources:
 
@@ -26,7 +25,7 @@ A working mirror example (Tsinghua):
 http://mirrors.tuna.tsinghua.edu.cn/ubuntu/
 ```
 
-## 4. How to use (common fixes)
+## 3. How to use (common fixes)
 
 ### `ldconfig: not found in PATH or not executable`
 `ldconfig` lives in `/sbin`; it may have been removed when `libc6-bin` was purged. Restore it from a package:
@@ -73,9 +72,3 @@ dpkg --configure -a --force-depends
 apt-get -f install
 ```
 
-## 5. Pitfalls
-
-- **`--force-overwrite` can clobber files** from other packages; use it only as a last resort.
-- **Wrong mirror codename** (e.g. `bionic` vs `focal`) is the #1 cause of dependency errors — match the mirror to `lsb_release -cs`.
-- **Never delete `libc6-bin`** unless you know exactly what you're doing; it removes `ldconfig`.
-- **`apt-get -f install`** may remove packages to satisfy dependencies — review the proposed changes first.

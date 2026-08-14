@@ -1,15 +1,14 @@
 # GitLab CE (self-hosted Git server)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 GitLab Community Edition (CE) is a self-hosted Git platform (like a private GitHub) with repos, CI, issues, and a web UI. Installed via the Omnibus package.
 
-## 2. What is it for?
 
 - Hosting private Git repositories on your own server.
 - Team collaboration with merge requests, CI runners, and container registry.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt install curl openssh-server ca-certificates postfix   # postfix in "Internet" mode
@@ -27,7 +26,7 @@ Refs:
 - https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md
 - https://about.gitlab.com/downloads/#ubuntu1404
 
-## 4. How to use
+## 3. How to use
 
 ### Move repository data to another disk
 Edit `/etc/gitlab/gitlab.rb`:
@@ -52,11 +51,3 @@ Admin Area → top-right gear icon → the last item is the settings panel.
 ### Unprotect master for developers
 Project → Settings → "Protected Branches" → disable protection so developers can push.
 
-## 5. Pitfalls
-
-- **`reconfigure` is required** after every `gitlab.rb` change — edits won't apply until then.
-- **No symlinks** in `git_data_dirs` paths; Omnibus rejects them.
-- **Postfix prompts** during install — choose "Internet" mode or skip and configure mail later.
-- **First reconfigure is slow** (runs migrations); wait for it to finish.
-- **External URL mismatch** makes clone links / password-reset emails point at the wrong host — set it before inviting users.
-- **Resource heavy**: GitLab CE wants ≥4 GB RAM; on small VMs it may OOM.

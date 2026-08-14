@@ -1,15 +1,16 @@
 # Install Python 3.6 on Ubuntu 16.04
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Two ways to get Python 3.6 on Ubuntu 16.04 (which ships 3.5): build from source, or install from a PPA.
 
-## 2. What is it for?
+> **Historical note (2026):** Python 3.6 reached **end-of-life in Dec 2021**, and Ubuntu 16.04 is also EOL. For a new machine just use the system Python: `sudo apt install python3` on Ubuntu 22.04/24.04/26.04 (ships 3.10/3.12/3.14). Only follow the steps below if you must reproduce a 3.6 environment.
+
 
 - Running code that requires Python 3.6 specifically.
 - Getting a newer Python without upgrading the whole OS.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **Option A — build from source**
 ```bash
@@ -32,14 +33,9 @@ sudo apt install python3.6
 
 Ref: https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 python3.6 --version
 ```
 
-## 5. Pitfalls
-
-- **Use `make altinstall`**, not `make install` — the latter can shadow the system `python3`.
-- **The `jonathonf/python-3.6` PPA is deprecated**; for newer Ubuntu just use the default `python3` or `deadsnakes` PPA (`ppa:deadsnakes/ppa`).
-- **`libreadline-gplv2-dev`** is a 16.04 package name; on 18.04+ use `libreadline-dev`.

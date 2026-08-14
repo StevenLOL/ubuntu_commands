@@ -1,15 +1,14 @@
 # Remote Desktop on Ubuntu (xrdp / FreeNX / MATE)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Ways to reach an Ubuntu desktop remotely: **xrdp** (RDP server, works with Windows Remote Desktop), **FreeNX** (NX protocol), and **MATE** desktop over xrdp. This note focuses on xrdp + XFCE/MATE and fixing the `<Super>Tab` conflict.
 
-## 2. What is it for?
 
 - Remotely controlling an Ubuntu GUI from Windows (RDP) or an NX client.
 - Running a lightweight desktop (XFCE/MATE) over a remote session.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **xrdp + XFCE (Ubuntu > 14.04):**
 ```bash
@@ -42,7 +41,7 @@ sudo apt-get install gnome-session-fallback qtnx
 
 Ref for 18.04/19.04: http://www.c-nergy.be/products.html
 
-## 4. How to use
+## 3. How to use
 
 Connect with a Windows "Remote Desktop Connection" client to the server's IP; log in and you get the XFCE/MATE session.
 
@@ -57,10 +56,3 @@ and change it to:
 ```
 Or in *Settings → Window Manager → Keyboard*, clear the "Switch window for same application → <Super>Tab" binding.
 
-## 5. Pitfalls
-
-- **Typo in original**: `sudo apt-update` should be `sudo apt update`.
-- **`~/.xsession` must match the installed desktop** (xfce4-session vs mate-session) or you get a blank session.
-- **FreeNX PPA is deprecated** — it may not build on current Ubuntu; prefer xrdp.
-- **xrdp vs Wayland**: modern Ubuntu uses Wayland; xrdp needs X11 — install/select an X11 session (XFCE/MATE) for xrdp to work.
-- **Firewall**: open port 3389 (RDP) / 22 (NX over SSH) on the server.

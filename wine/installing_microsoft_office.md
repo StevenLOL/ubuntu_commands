@@ -1,16 +1,15 @@
 # Install Microsoft Office 2010 under Wine
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 A recipe for installing **Microsoft Office 2010 (32-bit)** on Ubuntu via Wine 1.5 + Winetricks. (Historical — modern Wine + Office 2010 is better supported, but the 32-bit prefix requirement still applies.)
 
 Ref: http://craigacgomez.blogspot.sg/2012/09/installing-microsoft-office-2010-in.html
 
-## 2. What is it for?
 
 - Running Word/Excel/PowerPoint 2010 on Linux when MS-format fidelity matters.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **32-bit OpenGL libs (64-bit Ubuntu only):**
 ```bash
@@ -33,7 +32,7 @@ winetricks
 # install: dotnet20, msxml6, corefonts
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 wine setup.exe        # from the Office 2010 install media
@@ -42,8 +41,3 @@ Then in `winecfg` (Libraries tab), set `msxml6`, `riched20`, `gdiplus` to **Nati
 
 (Alternative one-liner: `WINEARCH=win32 WINEPREFIX=~/.wine winecfg`.)
 
-## 5. Pitfalls
-
-- **32-bit only**: Office 2010 32-bit is what works on Wine; use a `win32` prefix.
-- **`ubuntu-wine` PPA is dead** — install current Wine from the Ubuntu repos / WineHQ.
-- **Product key in the original note** (`WWW-VQ7F...`) is a personal/example key — keep keys out of shared docs.

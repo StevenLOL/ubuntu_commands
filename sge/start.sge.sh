@@ -1,15 +1,14 @@
 # Sun Grid Engine (SGE) cluster setup
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Sun Grid Engine (SGE, packaged as `gridengine` on Debian/Ubuntu) is a job-scheduler / batch-queue system for HPC clusters. This note installs a master + exec nodes, submits jobs, and monitors them with `qstat`/`qmon`. **`start.sge.sh` is a one-node quick-start.**
 
-## 2. What is it for?
 
 - Distributing batch jobs across cluster nodes.
 - Queuing, resource accounting, and monitoring via `qsub`/`qstat`/`qmon`.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **Single node (start.sge.sh):**
 ```bash
@@ -42,7 +41,7 @@ sudo /etc/init.d/gridengine-master start
 6. On each exec node: `echo "grid00.linuxidc.com" > /var/lib/gridengine/default/common/act_qmaster` then start `gridengine-exec`.
 7. Verify with `qhost`.
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 qsub hello_world.sh &     # submit a job
@@ -58,11 +57,3 @@ cd /usr/share/fonts/X11/75dpi/  ; sudo mkfontdir
 xset fp+ /usr/share/fonts/X11/75dpi
 ```
 
-## 5. Pitfalls
-
-- **The Debian `gridengine` packages are unmaintained** and may not install cleanly on current Ubuntu; consider Slurm/`slurm-wlm` for new clusters.
-- **`sun-java6-jre` / `ferramroberto/java` PPA is dead** — SGE needs *some* Java; install a current JRE (`default-jre`) instead.
-- **`act_qmaster` must point at the master** on every exec node, or they can't join.
-- **`SERvER_IP` placeholders** in the `/etc/hosts` block must be replaced with real IPs.
-- **`qmon` needs X11 fonts** (`100dpi`/`75dpi`); without `mkfontdir` it shows blank windows.
-- The original detailed note mixes Chinese instructions; the commands above are the canonical English steps.

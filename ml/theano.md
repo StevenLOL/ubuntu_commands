@@ -1,17 +1,16 @@
 # Theano (GPU math / deep learning, Ubuntu 14.04)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Theano is an older Python library that lets you define, optimize, and evaluate mathematical expressions (incl. deep nets) on CPU or NVIDIA GPU via CUDA. This note is a battle-tested setup for Ubuntu 14.04 + GTX 860M (CUDA 6.5).
 
-> Try at your own risk — driver/CUDA versions are dated; treat as reference.
+> **Historical (2026):** Theano development effectively stopped years ago (last release 1.0.x in 2017); its successor is [Aesara](https://github.com/aesara-devs/aesara). For new ML work prefer PyTorch or TensorFlow 2.x. The steps below (CUDA 6.5, driver 340.76) are only useful as a reference for legacy hardware.
 
-## 2. What is it for?
 
 - Symbolically building and GPU-accelerating numeric/ML computations (the predecessor of modern autodiff frameworks).
 - Useful historically; for new work prefer PyTorch/TensorFlow.
 
-## 3. How to download / install
+## 2. How to download / install
 
 1. Confirm the GPU is visible: `lspci | grep -i NVIDIA`
 2. Install driver **NVIDIA 340.76** and **CUDA 6.5 toolkit**. Do **NOT** install `bumblebee`.
@@ -37,7 +36,7 @@ Theano is an older Python library that lets you define, optimize, and evaluate m
    ```
 8. CUDA 6.5 needs gcc-4.8: `sudo ln -s /usr/bin/gcc-4.8 /usr/local/cuda/bin/gcc` (same for g++).
 
-## 4. How to use
+## 3. How to use
 
 Create `~/.theanorc`:
 ```ini
@@ -86,10 +85,3 @@ export PATH=/usr/local/cuda-6.5/targets/x86_64-linux/lib:$PATH
 Keras backend switch: `~/.keras/keras.json` → `{"epsilon":1e-07,"floatx":"float32","backend":"theano"}`.
 CPU-only run: `THEANO_FLAGS=mode=FAST_RUN,device=cpu python ./harpc_label_server.py`
 
-## 5. Pitfalls
-
-- **Black screen / login loop** after driver tweaks: `Ctrl+Alt+F1`, `sudo rm /etc/X11/xorg.conf`, then `sudo service lightdm stop && sudo service lightdm start`. The author also added `nvidia-modprobe` / `prime-switch intel` to `~/.bashrc` to escape a login loop.
-- **gcc version**: CUDA 6.5 only supports gcc-4.8; newer gcc breaks nvcc.
-- **`libcublas.so` not found** → run the `ldconfig` + `LD_LIBRARY_PATH` steps above.
-- **Dated stack**: CUDA 6.5 / driver 340 / Ubuntu 14.04 are ancient; on modern systems use PyTorch/TensorFlow. This is a historical reference, not a current install guide.
-- **Python 2 syntax** (`print` statements, `xrange`) — Theano examples here target Py2; modernise for Py3 if reusing.

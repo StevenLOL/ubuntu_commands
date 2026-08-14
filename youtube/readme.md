@@ -1,15 +1,14 @@
 # Download YouTube videos
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Two tools: **youtube-dl** (command-line downloader) and **MediaHuman YouTube to MP3/Downloader** (GUI). This note covers installing both on Ubuntu.
 
-## 2. What is it for?
 
 - Downloading YouTube videos/audio from the command line or a GUI.
 - Converting to MP3 via MediaHuman's tools.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **youtube-dl:**
 ```bash
@@ -26,15 +25,10 @@ sudo apt-get install youtube-to-mp3      # YouTube to MP3 Converter
 sudo apt-get install youtube-downloader  # YouTube Downloader
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 youtube-dl "<video_url>"                # download best quality
 youtube-dl -x --audio-format mp3 "<url>" # extract MP3
 ```
 
-## 5. Pitfalls
-
-- **youtube-dl breaks often** as YouTube changes; `pip install --upgrade` frequently, or use `yt-dlp` (actively maintained fork) instead.
-- **The MediaHuman apt repo key** (`apt-key adv`) is deprecated; modern apt uses signed-by keyrings. The repo may also be outdated — verify before adding.
-- **Copyright**: only download content you're allowed to.

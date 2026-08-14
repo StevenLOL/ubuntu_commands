@@ -1,15 +1,14 @@
 # Kaldi (speech recognition toolkit)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Kaldi is the leading open-source toolkit for **automatic speech recognition (ASR)** and speaker recognition. It compiles to many small command-line binaries (`src/bin`, `src/featbin`, `src/nnet2bin`, `ivectorbin`, ...).
 
-## 2. What is it for?
 
 - Building ASR / speaker-ID pipelines (feature extraction → monophone → triphone → DNN).
 - Research on acoustic modelling (GMM-HMM, nnet2/nnet3, i-vectors).
 
-## 3. How to download / install
+## 2. How to download / install
 
 Check out the trunk (SVN) and build:
 ```bash
@@ -24,7 +23,7 @@ make depend -j 10
 make -j 10
 ```
 
-## 4. How to use
+## 3. How to use
 
 Add the built binaries to your `PATH` (in `~/.profile` or `~/.bashrc`):
 ```bash
@@ -51,9 +50,3 @@ sudo apt-get --purge remove liblapack-dev liblapack3 liblapack3gf
 export CPLUS_INCLUDE_PATH=/usr/include/atlas
 ```
 
-## 5. Pitfalls
-
-- **ATLAS/LAPACK conflict**: the `clapack.h` error is fixed by installing `libatlas-base-dev` and removing the conflicting `liblapack-dev`.
-- **Old SVN trunk**: Kaldi moved to GitHub; prefer `git clone https://github.com/kaldi-asr/kaldi.git` for current code.
-- **`make -j` with too many jobs** can OOM on small machines; lower the `-j` count.
-- **`onlinebin`** requires PortAudio; build it via `tools/install_portaudio.sh` first (see `kaldi_install_LVCSR_Demo`).

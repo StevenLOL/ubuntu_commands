@@ -1,17 +1,18 @@
 # Add a swap file (Ubuntu 14.04)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Swap is disk space the OS uses as overflow when RAM fills up. This note creates a swap **file** (no repartitioning) and makes it permanent.
 
+> **Note (2026):** the commands below are distro-agnostic and still correct on current Ubuntu (22.04/24.04/26.04 LTS). Only the referenced DigitalOcean URL is 14.04-specific; the `fallocate`/`mkswap`/`swapon` steps are identical today.
+
 Ref: https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 
-## 2. What is it for?
 
 - Preventing OOM (out-of-memory) crashes when RAM is tight.
 - Giving a low-RAM server breathing room for bursty workloads.
 
-## 3. How to download / install
+## 2. How to download / install
 
 No software — uses `fallocate`/`dd`, `mkswap`, `swapon`. Check current state first:
 ```bash
@@ -20,7 +21,7 @@ free -m
 df -h          # ensure disk has space
 ```
 
-## 4. How to use
+## 3. How to use
 
 **Create the file (fast method):**
 ```bash
@@ -57,11 +58,3 @@ sudo swapoff /swapfile             # deactivate
 sudo rm /swapfile                  # delete the file
 ```
 
-## 5. Pitfalls
-
-- **Typo in original**: it's `vm.swappiness` (not `vm.swapiness`).
-- **fstab option**: use `sw` (not `defaults`) for a swap entry.
-- **`dd` is slow** compared to `fallocate`; prefer `fallocate` (works on most filesystems; on some like XFS you may need `dd`).
-- **Size**: a common rule is 1–2× RAM; on SSD, swap is slow but fine as a safety net.
-- **Swappiness=10** is good for servers; desktops often keep 60.
-- Working from the DigitalOcean tutorial by Justin Ellingwood.

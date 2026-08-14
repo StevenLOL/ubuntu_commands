@@ -1,14 +1,13 @@
 # Matplotlib — display Chinese characters
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 By default Matplotlib renders Chinese text as boxes (■■) because it ships only Latin fonts. This note shows how to make Chinese labels/titles render correctly.
 
-## 2. What is it for?
 
 - Plotting charts with Chinese axis labels, titles, and legends.
 
-## 3. How to download / install
+## 2. How to download / install
 
 1. Download a Chinese TrueType font (e.g. `simhei.ttf`).
 2. Copy it into Matplotlib's font dir:
@@ -22,7 +21,7 @@ By default Matplotlib renders Chinese text as boxes (■■) because it ships on
    rm -rf ~/.cache/matplotlib/*.cache
    ```
 
-## 4. How to use
+## 3. How to use
 
 **Method A — set the global font family:**
 ```python
@@ -42,9 +41,3 @@ plt.title('中文', fontproperties=font)
 plt.show()
 ```
 
-## 5. Pitfalls
-
-- **Cache must be cleared** after adding the font, or Matplotlib still shows boxes.
-- **Font filename must match** `rcParams['font.sans-serif']` (e.g. `'SimHei'`) — a typo silently falls back to a Latin font.
-- **Method B path is hardcoded** (`/home/liyang/...`) — change it to your real font location.
-- Ref: https://www.zhihu.com/question/25404709

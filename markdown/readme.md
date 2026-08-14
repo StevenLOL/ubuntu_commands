@@ -1,19 +1,18 @@
 # Markdown tips
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Markdown is a lightweight markup language for formatted text. This note covers basic usage and **Typora's sequence-diagram** extension.
 
-## 2. What is it for?
 
 - Writing formatted docs (README, notes) in plain text.
 - Rendering UML-style sequence diagrams inside Typora.
 
-## 3. How to download / install
+## 2. How to download / install
 
 Markdown needs no install (it's a syntax). For sequence diagrams, use **Typora** (https://typora.io/) with its built-in support. Basic usage ref: https://www.jianshu.com/p/307a13c79fe4
 
-## 4. How to use
+## 3. How to use
 
 ```sequence
 title: MarkDown sequence
@@ -25,7 +24,3 @@ kk-->ff: yes!
 
 Typora renders the `sequence` block as a diagram.
 
-## 5. Pitfalls
-
-- **Sequence diagrams are Typora-specific** — standard Markdown renderers (GitHub, VS Code) won't draw them; they'll show the raw block.
-- The sequence syntax is non-standard Markdown; don't rely on it for portability.

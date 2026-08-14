@@ -1,15 +1,14 @@
 # Jupyter Notebook (IPython Notebook)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Jupyter Notebook is the web-based interactive Python environment (formerly "IPython Notebook"). This note covers install, plotting, remote access, kernels, and extensions.
 
-## 2. What is it for?
 
 - Interactive data-science / ML workflows in the browser.
 - Sharing/running notebooks remotely and converting them to scripts.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt install python-dev     # needed for "Python.h" build errors
@@ -21,7 +20,7 @@ sudo pip install notebook -U
 
 If you get "no extension" errors: `sudo apt-get install --reinstall python-setuptools`.
 
-## 4. How to use
+## 3. How to use
 
 ### Start
 ```bash
@@ -82,12 +81,3 @@ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out myce
 jupyter nbconvert --to script ./0001.ipynb
 ```
 
-## 5. Pitfalls
-
-- **`python-dev` required** before install or you'll hit `fatal error: Python.h`.
-- **`ipython notebook` is deprecated** — modern Jupyter uses `jupyter notebook`; `ipython notebook` is an alias.
-- **Don't expose `--ip=0.0.0.0` without a password/SSL** — anyone can run code on your box. Prefer SSH tunneling.
-- **Kernel mismatch**: Python 2 needs ipython<6; don't force a Python 3-only ipython onto Py2.
-- **Douban mirror** (`pypi.douban.com`) is retired; use Tsinghua/Alibaba mirrors instead.
-
-Refs: reddit.com/r/IPython, stackoverflow.com/questions/2801882, digitalocean jupyter tutorial.

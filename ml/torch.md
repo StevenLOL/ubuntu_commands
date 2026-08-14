@@ -1,14 +1,13 @@
 # Torch (Lua-based ML framework)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Torch is a scientific-computing framework with a LuaJIT backend and a rich ML library (`torch`, `nn`, `cutorch`). Predecessor of PyTorch. This note covers installing the classic `torch/distro`.
 
-## 2. What is it for?
 
 - Building/running neural nets in Lua (common in older speech/NLP research codebases).
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 git clone https://github.com/torch/distro.git ~/torch --recursive
@@ -19,7 +18,7 @@ bash install-deps
 
 Docs: http://torch.ch/docs/getting-started.html · https://github.com/torch/distro
 
-## 4. How to use
+## 3. How to use
 
 If ZeroBrane/luarocks needs `image`, set the Lua paths:
 ```bash
@@ -56,10 +55,3 @@ make check && make install && sudo ldconfig
 luarocks install https://raw.github.com/Neopallium/lua-zmq/master/rockspecs/lua-zmq-scm-1.rockspec
 ```
 
-## 5. Pitfalls
-
-- **Torch (Lua) is legacy** — new projects should use PyTorch (Python).
-- **`install-deps` changes your system** (apt installs, env changes); review before running.
-- **Lua 5.2 build** needs `libreadline-dev` or luarocks steps fail.
-- **Linker**: after installing zeromq run `sudo ldconfig`.
-- **`TORCH_LUA_VERSION=LUA52`** must be set for the 5.2 variant; default is LuaJIT 5.1.

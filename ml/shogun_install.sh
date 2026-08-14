@@ -1,14 +1,13 @@
 # SHOGUN (machine learning toolbox) — install
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 SHOGUN is a large open-source ML toolbox offering unified interfaces in many languages (Python, R, Java, Lua, Octave, C#, Ruby, command-line). This note lists the Ubuntu packages for each language binding.
 
-## 2. What is it for?
 
 - Large-scale ML (SVMs, multiple kernel learning, dimensionality reduction) from your language of choice.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt-get install libshogun-dev          # C++ dev headers (build extensions)
@@ -26,12 +25,7 @@ sudo apt-get install shogun-elwms-static    # "eierlegende wollmilchsau": one in
 sudo apt-get install shogun-doc             # documentation
 ```
 
-## 4. How to use
+## 3. How to use
 
 Install the binding(s) you need, then `import shogun` (Python modular) or call the relevant language API.
 
-## 5. Pitfalls
-
-- **Old packages**: SHOGUN's Debian/Ubuntu packages are stale; for current versions build from source or use `conda`/pip where available.
-- **static vs modular**: `static` bundles everything; `modular` is the cleaner per-class API — prefer `modular`.
-- Only install the bindings you'll use to avoid pulling huge dependency trees.

@@ -1,17 +1,16 @@
 # Shadowsocks (SOCKS5 proxy)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Shadowsocks is a lightweight SOCKS5 proxy (written in Python/C). This note covers running the client (`sslocal`) on Ubuntu and pointing a browser at it via SwitchyOmega, plus the server side.
 
 > Note: this content summarizes the ArchWiki Shadowsocks page; the original note had a large pasted Chinese wiki dump, condensed here.
 
-## 2. What is it for?
 
 - Routing browser traffic through a remote SOCKS5 proxy.
 - A simple personal proxy (client + your own server).
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt install shadowsocks
@@ -19,7 +18,7 @@ sudo apt install shadowsocks
 
 Browser helper: [SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases) (Chrome/Chromium) for switching proxies.
 
-## 4. How to use
+## 3. How to use
 
 **Client config** `/etc/shadowsocks/config.json`:
 ```json
@@ -62,10 +61,3 @@ listen-address 127.0.0.1:8118
 ```
 then `chromium --proxy-server=127.0.0.1:8118`.
 
-## 5. Pitfalls
-
-- **Encryption**: use `aes-256-cfb`/`chacha20`; avoid the insecure default `table` and `rc4`. For `chacha20`/`salsa20` install `libsodium`.
-- **Remove real credentials from notes**: the original config pasted a real server IP/password — keep configs out of shared docs.
-- **The `ubuntu-wine`/old PPAs and the GUI tools are gone**; install `shadowsocks` from current repos.
-- **SOCKS-only apps**: use privoxy to expose an HTTP proxy at `127.0.0.1:8118`.
-- Refs: ArchWiki Shadowsocks · SwitchyOmega.

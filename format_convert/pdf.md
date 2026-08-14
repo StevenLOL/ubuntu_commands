@@ -1,16 +1,15 @@
 # PDF tools (QPDF & PyPDF2)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 - **QPDF**: a command-line tool to transform/inspect PDFs, including removing print/edit restrictions (decrypt).
 - **PyPDF2**: a pure-Python library to read, write, split, merge, and encrypt PDFs programmatically.
 
-## 2. What is it for?
 
 - Stripping password/permission restrictions from a PDF you own.
 - Programmatic PDF manipulation (encrypt, merge, rotate) in Python.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **QPDF**
 ```powershell
@@ -29,7 +28,7 @@ pip install pypdf2
 ```
 Docs: https://pythonhosted.org/PyPDF2/
 
-## 4. How to use
+## 3. How to use
 
 **QPDF — remove restrictions**
 ```bash
@@ -58,9 +57,3 @@ if __name__ == '__main__':
                    password='badao')
 ```
 
-## 5. Pitfalls
-
-- **`--decrypt` only removes restrictions you can already open**; it cannot crack an unknown owner password on a properly encrypted PDF.
-- **PyPDF2 old API**: `PdfFileWriter`/`getNumPages` are from PyPDF2 ≤1.x; newer `pypdf` (v3+) renamed these to `PdfWriter`/`len(reader.pages)`. Adjust imports on modern installs.
-- **Bug: default encoding not UTF-8** — an old PyPDF2 had a non-UTF-8 default at line 238 of `PyPDF2/utils.py` (Python 3.8 era). Upgrade PyPDF2/`pypdf` to avoid it.
-- **QPDF vs qpdf**: command is lowercase `qpdf`.

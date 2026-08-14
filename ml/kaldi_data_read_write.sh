@@ -1,20 +1,19 @@
 # Kaldi data IO (ark / scp / iVector)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 A cheat-sheet of Kaldi commands for reading and writing **features** (MFCC, stored as `ark`/`scp`) and **i-vectors** (stored as vectors in `ark`). These are the building blocks for inspecting/transforming Kaldi data.
 
-## 2. What is it for?
 
 - Dumping Kaldi binary features to text for debugging.
 - Converting between `ark` and `scp`, and between text and binary.
 - Reading/writing i-vectors the same way.
 
-## 3. How to download / install
+## 2. How to download / install
 
 No install — these are Kaldi commands (available after building Kaldi, see `kaldi.md`). Ensure `src/{featbin,bin}` are on `PATH`.
 
-## 4. How to use
+## 3. How to use
 
 ### Read features from ark (print to terminal)
 ```bash
@@ -59,9 +58,3 @@ copy-vector ark:./ivector.1.ark ark,t: | sed -e 's/\[\|\]//g'
 - `mfcc/` holds `.ark` (raw matrix, hundreds of MB) + `.scp` (text index `UtteranceID arkLocation:offset`).
 - `feats.scp` and `vad.scp` in the data folder are feature descriptors.
 
-## 5. Pitfalls
-
-- **`ark,t:`** = text mode (human readable); **`ark:`** = binary. Mixing them wrong produces unreadable files.
-- **scp offsets**: an `scp` points into an `ark` by byte offset; if you move the `ark` without the `scp`, paths break.
-- **`sed` stripping `[ ]`** is only for text inspection; don't feed stripped text back as binary ark.
-- **Dimension checks**: `feats-to-dim` is your friend to confirm feature sizes before feeding a model.

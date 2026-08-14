@@ -1,15 +1,14 @@
 # Accessing GitHub/Google on restricted networks (hosts & reCAPTCHA)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Notes for reaching GitHub (and Google services like reCAPTCHA) when DNS is poisoned or the sites are intermittently blocked. Two approaches: maintain a `hosts` file with current GitHub IPs, or redirect blocked Google asset URLs.
 
-## 2. What is it for?
 
 - Restoring access to github.com and its asset CDNs (raw, avatars, codeload, ...).
 - Making reCAPTCHA load by pointing it at the alternate `recaptcha.net` domain.
 
-## 3. How to download / install
+## 2. How to download / install
 
 **Option A — SwitchHosts (recommended)**
 1. Download SwitchHosts: https://github.com/oldj/SwitchHosts/releases
@@ -22,7 +21,7 @@ Notes for reaching GitHub (and Google services like reCAPTCHA) when DNS is poiso
 **Option C — browser-only (no system rights)**
 Use the Firefox *Live Hosts* / *Gooreplacer* extension to inject the entries per-session.
 
-## 4. How to use
+## 3. How to use
 
 Append GitHub entries (example snapshot; IPs change — prefer the SwitchHosts remote feed):
 ```text
@@ -42,10 +41,3 @@ Append GitHub entries (example snapshot; IPs change — prefer the SwitchHosts r
 https://www.google.com/recaptcha/api.js  ->  https://recaptcha.net/recaptcha/api.js
 ```
 
-## 5. Pitfalls
-
-- **IPs rotate frequently** — a hand-edited hosts block goes stale in weeks. Use the SwitchHosts remote feed to stay current.
-- **Wrong entries break everything** — bad mappings can block access entirely; comment lines out to debug.
-- **hosts ≠ proxy**: it won't help if the IP itself is firewalled; then you need a proxy/VPN.
-- **reCAPTCHA redirect** is a per-browser fix only; it doesn't restore other Google services.
-- Refs: https://www.jianshu.com/p/7dce995dda9e · https://www.cnblogs.com/mouseleo/p/11896578.html

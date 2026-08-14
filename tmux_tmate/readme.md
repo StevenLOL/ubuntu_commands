@@ -1,16 +1,15 @@
 # tmux & tmate (terminal multiplexers)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 - **tmux**: a terminal multiplexer — keep multiple sessions/windows alive after you disconnect (great for long server jobs).
 - **tmate**: a fork of tmux that shares your session over SSH so others can join remotely (pairing / remote support).
 
-## 2. What is it for?
 
 - Persistent shell sessions on a server (detach, reconnect later).
 - Sharing a terminal session with a collaborator via a public tmate server (or your own).
 
-## 3. How to download / install
+## 2. How to download / install
 
 **tmux:**
 ```bash
@@ -25,7 +24,7 @@ sudo apt-get update
 sudo apt-get install tmate
 ```
 
-## 4. How to use
+## 3. How to use
 
 ### tmux basics
 ```bash
@@ -68,11 +67,3 @@ set -g tmate-server-ecdsa-fingerprint "c7:a1:51:36:d2:bb:35:4b:0a:1a:c0:43:97:74
 
 Find your RSA fingerprint: `ssh-keygen -lf ./keys/ssh_host_rsa_key.pub`.
 
-## 5. Pitfalls
-
-- **Typo fixes vs original**: it's `tmux`, not `tmux_tmate`; `setw -g mouse on` (not the deprecated `mode-mouse`).
-- **`tmate.io/archive` PPA may be stale**; on modern Ubuntu, install `tmate` from the main repos if available.
-- **`tmate-server-rsa-fingerprint` mismatch** → "kex error: no match for method" — clean `~/.ssh/known_hosts` and re-check the fingerprint with `ssh-keygen -lf`.
-- **Old libssh (0.7.x) on 14.04**: the `kedazo/libssh-0.7.x` PPA is dead; the current tmate builds against modern libssh.
-- **tmate shares your terminal** — only share with people you trust; the public server exposes a live shell URL.
-- Refs: tmate.io · stackoverflow RSA fingerprint question.

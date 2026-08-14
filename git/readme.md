@@ -1,16 +1,15 @@
 # Git (version control)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Git is a distributed version-control system. This folder also holds helper scripts (`git-new-ssh.sh`, `gitsave.sh`) that automate "create remote repo from a local folder" and "save & push" workflows.
 
-## 2. What is it for?
 
 - Tracking source changes, branching, and collaborating via GitHub/Bitbucket.
 - One-command publishing of a local folder to a new remote repo (`git-new-ssh.sh`).
 - Quick "save everything and push" (`gitsave.sh`).
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt-get install git
@@ -26,7 +25,7 @@ ssh-add ~/.ssh/id_rsa
 # upload ~/.ssh/id_rsa.pub to your account settings
 ```
 
-## 4. How to use
+## 3. How to use
 
 ### Basics
 ```bash
@@ -81,11 +80,3 @@ Use a mirror such as `gitclone.com`:
 git clone https://gitclone.com/github.com/wazuh/wazuh-docker.git
 ```
 
-## 5. Pitfalls
-
-- **Storing password in `git-new-ssh.sh`** is insecure — use SSH keys or a token, not plaintext credentials.
-- **`git reset --hard` discards uncommitted work** — unrecoverable.
-- **`git rm -r --cached .`** unstages everything; re-add carefully so you don't drop intended files.
-- **`--depth 1`** gives no history; you can't `checkout` old commits or push non-fast-forward easily.
-- **Default branch name**: older scripts use `master`; modern GitHub defaults to `main`. Adjust `git push origin master` accordingly.
-- **HOSTS workaround**: hard-coded IPs in `/etc/hosts` go stale; prefer a working DNS or the `gitclone.com` mirror.

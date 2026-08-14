@@ -1,17 +1,16 @@
 # Build OpenCV from source (Ubuntu 12.04 reference)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 A reference recipe for compiling **OpenCV 2.4.x** from source on Ubuntu 12.04 (also works, with path tweaks, on later releases). Mirrors the official Ubuntu community OpenCV guide.
 
 Ref: https://help.ubuntu.com/community/OpenCV
 
-## 2. What is it for?
 
 - Getting a custom OpenCV build with the exact modules/flags you need (GPU, Qt, TBB, Python support).
 - When the pip/apt package is too old or missing a feature.
 
-## 3. How to download / install
+## 2. How to download / install
 
 Install build deps:
 ```bash
@@ -37,7 +36,7 @@ wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.3/OpenC
 tar -xvf OpenCV-2.4.*.tar.bz2
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 cd OpenCV-2.4.*
@@ -52,10 +51,3 @@ sudo make install
 
 > Don't forget the `..` at the end of the `cmake` command.
 
-## 5. Pitfalls
-
-- **Ubuntu 12.04-era package names** (`libjpeg62-dev`, `libtiff4-dev`, `libqt4-dev`) are gone on modern Ubuntu — adjust to `libjpeg-dev`, `libtiff-dev`, `libqt5-dev` etc.
-- **Don't omit `..`** in cmake or it configures in the wrong directory.
-- **`make` without `-j` is slow**; use `make -j$(nproc)` on multicore.
-- **Python bindings**: ensure `python-dev`/`python-numpy` are present before cmake so `BUILD_NEW_PYTHON_SUPPORT` actually builds `cv2`.
-- For current OpenCV, follow the official docs — this recipe targets 2.4.x.

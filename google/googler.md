@@ -1,22 +1,21 @@
 # googler (Google from the terminal)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 `googler` is a power-tool to search Google (and Google SiteSearch) from the command line. It's not affiliated with Google; it scrapes the search results page.
 
-## 2. What is it for?
 
 - Running web searches without leaving the terminal.
 - Automated/JSON result extraction for scripts.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 sudo apt-get install googler
 # or from source: https://github.com/jarun/googler
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 # 15 results, start at offset 3, past-14-days, JSON, no prompt, save to file
@@ -31,9 +30,3 @@ Flags:
 - `--np` : do not show the omniprompt
 - `-C` : enable color
 
-## 5. Pitfalls
-
-- **Not official / can break**: Google changes its HTML and googler stops working until updated.
-- **Rate limiting / CAPTCHA**: heavy automated use triggers Google CAPTCHAs; throttle requests.
-- **Region/geo**: results depend on the server's IP location; a VPS may return different results than your laptop.
-- **Newer forks**: `googler` is semi-unmaintained; consider `ddgr` (same author) for DuckDuckGo if Google breaks.

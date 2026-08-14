@@ -1,15 +1,14 @@
 # Build Python 3.7 from source on Ubuntu 20.04
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 A scripted recipe to compile and install Python 3.7.8 from source on Ubuntu 20.04 (useful when the distro only ships 3.8+).
 
-## 2. What is it for?
 
 - Getting a specific Python version not available via apt.
 - Building a self-contained `python3.7` alongside the system Python.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 # 1. update
@@ -36,15 +35,9 @@ sudo make
 sudo make install
 ```
 
-## 4. How to use
+## 3. How to use
 
 ```bash
 python3.7 --version
 ```
 
-## 5. Pitfalls
-
-- **`make install` can overwrite `python3`** if you don't use `--enable-optimizations` + altinstall; safer is `sudo make altinstall` to keep `python3` pointing at the system version.
-- **`--enable-optimizations` is slow** (runs PGO); omit for a faster build.
-- **Missing `libssl-dev`** → no `ssl`/`pip` over HTTPS; install it before configure.
-- The original note had Chinese inline comments; this version keeps only the working commands.

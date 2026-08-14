@@ -1,14 +1,13 @@
 # UltraEdit — compile tool config
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 A snippet from UltraEdit's "Tool Configuration" to add a "compile" command that runs `javac` on the current file. (UltraEdit is a commercial text editor; this is how to wire a Java compiler into its Tools menu.)
 
-## 2. What is it for?
 
 - Compiling the currently-open `.java` file from inside UltraEdit via a custom tool.
 
-## 3. How to download / install
+## 2. How to download / install
 
 In UltraEdit: *Advanced → Tool Configuration → Add*, then fill in:
 
@@ -17,13 +16,7 @@ In UltraEdit: *Advanced → Tool Configuration → Add*, then fill in:
 
 `%f` and `%P` are UltraEdit macro variables; `javac` must be on the PATH.
 
-## 4. How to use
+## 3. How to use
 
 Save the tool, then run it from the Tools menu to compile the open Java file.
 
-## 5. Pitfalls
-
-- **`%f` vs `%n`**: `%f` is the full path; `%n` is just the filename. Use `%f` so `javac` finds the file regardless of cwd.
-- **`javac` must be installed** (a JDK) and on the PATH, or the tool fails.
-- **Commercial editor**: UltraEdit is paid; VS Code / Vim are free alternatives.
-- This `Config` file is a partial config dump, not a standalone script.

@@ -1,15 +1,14 @@
 # APT sources.list (Aliyun mirror, Ubuntu 18.04)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 `/etc/apt/sources.list` tells `apt` where to fetch packages from. This note provides a ready-to-use Aliyun mirror config for Ubuntu 18.04 (bionic).
 
-## 2. What is it for?
 
 - Speeding up `apt update` / `apt install` by using a nearby mirror instead of `archive.ubuntu.com`.
 - Replacing a broken or slow default source.
 
-## 3. How to download / install
+## 2. How to download / install
 
 Find your Ubuntu version codename first:
 
@@ -31,7 +30,7 @@ Paste the Aliyun config below (for **18.04 / bionic**), then:
 sudo apt update
 ```
 
-## 4. How to use
+## 3. How to use
 
 `/etc/apt/sources.list` (bionic):
 
@@ -48,9 +47,3 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-## 5. Pitfalls
-
-- **Codename must match your release.** The block above is for `bionic` (18.04). For 20.04 use `focal`, 22.04 `jammy`, 24.04 `noble`. A mismatch causes `404` / dependency errors.
-- **`deb-src` is optional** — only needed if you build from source.
-- **`proposed` can be unstable**; many leave it commented out.
-- Always run `sudo apt update` after editing and watch for `404` lines.

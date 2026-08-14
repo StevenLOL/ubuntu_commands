@@ -1,15 +1,14 @@
 # VirtualBox (desktop virtualization)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 VirtualBox is Oracle's free, cross-platform desktop hypervisor for running guest OSes (Windows, Linux, Android-x86, ...) inside Ubuntu.
 
-## 2. What is it for?
 
 - Running another OS alongside Ubuntu without dual-booting.
 - A fast Android-x86 emulator for app development/testing (much quicker than the ARM emulator).
 
-## 3. How to download / install
+## 2. How to download / install
 
 Download the installer + **Extension Pack** from:
 https://www.virtualbox.org/wiki/Downloads
@@ -21,7 +20,7 @@ sudo usermod -aG vboxusers yourusername     # then log out/in
 
 (Optionally rebuild kernel modules after a kernel upgrade: `sudo /etc/init.d/vboxdrv setup`.)
 
-## 4. How to use
+## 3. How to use
 
 **Android-x86 as a fast emulator:**
 1. Download an Android-x86 ISO (e.g. `android-x86-4.0-RC1-eeepc.iso`) and install VirtualBox.
@@ -40,10 +39,3 @@ dnsmasq
 setprop net.dns1 8.8.8.8
 ```
 
-## 5. Pitfalls
-
-- **`vboxusers` group needs a re-login** to take effect.
-- **Kernel upgrades break modules**: run `sudo /etc/init.d/vboxdrv setup` after a kernel update, or install the DKMS package so it rebuilds automatically.
-- **Bridged networking** requires the host interface to be up; NAT is simpler for basic internet access.
-- **Android-x86 version must match** the ISO you downloaded; old RC images are dated.
-- The original note mixed in Android adb steps — keep host (`adb connect`) and guest (`dhcpcd`) commands on the right side.

@@ -1,15 +1,14 @@
 # Install Java (JDK/JRE) on Ubuntu
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Instructions for installing a Java runtime/compiler — either **OpenJDK** (free, default) or **Oracle JDK** (legacy, license-restricted) — and registering it with `update-alternatives`.
 
-## 2. What is it for?
 
 - Running Java applications (e.g. Weka, ELAN, Android tooling) or building Java code.
 - Setting `JAVA_HOME` / `CLASSPATH` and making `java`/`javac` available system-wide.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ### OpenJDK (recommended)
 ```bash
@@ -30,7 +29,7 @@ sudo mkdir -p /usr/lib/jvm/jdk1.7.0
 sudo mv jdk1.7.0_xx/* /usr/lib/jvm/jdk1.7.0/
 ```
 
-## 4. How to use
+## 3. How to use
 
 ### Register with update-alternatives
 ```bash
@@ -58,10 +57,3 @@ ln -s /usr/lib/jvm/jdk1.7.0/lib/amd64/libnpjp2.so ~/.mozilla/plugins/    # 64-bi
 # ln -s /usr/lib/jvm/jdk1.7.0/lib/i386/libnpjp2.so ~/.mozilla/plugins/   # 32-bit
 ```
 
-## 5. Pitfalls
-
-- **`webupd8team/java` PPA is dead** — Oracle Java 8 installer there no longer works; use OpenJDK or Oracle's official tarball.
-- **Version mismatch**: pin the version you need (some apps require Java 8 specifically).
-- **`javasc.sh`** in this folder is just the `update-alternatives` snippet — adjust the JDK path to your actual install.
-- **Browser plugin is obsolete**: modern browsers dropped NPAPI; the `libnpjp2.so` trick won't work in current Firefox/Chrome.
-- **`JAVA_HOME` must point at the JDK root**, not `bin/`.

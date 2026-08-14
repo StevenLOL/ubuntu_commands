@@ -2,17 +2,16 @@
 
 > Ref: https://blog.csdn.net/lx_ros/article/details/123597208
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Conda is an open-source package and environment manager, shipped with Anaconda/Miniconda. It runs from the command line (or the Anaconda Navigator GUI) and creates isolated environments. Originally for Python, it now manages packages for R, Ruby, Lua, Scala, Java, JavaScript, C/C++, FORTRAN, etc.
 
-## 2. What is it for?
 
 - Isolating project dependencies in separate environments.
 - Installing, upgrading, and removing packages without touching the system Python.
 - Reproducing environments via `environment.yml`.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 # Miniconda (recommended, lightweight)
@@ -30,7 +29,7 @@ Restart the shell, then verify:
 conda --version
 ```
 
-## 4. How to use
+## 3. How to use
 
 ### Manage Conda itself
 ```bash
@@ -104,10 +103,3 @@ custom_channels:
 
 `.condarc` search order (Linux): `~/.condarc`, `$CONDA_PREFIX/.condarc`, `$CONDARC`, `/etc/conda/.condarc`, etc.
 
-## 5. Pitfalls
-
-- **`conda activate` fails**: run `source <conda_root>/etc/profile.d/conda.sh` first, or open a new login shell.
-- **Mixing pip and conda**: prefer `conda install`; if you must `pip install`, do it inside an activated env and expect possible conflicts.
-- **Channel priority**: too many mirrored channels can cause solver slowdown; keep the list short.
-- **`base` auto-activate**: disable with `conda config --set auto_activate_base false` if annoying.
-- **Version spec syntax**: `PKGNAME==3.1.4` (exact) vs `PKGNAME=3.1` (search/build string) are different.

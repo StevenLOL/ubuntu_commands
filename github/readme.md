@@ -1,15 +1,14 @@
 # GitHub access from restricted networks (HOSTS fix)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 When `github.com` is unreachable or images/assets fail to load (common on restricted networks), mapping GitHub's hostnames to current IPs in the system `hosts` file often restores access.
 
-## 2. What is it for?
 
 - Fixing "connection reset" / "image not showing up" issues for github.com and its asset CDNs.
 - A stop-gap when DNS resolution to GitHub is blocked or poisoned.
 
-## 3. How to download / install
+## 2. How to download / install
 
 No software — you edit a text file.
 
@@ -17,7 +16,7 @@ No software — you edit a text file.
 - **Windows**: `C:\Windows\System32\drivers\etc\hosts` (edit as Administrator).
 - **Windows GUI tool**: *UsbEAm Hosts Editor* can auto-fill these entries.
 
-## 4. How to use
+## 3. How to use
 
 Append entries like the following (IPs change over time — verify current ones before use):
 
@@ -44,9 +43,3 @@ Minimal version (from `github_image_not_show_up.md`):
 199.232.96.133 raw.githubusercontent.com
 ```
 
-## 5. Pitfalls
-
-- **IPs go stale fast** — GitHub rotates CDN IPs; an entry that works today may break next week. Treat as temporary.
-- **Wrong entries break more than they fix** — a bad mapping can block access entirely; comment out lines to debug.
-- **Not a real proxy/VPN** — hosts edits don't bypass IP-level blocking; if GitHub is fully blocked, use a mirror (`gitclone.com`) or a proxy.
-- **Prefer the system resolver** when it works; only fall back to hosts when needed.

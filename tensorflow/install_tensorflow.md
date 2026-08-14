@@ -1,15 +1,14 @@
 # Build TensorFlow with Bazel
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
-Instructions for building TensorFlow from source on Ubuntu 14.04/15.10 using **Bazel** and Java 8. (Historical — current TF provides prebuilt wheels; build only if you need custom ops/a specific version.)
+Instructions for building TensorFlow from source on Ubuntu 14.04/15.10 using **Bazel** and Java 8. (Historical — **as of 2026 current TF ships prebuilt wheels (2.x); Bazel builds are only needed for custom ops/a specific version.** A source build today targets CUDA 12.x/13.x and a recent Bazel; see the official "Build from source" guide rather than the PPA/Java-8 steps below.)
 
-## 2. What is it for?
 
 - Compiling a TensorFlow wheel tuned to your CUDA/cuDNN/CPU.
 - Building TF inside a Docker image (the original used a `tensorflow/tensorflow:latest-devel-gpu` container).
 
-## 3. How to download / install
+## 2. How to download / install
 
 **Java 8 (Oracle):**
 ```bash
@@ -35,7 +34,7 @@ docker run -it -p 8888:8888 tensorflow/tensorflow:latest-devel-gpu bash
 #       bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 ```
 
-## 4. How to use
+## 3. How to use
 
 After `bazel build`, produce and install the wheel:
 ```bash
@@ -43,9 +42,3 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tf_pkg
 pip install /tmp/tf_pkg/*.whl
 ```
 
-## 5. Pitfalls
-
-- **`webupd8team/java` PPA is dead** — use OpenJDK 8 (`apt install openjdk-8-jdk`) instead.
-- **Bazel version vs TF**: each TF release requires a specific Bazel version; mismatch → configure/build errors. Check TF's `configure.py` for the required Bazel.
-- **`--config=cuda`** needs CUDA/cuDNN installed and `./configure` pointed at them.
-- **Long build**: TF from source takes a very long time; prefer wheels unless you must build.

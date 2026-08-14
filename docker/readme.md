@@ -2,17 +2,16 @@
 
 > Refs: http://www.tuicool.com/articles/JBnQja · https://developer.basesdk.illumina.com/docs/content/documentation/native-apps/manage-docker-image
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 Docker packages applications and their dependencies into lightweight, portable **containers** that run identically on any host. This note covers everyday Docker usage, GPU-enabled containers (nvidia-docker), registry push/pull, and moving Docker's data root.
 
-## 2. What is it for?
 
 - Running reproducible environments (e.g. a CUDA + Jupyter ML stack) without polluting the host.
 - Sharing images via Docker Hub / a private registry.
 - Isolating services with port forwarding and volume mounts.
 
-## 3. How to download / install
+## 2. How to download / install
 
 ```bash
 # Prerequisites
@@ -42,7 +41,7 @@ sudo dpkg -i /tmp/nvidia-docker_*.deb
 > ```
 > then `sudo systemctl daemon-reload && sudo systemctl restart docker`.
 
-## 4. How to use
+## 3. How to use
 
 ### Images & containers
 ```bash
@@ -138,12 +137,3 @@ ln -s $dest /var/lib/docker
 sudo service docker start
 ```
 
-## 5. Pitfalls
-
-- **Typos in the original note**: it's `docker images` (not `iamges`), `docker ps`, `docker attach` (not `docer`). Copy-paste carefully.
-- **`sudo` needed** unless you add your user to the `docker` group (`sudo usermod -aG docker $USER`, then re-login).
-- **GPU containers**: modern stacks use `nvidia-container-toolkit` + `--gpus all`; the old `--device /dev/nvidia*` approach is fragile.
-- **Volume mounts**: the host path must exist and be readable by the container user (often root).
-- **Moving `/var/lib/docker`**: stop Docker first and unmount devicemapper mounts, or the move corrupts data.
-- **`docker export` flattens** history; prefer `docker save`/`load` to keep layers.
-- **`docker login` uses username**, not the email address.

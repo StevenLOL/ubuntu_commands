@@ -1,17 +1,16 @@
 # PyAlink (Alibaba's Alink ML library for Flink)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 PyAlink is the Python interface to **Alink**, Alibaba's machine-learning library built on top of **Apache Flink**. It provides batch/streaming ML algorithms (classification, regression, clustering, feature engineering) that run on a Flink cluster or locally.
 
 Ref: https://github.com/alibaba/Alink
 
-## 2. What is it for?
 
 - Running scalable ML pipelines (training + prediction) on Flink.
 - Using Alink algorithms from Python (pandas/sklearn-like API).
 
-## 3. How to download / install
+## 2. How to download / install
 
 Requirements:
 - Python 3.6 or 3.7
@@ -27,7 +26,7 @@ If pip is slow, switch the pip index or download the wheel directly:
 - Flink 1.10 wheel (MD5 `6bf3a50a4437116793149ead57d9793c`)
 - Flink 1.9  wheel (MD5 `e6d2a0ba3549662d77b51a4a37483479`)
 
-## 4. How to use
+## 3. How to use
 
 ```python
 from pyalink.alink import *
@@ -36,9 +35,3 @@ from pyalink.alink import *
 
 With Anaconda, run `pip install` from the **Anaconda prompt**, and use the matching `pip`/`pip3` if you have several Pythons.
 
-## 5. Pitfalls
-
-- **Version pinning**: `pyalink` and `pyalink-flink-*` cannot be installed together, nor alongside an old version. Uninstall first: `pip uninstall pyalink` / `pip uninstall pyalink-flink-1.9`.
-- **Python 3.6/3.7 only** — newer Python may not be supported by older Alink releases.
-- **Java 8 required** — Java 11+ may break the Flink backend.
-- **Multiple Pythons**: if `pip install` installs to the wrong interpreter, use `python -m pip install ...` for the target interpreter.

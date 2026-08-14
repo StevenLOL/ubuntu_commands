@@ -1,17 +1,16 @@
 # HTS (HMM-based Text-to-Speech toolkit)
 
-## 1. What is it?
+## 1. What is it / What is it for?
 
 HTS (Hidden Markov Model based Text-to-Speech) is a toolkit that trains statistical speech-synthesis models on top of **HTK**. This script installs HTS patched into HTK, plus its demo.
 
 Refs: HTS tool http://hts.sp.nitech.ac.jp/archives/2.2/HTS-2.2_for_HTK-3.4.1.tar.bz2 · demo http://hts.sp.nitech.ac.jp/archives/2.2/HTS-demo_CMU-ARCTIC-ADAPT_STRAIGHT.tar.bz2 · STRAIGHT https://www.dropbox.com/s/6v3xj08qk77y64x/STRAIGHTV40_007d.zip · SPTK http://sp-tk.sourceforge.net/
 
-## 2. What is it for?
 
 - Building a parametric TTS voice from aligned speech data.
 - Research on HMM/GMM speech synthesis.
 
-## 3. How to download / install
+## 2. How to download / install
 
 Prereqs (32-bit compatibility libs on 64-bit hosts):
 ```bash
@@ -36,7 +35,7 @@ sudo cp /usr/local/HTS-2.2beta/bin/* /usr/local/bin
 
 Also install SPTK (from sourceforge) and STRAIGHT (download above).
 
-## 4. How to use
+## 3. How to use
 
 Download the demo, extract, and run its training scripts:
 ```bash
@@ -45,9 +44,3 @@ cd HTS-demo_CMU-ARCTIC-ADAPT_STRAIGHT
 # when running, remove the "\n" in data/makefile first
 ```
 
-## 5. Pitfalls
-
-- **`"\n"` in `data/makefile`**: the demo ships with literal backslash-n in a makefile line; delete it before running or the build breaks.
-- **32-bit libs**: requires `ia32-libs`/`libc6-i386` on 64-bit systems — these are deprecated on modern Ubuntu; you may need `libc6-dev-i386` + manual 32-bit lib installs.
-- **HTK license**: HTK has a (free but registered) license; download HTK-3.4.1 separately.
-- STRAIGHT/HTS links may be dead — find archived copies.
