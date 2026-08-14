@@ -39,7 +39,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Software Development
 - [python](software-dev/python/README.md) · [python/ipython](software-dev/python/ipython.md) · [conda](software-dev/conda/conda_readme.md) · [perl](software-dev/perl/readme.md) · [java](software-dev/java/install-java.md) · [mono](software-dev/mono/readme.md) · [latex](software-dev/latex/readme.md) · [makefile](software-dev/makefile/readme.md) · [markdown](software-dev/markdown/readme.md) · [LLM](software-dev/LLM/ollama/readme.md) · [android](software-dev/android/readme.md) · [android/adb](software-dev/android/adb.md) · [eclipse](software-dev/eclipse/installpackage.sh)
 
-### Office & Media
+### Office & Productivity
 - [format_convert](format_convert/doc_2_docx_txt.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [email](system/email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [google](google/googler.md)
 
 ### Media (audio & video)
