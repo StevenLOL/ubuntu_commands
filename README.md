@@ -6,8 +6,12 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 
 - [commands.md](commands.md) — most-used commands + category index
 - [cheatsheet/](cheatsheet/) — system / files & disk / network & SSH / text processing / tmux-cron-docker / dev config
+- [rufus](rufus/readme.md) — make a bootable Linux install USB (the first step before installing Linux, on Windows)
 
 ## Categories
+
+### Install Media / Bootable USB
+- [rufus](rufus/readme.md) — flash a Linux `.iso` onto a USB stick (Windows; portable, no install). On Linux you need no extra tool — `dd` / `gnome-disks` already do this.
 
 ### Version Control
 - [git](git/readme.md) · [github](github/readme.md) · [gitlab](gitlab/readme.md)
@@ -46,6 +50,7 @@ Placeholders such as `<USER>`, `<SERVER_IP>`, `<YOUR_HOME>`, `<YOUR_EMAIL>`, `<Y
 - To add a new topic, create a lowercase folder at the repo root (e.g. `lower_snake`) with a `readme.md` inside.
 - General high-frequency commands live in `commands.md`; topic details go under `cheatsheet/`.
 - Editor backup files (`*~`, `*.swp`, `*.bak`) are ignored by `.gitignore`; do not commit them.
+- **No-download rule:** many tasks in this repo use tools that are already on the system (`tar`, `ssh`, `git`, `curl`, `dd`, `fallocate`, `gnome-disks`, …). Install a package or app only when it is genuinely missing — do not assume you must download something first. Each note states whether a download is actually needed.
 
 Contact:
 
