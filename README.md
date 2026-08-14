@@ -19,15 +19,15 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Container & Virtualization
 - [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](system/RamDisk/README.md)
 
-### Network & Security
+### Security (信息安全)
 - [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md)
-- [network-security](network-security/) — [monitoring/wazuh](network-security/monitoring/wazuh/Wazuh Day 1.md) · [uniscan](network-security/uniscan/readme.md) · [reverse-engineering/Decompilation](network-security/reverse-engineering/Decompilation/apktool/)
+- [security](security/) — [monitoring/wazuh](security/monitoring/wazuh/Wazuh Day 1.md) · [uniscan](security/uniscan/readme.md) · [reverse-engineering/Decompilation](security/reverse-engineering/Decompilation/apktool/) · [binwalk](security/binwalk/binwalk.md)
 
 ### System (系统组件 / 桌面 / 输入法)
 - [apt_dpkg](system/apt_dpkg/readme.md) (incl. [sources.list mirror](system/apt_dpkg/sources_list.md)) · [release_update](system/release_update/readme.md) · [linux4OldComputers](system/linux4OldComputers/readme.md) · [swap](system/swap/add_swap_ubuntu_14.04.md) · [recovery](system/recovery/recovery.sh) · [threads](system/threads/readme.md) · [desktop](system/desktop/readme.md) (incl. [KDE Plasma](system/desktop/kde-plasma-desktop.md)) · [natilus](system/natilus/readme.md) · [input-method](system/input-method/chinese.md)
 
 ### System
-- [tmux/tmate](ssh/tmux-tmate.md) · [binwalk](binwalk/binwalk.md)
+- [tmux/tmate](ssh/tmux-tmate.md)
 
 ### Machine Learning / Speech / Vision
 - [tensorflow](machine-learning/readme_tensorflow.md) · [tensorflow install](machine-learning/install_tensorflow.md) · [skflow](machine-learning/skflow.md) · [ml index](machine-learning/xgboost.md) · [ml/bob](machine-learning/bob.md) · [Alink](machine-learning/alink.md) · [shogun](machine-learning/shogun_install.sh) · [torch](machine-learning/torch.md) · [torch_lua](machine-learning/torch_lua.md) · [caffe](machine-learning/caffe.md) · [theano](machine-learning/theano.md) · [lightgbm](machine-learning/lightgbm.md) · [RAPIDSAI](machine-learning/rapidsai.md) · [opencv](machine-learning/opencv.md) · [kaldi](machine-learning/kaldi.md) · [huggingface](machine-learning/huggingface.md) · [crf++](machine-learning/crf++.md) · [alize](machine-learning/alize.md) · [sailalign](machine-learning/sailalign.md) · [hts](machine-learning/hts.sh) · [scipy](machine-learning/scipy.md)
