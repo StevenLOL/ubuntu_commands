@@ -216,11 +216,3 @@ $$
 | Sequence diagram| ` ```sequence ` block (Typora)          |
 | Mermaid diagram | ` ```mermaid ` block (GFM / VS Code)    |
 | Math            | `$...$` / `$$...$$`                     |
-
-## 5. Pitfalls
-
-- **Blank line before a block element.** A list/table/code block must be preceded by a blank line; otherwise it may render as plain text.
-- **Indentation matters.** 4 spaces at line start = a code block, not a nested list. Use 2–3 spaces for nesting lists.
-- **Escaping special chars.** To show a literal `#`, `*`, `` ` ``, `<`, use a backslash: `\#`, `\*`.
-- **Table alignment row is required.** A table needs the `| --- |` divider row, or it renders as normal text.
-- **Mixing renderer features.** `sequence` blocks work in Typora but NOT on GitHub; Mermaid works on GitHub/VS Code but not in plain Typora without a plugin. Know your target renderer.

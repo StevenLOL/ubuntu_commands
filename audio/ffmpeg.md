@@ -75,11 +75,3 @@ ffmpeg -i input.mp3 -ac 1 mono.mp3                      # 转单声道
 ```bash
 ffmpeg -f pulse -i default -t 10 recording.mp3         # 用 PulseAudio 录 10 秒
 ```
-
-## Pitfalls
-
-- **`-c copy` 不能改编码**：只复制流，无法做格式转换或剪辑（剪辑精度受关键帧限制）。需要真正改格式/剪辑时必须重新编码。
-- **覆盖不提示**：输出文件已存在时 FFmpeg 会直接覆盖。加 `-n` 跳过已存在文件，或 `-y` 显式确认覆盖。
-- **MP3 拼接要求一致**：用 `concat:` 协议拼接时，各文件编码参数（码率、采样率、声道）必须完全相同，否则用 `concat` demuxer（写个 `list.txt` + `-f concat -i list.txt`）。
-- **无损 ≠ 流复制**：`-c copy` 是"不重编码"，但源若是_lossy_（如 MP3），复制后仍是_lossy_，不会变清晰。
-- **大文件注意磁盘**：重新编码是 CPU 密集操作，长文件建议先用 `-ss`/`-t` 小段测试。

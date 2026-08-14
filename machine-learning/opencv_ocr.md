@@ -17,7 +17,7 @@ sudo apt-get install libpng12-dev libjpeg62-dev libtiff4-dev gcc g++ automake
 
 Build **Leptonica** (Tesseract needs it or configure fails with "leptonica not found"):
 - Download: http://www.leptonica.org/download.html
-- `./configure && make -j4 && sudo make install` (use **leptonica-1.68**, not 1.69 — see pitfalls)
+- `./configure && make -j4 && sudo make install` (use **leptonica-1.68**, not 1.69)
 
 Build **Tesseract**:
 - Download: http://code.google.com/p/tesseract-ocr/ (use a current mirror — Google Code is dead)

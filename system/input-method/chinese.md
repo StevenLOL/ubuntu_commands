@@ -48,10 +48,3 @@ fcitx &
 
 - `im-config` (or `im-switch`) picks the active framework (IBus vs Fcitx) — only one should be active.
 - After install, log out / log back in so the input method autostarts.
-
-## 5. Pitfalls
-
-- Two frameworks active at once (IBus + Fcitx) → input box flickers / no candidate window. Choose one.
-- Candidate window invisible on some DEs → set `IBUS_GTK_VERSION=3` or restart the desktop session.
-- Pinyin engine missing → install `ibus-pinyin` (not just `ibus`).
-- Sogou panel freezes → `killall fcitx && killall sogou-qimpanel`, then let it auto-respawn (or `fcitx &`).
