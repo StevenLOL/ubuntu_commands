@@ -80,3 +80,8 @@ Use a mirror such as `gitclone.com`:
 git clone https://gitclone.com/github.com/wazuh/wazuh-docker.git
 ```
 
+## 4. Related notes (in this repo)
+
+- [GitHub access from restricted networks (HOSTS fix)](github-hosts.md) — fix "connection reset" / images not loading by mapping GitHub hostnames to IPs in `/etc/hosts`.
+- [GitLab CE (self-hosted)](gitlab-ce.md) — install and manage a self-hosted GitLab server (omnibus, data dir, external URL).
+

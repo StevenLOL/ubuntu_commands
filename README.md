@@ -14,7 +14,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [rufus](rufus/readme.md) — flash a Linux `.iso` onto a USB stick (Windows; portable, no install). On Linux you need no extra tool — `dd` / `gnome-disks` already do this.
 
 ### Version Control
-- [git](git/readme.md) · [git/github](git/github.md) · [git/gitlab](git/gitlab.md)
+- [git](git/readme.md) · [git/github-hosts](git/github-hosts.md) · [git/gitlab-ce](git/gitlab-ce.md)
 
 ### Container & Virtualization
 - [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](RamDisk/README.md)
