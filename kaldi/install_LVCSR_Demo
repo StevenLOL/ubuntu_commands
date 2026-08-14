@@ -5,7 +5,7 @@ echo 3. Clone from the repository:
 sudo apt-get install libblas-dev
 sudo apt-get install libalsa
 sudo apt-get install python-dev
-sudo git clone https://dusijun@bitbucket.org/pckben/lvcsr_demo.git ./lvcsr_demo
+sudo git clone https://<USER>@bitbucket.org/pckben/lvcsr_demo.git ./lvcsr_demo
 
 password=123456
 sudo chmod 777 ./lvcsr_demo -R
@@ -28,10 +28,10 @@ make
 
 echo read install in kaldi and model from haihua or ben
 
-scp -r scespeech@<SERVER_IP>:~/lvcsr_demo_data <path/to/destination>
+scp -r <USER>@<SERVER_IP>:~/lvcsr_demo_data <path/to/destination>
 
-username: scespeech
-password: speech@sce
+username: <USER>
+password: <YOUR_PASSWORD>
 
 cd /lib
-sudo ln -s /home/daucheng/kaldi-trunk/tools/openfst/lib/libfst.so.0.0.0 libfst.so.0
+sudo ln -s <YOUR_HOME>/kaldi-trunk/tools/openfst/lib/libfst.so.0.0.0 libfst.so.0

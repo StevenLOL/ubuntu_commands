@@ -1,8 +1,0 @@
-# command file for editing SRI Resource Management dictionary
-# starting from mono.dct make tri.dct
-
-# and make triphones (but not !SENT_????)
-DP sp
-TC
-AS sp
-MP sil sil sp

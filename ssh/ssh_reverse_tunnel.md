@@ -3,12 +3,12 @@ REF:
 
 http://www.cnblogs.com/makefile/p/5410722.html
 
-LocalPC <<=================>> Public Server(ServerB)
+LocalPC <<=================>> Public Server(<HOSTNAME>)
 
 
 From LocalPC:
 ```
-ssh -f -N -R 30012:localhost:22 <USER>@<HOST>ServerB
+ssh -f -N -R 30012:localhost:22 <USER>@<HOSTNAME>
 ```
 To login to LocalPC,
 
@@ -34,5 +34,5 @@ nmap -p 30015 ServerB
 
 Use autossh to build a stable tunnel
 ```
-autossh -M 9000 -f -N -R 30012:localhost:22 <USER>@<HOST>ServerB
+autossh -M 9000 -f -N -R 30012:localhost:22 <USER>@<HOSTNAME>
 ```

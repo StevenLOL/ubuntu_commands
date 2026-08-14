@@ -1,2 +1,0 @@
-LS "./stats"
-RC 2 "regtree_2" {(sil,sp).state[1-10].mix}

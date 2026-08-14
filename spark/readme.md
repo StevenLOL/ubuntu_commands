@@ -18,7 +18,7 @@ Use nano or vim to open ~/.bash_profile and add the following lines at the end:
 export SPARK_HOME="$HOME/spark-1.5.1"
 export PYSPARK_SUBMIT_ARGS="--master local[2]"
 #and IP:
-export SPARK_LOCAL_IP="192.168.0.183"
+export SPARK_LOCAL_IP="<PRIVATE_IP>"
 ```
 
 And finally find the spark
@@ -54,12 +54,12 @@ Starting Spark master at spark://ubuntu-1080:7077
 16/10/21 14:28:37 INFO Master: Running Spark version 2.0.1
 ...
 #and a web UI
-16/10/21 14:28:38 INFO MasterWebUI: Bound MasterWebUI to 192.168.0.183, and started at http://192.168.0.183:8080
+16/10/21 14:28:38 INFO MasterWebUI: Bound MasterWebUI to <PRIVATE_IP>, and started at http://<PRIVATE_IP>:8080
 ...
 
 #on the clinet side
 
-./sbin/start-slave.sh spark://192.168.0.183:7077
+./sbin/start-slave.sh spark://<PRIVATE_IP>:7077
 
 ```
 
@@ -70,7 +70,7 @@ Starting Spark master at spark://ubuntu-1080:7077
 In cluster open pyspark
 
 ```
-MASTER=spark://192.168.0.183:7077 ./bin/pyspark 
+MASTER=spark://<PRIVATE_IP>:7077 ./bin/pyspark 
 
 
 lines=sc.textFile('hdfs://ubuntu-1080:9000/input/zhidao20161008.json')

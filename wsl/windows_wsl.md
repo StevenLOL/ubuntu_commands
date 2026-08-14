@@ -7,7 +7,7 @@ wsl --install -d Ubuntu-22.04
 # 3. 运行 Ubuntu
 wsl-d Ubuntu-22.04
 ## 以指定定用户名
-wsl-d Ubuntu-22.04 -u steven 
+wsl-d Ubuntu-22.04 -u <USER>
 # 4. 关闭 Ubuntu
 wsl --shutdown
 # 5. 设置网络

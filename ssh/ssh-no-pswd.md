@@ -1,9 +1,9 @@
 
 ```
 ssh-keygen -t rsa
-ssh <USER>@<HOST><SERVER_IP> mkdir -p .ssh
-cat .ssh/id_rsa.pub | ssh <USER>@<HOST><SERVER_IP> 'cat >> .ssh/authorized_keys'
-ssh <USER>@<HOST><SERVER_IP>
+ssh <USER>@<SERVER_IP> mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh <USER>@<SERVER_IP> 'cat >> .ssh/authorized_keys'
+ssh <USER>@<SERVER_IP>
 ```
 ### only allow locate ssh login
 ```

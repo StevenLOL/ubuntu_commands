@@ -1,3 +1,0 @@
-sudo apt-get install mono-runtime build-essential automake checkinstall intltool git mono-complete mono-addins-utils gtk-sharp2 gnome-sharp2 monodevelop
-
-

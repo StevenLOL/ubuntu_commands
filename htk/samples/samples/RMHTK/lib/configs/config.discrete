@@ -1,3 +1,0 @@
- TARGETKIND     = MFCC_E_D_A_V
- VQTABLE        = vq.table
- HNET:TRACE     = 1

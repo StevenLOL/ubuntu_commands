@@ -8,19 +8,19 @@ Create a git repository in github/bitbuck from a local folder.
 
 To say local foler "project_abc". Go to project directory then 
 ```
-git-new-ssh "my_git_project_000"
+git-new-ssh.sh "my_git_project_000"
 ```
 This will create a git repository in github/bitbuck called my_git_project_000 with all files in folder project_abc.
 
-One need to configure account username and password in git-new-*
+One need to configure account username and password in git-new-*.sh
 
 ## B) gitsave
-gitsave for save all my files and publish to remote repository
+gitsave.sh for save all my files and publish to remote repository
 ###usage:
 ```
-gitsave
+gitsave.sh
 #or
-gitsave "some text please"
+gitsave.sh "some text please"
 ```
 
 # Using SSH with bitbucket or github

@@ -1,1 +1,0 @@
-perl runDemo configs/monPlainM1S1.dcf

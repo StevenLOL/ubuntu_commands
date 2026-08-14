@@ -54,6 +54,19 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Editor / OS backup & temp files
+*.swp
+*.swo
+*.bak
+*~
+*.tmp
+.DS_Store
+Thumbs.db
+*~
+
+# Local review/notes (not part of the command knowledge base)
+docs/
+
 # PyBuilder
 target/
 ./data/emotion/*

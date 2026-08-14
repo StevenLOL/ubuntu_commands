@@ -13,7 +13,7 @@ make -j 10
 
 
 
-<USER>@<HOST>ws09:~$ cat .profile
+<USER>@<HOSTNAME>:~$ cat .profile
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -51,7 +51,7 @@ PATH=<YOUR_HOME>/kaldi-trunk/src/ivectorbin:$PATH
 PATH=<YOUR_HOME>/kaldi-trunk/src/latbin:$PATH  
 PATH=<YOUR_HOME>/kaldi-trunk/src/nnetbin:$PATH   
 PATH=<YOUR_HOME>/kaldi-trunk/src/sgmm2bin:$PATH
-<USER>@<HOST>ws09:~$ 
+<USER>@<HOSTNAME>:~$ 
 
 
 

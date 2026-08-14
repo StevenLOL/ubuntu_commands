@@ -1,370 +1,44 @@
-Terminal commands:
+# 终端命令速查 / Terminal Commands Cheatsheet
 
-press tab for possible suggetions, command ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completetion.
+> 这是总入口。完整分类速查见 `cheatsheet/` 目录；各工具专题见对应子目录的 `readme.md`。
+> 按 `tab` 获取命令补全建议：`command` ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completion。
 
-# navigation & browsing
+## 分类索引 / Categories
+
+- [系统 / System](cheatsheet/system.md) — 系统信息、磁盘、用户、日志、Fail2ban、机器名、提示符
+- [文件与磁盘 / Files & Disk](cheatsheet/files-disk.md) — 编辑/复制/重命名、分割、ISO/USB/网络挂载、RamFS
+- [网络与 SSH / Network & SSH](cheatsheet/network-ssh.md) — ssh、网内扫描、ab 测试、队列、打开网页
+- [文本处理 / Text Processing](cheatsheet/text-processing.md) — 字符串、搜索排序、逐行批处理、随机抽取
+- [终端复用/定时/容器 / tmux-cron-docker](cheatsheet/tmux-cron-docker.md) — tmux、cron、开机启动、Docker 示例
+- [开发环境配置 / Dev Config](cheatsheet/dev-config.md) — .bashrc / /etc/profile / .theano.rc / pip.conf / tmux.conf
+
+## 高频命令 / Most-used
+
+### 导航与浏览 / navigation & browsing
 ```
 cd ~/         #go to home directory of current account ~/=home
 cd ..         #go to parent directory
-cat /data2/malay1307/s5/irun.sh   #display file content
+cat somefile  #display file content
 head somefile                     #display only the head part of a files
 tail somefile                     #display .... tail
 tail -n +2 somefile               #skip the first 2 lines
-tail -f some file                #tail and follow, the display will be updated upon filechagne
-less somefile                    #display file by parts
-list file properties
-ls -l data/groundtrue
-ls -d */   # list all directory
-ls -d *bin # list all directories end with bin
-tree -d    # list all directory
-#list files recurisively
-find ./path/ -type f -exec ls -dl \{\} \; | awk '{print $9}'
+tail -f somefile                  #tail and follow, update upon file change
+less somefile                     #display file by parts
+ls -l data/groundtrue             #list file properties
+ls -d */      # list all directory
+ls -d *bin    # list all directories end with bin
+tree -d       # list all directory
+find ./path/ -type f -exec ls -dl \{\} \; | awk '{print $9}'   #list files recurisively
 find . -exec ls -dl \{\} \; | awk '{print $3, $5, $9}'
 find ./ -iname "train_lm.sh"
 ```
-# wordcount
+
+### 字数统计 / wordcount
 ```
 wc /data/groundtrueE/text
 ```
-# system vars/info
-```
-lsb_release -a    #show ubuntu version
-echo $PATH
-which ls
-#show system limits
-ulimit -a
-#network states
-sudo netstat -tupn
-#list hardware
-sudo lshw
-lspci
-#get cpu info
-cat /proc/cpuinfo
-top iftop iotop glances     sudo iftop -i eth1
-ps aux
-ps -aef
-ps -auwe | grep steven | grep server | grep 28166 | grep PWD
-pwdx #pid            # get process working directoy of #pid
-#list users and pts and what they are doing
-w
-#kill a user's pts
-ps -t pts/1 | awk '/[0-9]/ {print $1}' | xargs sudo kill 
-#list binded port
-lsof -i :8080
-sudo netstat -peanut
-pkill process
-#kill all process of a user
-kill process_id
-pkill -u username
-#memory usage
-free -m
-#drop cache memory
-sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
-#stress test
-stress -c 2 -t 10000
-#disk usage
-df -h  #list harddisk size
-du -hs #list folder size
-ls -al /dev/disk/by-uuid/
-sudo ntfsfix /dev/sda5    #fixed NTFS disk error: ...The disk contains an unclean file system (0, 0). Metadata kept in Windows cache, refused to mount.
-dd if=/dev/sda of /dev/sdd #clone harddisk sda to sdd, you must use sudo
-sudo mkdir /media/mountpoint
-#list show disks labels
-sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
-#format disk
-sudo mkfs.ext4 /dev/sdd
-#mount 
-sudo mount /dev/sdb1/ /media/mountpoint
-#related error: mount: you must specify the filesystem type if mout /dev/sdb/ ...
-#/dev/sdb/ is the device  /dev/sdb1/ is the voloum of that disk, so one must volume voloum but not a disk
-sudo chown -R steven /media/mountpoint
-#auto mount on startup
-1. create a mount folder
-sudo mkdir /media/DATA
-2. find the disk you want to mount via df
-3. change the /etc/fstab file
 
-
-for D in *; do echo $D; find $D -type f| wc -l; done    #get files count in sub folder
-##touchpad
-xinput list
-xinput set-prop 14 "Device Enabled" 0
-xinput set-prop 14 "Device Enabled" 1			
-sudo shutdown -r now # reboot now
-```
-## system log / history
-```
-
-/var/log/auth.log
-
-~/.bash_history
-#set history size in ~/.bashrc
-#save history one command is entered:
-export PROMPT_COMMAND='history -a;history -c;history -r'
-#REF http://superuser.com/questions/555310/bash-save-history-without-exit
-
-#history append in tmux
-#in ~/.bashrc
-shopt -s histappend
-shopt -s histreedit
-shopt -s histverify
-HISTCONTROL='ignoreboth'
-PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
-
-
-# 查看内核日志
-
-dmesg | tail -30
-
-```  
-## Send message to other users
-```
-who
-write username tty
-#control+d  to stop
-```
-### Fail2ban
-```
-sudo apt install fail2ban
-sudo cat /var/log/fail2ban.log
-sudo cat /etc/fail2ban/jail.conf     #check jial rules
-sudo service fail2ban restart
-sudo fail2ban-client status ssh      #check status
-sudo fail2ban-client set ssh unbanip 149.210.253.75  #unban ip address 
-```
-
-# editing,create,copy modify files directories
-```
-mkdir somedir
-#delete directory 
-#rm -rf *
-rm -rf ./train_clean/*8k
-nano filename
-echo somthing > newfile
-rm somefile                     #del a file
-tar -czvf yourzip.tar.gz directory_to_zip/ 
-sudo chmod 777 ./dir -R
-sudo chmod 777 ./somescript.sh
-#change ownership of a folder and sub
-sudo chown -hR root /u
-#Change the owner of /u and subfiles to "root".
-#copy folder wiht sub folders
-cp -r /your/fodler/* target/
-cp -avr allsour totarget
-#remote copy
-rcp
-scp or
-scp -r catbert@192.168.1.103:/home/catbert/evil_plans/  ./
-http://www.comentum.com/rsync.html
-rsync -r localfolder -v -e ssh <USER>@<HOST><SERVER_IP>
-sudo ln -s /usr/local/nginx/conf/ /etc/nginx   #link a folder(create a shortcut) target should not exists first
-ln -s /data2/malay1307/s5/ /home/<USER>/training/linkedMalay1307
-```
-# add user accout
-```
-sudo adduser steven
-sudo adduser steven sudo
-sudo useradd -d /home/testuser -m testuser
-sudo passwd testuser
-gksudo gnome-control-center user-accounts 
-sudo passwd  #change passwd of root user
-sudo passwd -l root #To disable the root login
-sudo passwd -S root #check if locked or not (will have L in output instead of P)
-
-who    #check users
-Expire Account
-# disallow peter from logging in
-sudo usermod --expiredate 1 peter
-# set expiration date of peter to Never
-sudo usermod --expiredate "" peter
-
-# take away peters password
-sudo passwd -l peter
-# give peter back his password
-sudo passwd -u peter
-```
-
-
-# rename
-```
-rename s/"sd_under_classter"/"change to wat?"/g *
-/g = all matched
-*=all files
-eg rename s/"_16k.wav"/".wav"/g *
-eg rename s/"Suria"/"suria"/g *
-#all to lower case
-find . -depth -exec rename 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
-```
-# string 
-```
-#substring
-stringZ=abcABC123ABCabc
-echo ${stringZ:7}                            # 23ABCabc
-echo ${stringZ:7:3}                          # 23A
-                                       # Three characters of substring
-#replace '\t' with ' ':
-cat a.txt | tr '\t' ' '
-or sed 's/old_string/new_string/g'
-#replace ' ' with '':
-cat a.txt | sed 's/ //g'
-#get the first row of a csv or tsv file:
-cat ./myfile.tsv | awk '{print $1}'
-
-#get strings in any files eg  text/binary files
-
-strings a.exe 
-strings ./001.txt --encoding={s,S}   # get the unicode string
-strings ./001.txt --encoding={s,S} >  your_output_file  # | tee your_output_file 
-
-```
-
-
-# search sort
-```
-cat ./spk2utt | cut -d ' ' -f 1 > spk2gender #cut the first coloum
-sort -nk 12 sort by 12 colloums
-sort -r flist.txt > rflist.txt
-cat hub-140-f.data | sort -k 5,5 -k 2,2 -k 3,3n > hub-140-f.data.sorted    #sort by 5,2,3 3 in digit format
-grep Mean exp/sgmm2_5a/decode_graph_tg222pr_24h.new.crf_fmllr/scoring/*.txt.sys | sort -nk 12
-grep Mean exp/sgmm2_5a/decode_graph_tg222pr_24h.new.crf/scoring/*.txt.sys | sort -nk 12 
-grep WER exp/tri3b/decode_tgpr_eval24hr.si/wer_* | sort -nk 2
-#search 
-find . -name "words.txt"
-#search text in files
-grep -r word *
-#find and grep
-find ./exp/tri3b/decode_tgpr_eval6hr_rttm14Aug13/ -name "*.sys" | xargs grep Mean | sort -nk 11
-#search include sub directory
-grep someword -R ./
-grep 'pattern1\|pattern2' filename  #or
-grep -E 'Tech|Sales' employee.txt   #or
-egrep 'pattern1|pattern2' filename  #or
-grep -E 'pattern1.*pattern2' filename #and
-grep -v 'pattern1' filename           #not
-locate libname # sudo apt install locate then updatedb
-
-```
-# split a file
-```
-#split text by lines :
-split -l 500 a.list   #by lines
-split -d -l 500 a.list
-split -d -n l/3 a.list # 3 parts without spliting the line;
-split -d -n l/3 a.list myprefix                                                         
-```
-# ssh
-```
-ssh <USER>@<HOST><SERVER_IP>
-ssh -l 23 <USER>@<HOST><SERVER_IP>
-```
-# Apache ab test
-```
-apt-get install apache2-utils
-ab -n 10000 -c 100 https://www.baidu.com/
-```
-
-# multi threads
-```
-some_commands &
-with wait 
-a&
-b&
-wait
-```   
-# two comands at same time |
-```
-lspci | grep Intel
-```
-# wait
-sleep 60
-# work with queue
-```
-check queue state
-qstat -u "*"
-qdel job-ID 
-qsub hello_world.sh &
-```        
-# detach terminal from remote:			
-```
-#ssh to a server, the connection may fail if task run for hours,and given error : broken pipe, the solution is using, or nohup tmux once login via ssh
-aaron@localpc$ ssh root@remoteserver
-root@remoteserver# nohup ./run_eval24hr_M_SAD_SD.sh </dev/null &
-nohup ./local/run_dnn.sh </dev/null &   
-nohup some_command > nohup2.out&
-tmux
-tmux list-sessions
-tmux attach-session -t #
-#enable mouse model: in ~/.tmux.conf
-setw -g mode-mouse on
-or setw -g mouse on
-then tmux source-file ~/.tmux.conf
-#when in tmux
-#switch and list tmux session
-ctrl-b s
-#detach session
-ctrl-b d
-```
-# run task at time interval, given time
-```
-crontab -e
-01 * * * * python <YOUR_HOME>/Dropbox/workspace/python_lib/utli/remote_script/ws09loop.py
-```
-# run task during system startup
-```
-sudo nano /etc/rc.local
-REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
-```
-```
-cp myscript.sh /etc/init.d/
-sudo update-rc.d myscript.sh defaults 90
-#to remove
-suod update-rc.d -f myscript.sh remove
-```
-## example: start a docker image during startup
-
-sudo cat /etc/init.d/runserver.sh 
-```
-#!/bin/bash
-nvidia-docker run -p 30011:30011 -p 30012:30012 -tdi -v <YOUR_HOME>/face_release/:/data/ <YOUR_DOCKERHUB>/nvida_docker_caffe_tensorflow_keras_scikit_learn /data/runme.indocker.sh
-```
-sudo cat <YOUR_HOME>/face_release/runme.indocker.sh
-```
-#!/bin/bash
-export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:/usr/sbin/:/usr/local/sbin:/usr/local/cuda/bin:$PATH
-export PYTHONIOENCODING=utf-8 
-export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/      
-export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/
-export CUDA_HOME=/usr/local/cuda 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/downloads/cuda-8.0/lib64
-export PYTHONPATH=/root/downloads/caffe/build/install/python:$PYTHONPATH
-export CUDA_CUDA_LIBRARY=/usr/local/cuda/lib
-
-cd /data/development_face_cut_and_embedding_v1_facenet
-nohup python face_cut_server.py &
-cd /data/facenet/src/
-python face_v_server_extract_features_tf.py
-```
-
-
-# open exploer as root
-```
-gksu nautilus /var/www      
-```
-# image resize
-```
-for f in ./s5/*.jpg ;do echo $f[1024x] ./resized/$f done;
-```
-# text encoding change
-```
-opencc -i ~/Downloads/data/wiki_corpus/corpus_120520.txt -o ./120520.txt -c zht2zhs.ini
-```
-# ping
-```
-for x in {11..255};do ssh <SERVER_IP> done;
-```    
-
-# install update software
+### 安装与更新软件 / install update software
 ```
 sudo apt-get update
 sudo apt-get install xx
@@ -372,421 +46,54 @@ sudo apt-get install xx --reinstall
 sudo apt-get remove somepackage
 sudo apt-get purge somepackage
 sudo apt-get -f install  #fix some missing package
-#chagne software source
-sudo nano /etc/apt/sources.list
-#install a package
+sudo nano /etc/apt/sources.list            #chagne software source
 sudo dpkg -i ./wps-office_9.1.0.4751~a15_i386.deb
-#purge a installed deb
-sudo dpkg -P ./wps-office_9.1.0.4751~a15_i386
-#force update
-sudo apt-get dist-upgrade
-#update from 12.04-12.10
-sudo do-release-upgrade
-sudo pip some python_package
-sudo pip some python_package -I #reinstall it inorge if it is installed
-sudo pip install -r your_file   #
-sudo pip -U #install and update
+sudo dpkg -P ./wps-office_9.1.0.4751~a15   #purge a installed deb
+sudo apt-get dist-upgrade                  #force update
+sudo do-release-upgrade                    #update from 12.04-12.10
+sudo pip install some_python_package
+sudo pip install -r your_file
+sudo pip -U                                #install and update
 sudo pip uninstall pycuda
-sudo python setup.py install    #if there is a setup.py in download pyton package
+sudo python setup.py install               #if there is a setup.py
 ```
-# list installed module package
+
+### 列出已安装模块 / list installed module package
 ```
 lsmod | grep nouveau
 sudo dpkg -L packagename  #find installed file location
 ```
-# change repositories location with replace txt 
+
+### 切换软件源 / change repositories location with replace txt
 ```
 /etc/apt/sources.list
 sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
 sudo cat /etc/apt/sources.list | sed 's/archive.ubuntu.com/mirrors.aliyun.com\/mirror/'  > ./sources.list
-
 sudo cp ./sources.list /etc/apt/sources.list
 ```
-# play audio
-```
-play a.wav
-sox suria102_262_1904.wav  -p trim 300 5 |play -p
-#formate change
-sox a.mp3 -c 1 -r 16000  -b 16 a.wav  #change mp3 to wav format with sampling rate of 16khz 16bits per sample and mono channel 
-```
-# build software
+
+### 编译软件 / build software
 ```
 ./configure
 make -j 4
 sudo make install
-or 
+# or
 mkdir build
 cd build
 cmake ..
 make all
-sudo make install 
+sudo make install
 autoconf
 ```
-# mount cd/dvd iamge (ISO) 
+
+### 播放音频 / play audio
 ```
-sudo mount -o loop xxx.iso /media/xxxx
-```
-# mount USB drive
-```
-# 查看 USB 设备
-lsusb
-mount usb
-sudo fdisk -l
-sudo mkdir /media/external
-sudo mount /dev/sdb1 /media/external
-sudo mount -t ntfs-3g /dev/sdb1 /media/usb3tb
-sudo mount -t ntfs-3g /dev/sdc1 /media/usb3tb
-sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137 
-```
-# mount network drive
-```
-sftp://<USER>@<HOST><SERVER_IP>
-gvfs-mount sftp://<USER>@<HOST><SERVER_IP>     #mount with terminal or on the exploer
-gvfs-mount sftp://<USER>@<HOST><SERVER_IP>
-gvfs-mount sftp://<USER>@<HOST><SERVER_IP>
-Enter password for ssh as <USER> on <SERVER_IP>
-<SERVER_IP>
-smb://databackup@mybooklive1/databackup
-smb://databackup@<SERVER_IP>/databackup
-<SERVER_IP>
-smb://workspace@mybooklive2/workspace
-smb://workspace@<SERVER_IP>/workspace
-15569
-ftp://cclahadmin@www.cclah.com
-```
-# change desktop pictures download home path
-```
-http://www.howtogeek.com/howto/17752/use-any-folder-for-your-ubuntu-desktop-even-a-dropbox-folder/
-gksu gedit .config/user-dirs.dirs
-not work if change to other place that not under home path?
-just ln some where to home also works
+play a.wav
+sox suria102_262_1904.wav  -p trim 300 5 |play -p
+sox a.mp3 -c 1 -r 16000  -b 16 a.wav  #change mp3 to wav, 16khz 16bits mono
 ```
 
- 
-# change machine name
+### 等待 / wait
 ```
-sudo apt-get install winbind
-You probably want to add 'wins' where it says "hosts:" in /etc/nsswitch.conf
-sudo gedit /etc/hostname
-sudo gedit /etc/hosts
-sudo apt-get install avahi-daemon
-```
-# open webpage
-```
-#open webpage from ternimal
-links www.zaobao.com
-lynx
-w3m
-#As far as I know, these browsers do not support programmed reloading, however it can easily be accomplished by using a terminal multiplexer like tmux. For example if you start the browser in one terminal like this:
-tmux new-session -s browse 'w3m google.com'
-#Then you can send commands to it from another terminal with the send-keys command. So to make w3m reload the current page do this:
-tmux send-keys -t browse R 
-```
-
-# mount folder to ram , put folder in ram
-```
-#to say you have lots of rams and would like to run program faster by preload them into memory, you can setup ramfs, then just copy/del file to that folder
-mkdir -p /mnt/tmp
-mount -t tmpfs -o size=20m tmpfs /mnt/tmp
-mkdir -p /mnt/ram
-mount -t ramfs -o size=20m ramfs /mnt/ram
-```
-# scripting
-```
-#passing args to a.sh
-a.sh 13 213 323
-in a.sh  $1 $2 $3 & will run in background
-in a.sh v1=$1 v2=$2
-pid=$(fuser - tcp 139 | awk '{print $1}')  # get output of a script
-```
-# read text file and process line by lines
-```
-FILE=wav.list
-ext=wav
-outputfolder=seg_remove_cm
-cat $FILE | while read line; do
-#cat file hrizationly
-paste -d"," *.txt
-    
-echo "Processing $line"
- nameOnly=$(echo $line | awk -F / '{ print $7 }')
- nameOnly=${nameOnly%.$ext}
- echo "NAME= $nameOnly"
-java -Xmx2048m -classpath ./batch.jar \
-edu.cmu.sphinx.tools.feature.FeatureFileDumper \
--config ./frontend.config.xml \
--name cepstraFrontEnd \
--i $line \
--o ./mfcc/$nameOnly.mfcc  
-# ./wave2mfcc.sh $line $ext
-done
-```
-# read a fodler and process file one by one
-```
-#loop and find names 
-eg0:
-
-for file in *.html; do
-   mv "$file" "$(basename "$file" .html).txt"
-done
-
-eg1:
-
-for file in ./input/gt_ctm/*.ctm
-do
- # do something on "$file"
- echo "Processing $file"
-  nameOnly=$(echo $file | awk -F "/" '{print $NF}') 
- echo $nameOnly
- nameOnly=${nameOnly%.ctm}
- echo ${nameOnly}
-
- #python sort_ctm.py "$file" "./output/gt_rttm/sorted_$nameOnly.ctm"
- #python ctm_2_rttm_from_segments_and_utt2spk.py "./output/gt_rttm/sorted_$nameOnly.ctm" "./input/gt_ctm/segments" "./input/gt_ctm/utt2spk" "./output/gt_rttm/$nameOnly.rttm"
- python my_validation.py "./output/gt_rttm/sorted_$nameOnly.ctm" "./output/gt_rttm/$nameOnly.rttm"
- 
-#offical validator by NIST, take longer time
-# perl rttmValidator.pl -f -i "./output/gt_rttm/$nameOnly.rttm"
- 
-done
-
-#eg2:
-#loop dir
-
-for ifile in <YOUR_HOME>/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts/*.wav
-do
-  #echo $ifile
-  show=`basename $ifile .wav`
-  echo $show
-  /usr/bin/java -Xmx2024m -jar ./LIUM_SpkDiarization-8.4.1.jar \
- --fInputMask=$ifile --sOutputMask=<YOUR_HOME>/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts_gender/$show.seg ZHIZHENGTEST &
-done
-#eg3:
-#loop vars
-
-names=( Jennifer Tonya Anna Sadie )
-
-for name in ${names[@]}
-do
-	echo $name
-done
-```
-# split data and multithreading
-```
-mkdir -p $outdir
-
-split -d -n l/15 <YOUR_HOME>/apps/getgender/lium/magor_gt_merge_nodev.test.lst ${tid}
-
-for x in ./${tid}*
-do
-  echo $x
-  ./getgender.sh $x $outdir &
-done
-```
-# pick random files 
-```
-find ./audio -type f | shuf -n 10
-```
-# scan host in the network:
-```
-arp
-sudo nmap -sn 10.99.23.1/24 > readme.txt
-avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
-```
-# disable mouse scroll
-```
-xinput list
-xinput get-button-map 8
-xinput set-button-map 8 1 2 3 0 0 
-4,5 means scoring up/download
-and sudo save to ~/.profile
-```
-
-#to make gonme-session-fallback look nice,right click on the bootom tray and group applictions and 4 rows for workspace
- or install kde-plasma
-
-# shorten command promt
-```	
-To change it for the current terminal instance only
-
-Just enter PS1='\u:\W\$ ' and press enter.
-To change it "permanently"
-
-In your ~/.bashrc, find the following section:
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-
-Remove the @\h, and replace the \w with an uppercase \W, so that it becomes:
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u:\W\$ '
-```
-
-# OTHERS
-```
-#=========================================================================================================================================
-
-
-cp -a /data2/malay1307 /home/<USER>/training/malay_13_07/
-sudo rm -rf ./kaldi-trunk-whatever/
-sudo cp -a -H -L kaldi-trunk kaldi-trunk-whatever   #replace link file with source 
-
-sudo ufw disable
-
-
-#edit in sudo in gui mode
-gksu gedit /etc/bumblebee/bumblebee.conf
-
-stop gui 
-sudo service lightdm stop  
-
-loop dir
-
-for ifile in <YOUR_HOME>/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts/*.wav
-do
-	#echo $ifile
-	show=`basename $ifile .wav`
-	echo $show
-	/usr/bin/java -Xmx2024m -jar ./LIUM_SpkDiarization-8.4.1.jar \
- --fInputMask=$ifile --sOutputMask=<YOUR_HOME>/Dropbox/workspace/magor/magor_allinone/5.sv/ivector/utts_gender/$show.seg ZHIZHENGTEST &
-
-done
-
-if [ -d "/path/to/dir" ]
-then
-    echo "Directory /path/to/dir exists."
-else
-    echo "Error: Directory /path/to/dir does not exists."
-fi
-
-for D in *; do echo $D; find $D -type f| wc -l; done
-
-
-)others
-
-#disable auto logout
-
-set LOCK_SCREEN=false
-sudo nano /etc/default/acpi-support
-
-
-
-
-
-#-#
-
-```
-
-# rc and conf files
-## .bashrc
-```
-~/.profile or ~/.bashrc
-
-
-PATH=<YOUR_HOME>/apps/getmfcc/utils:$PATH
-PATH=<YOUR_HOME>/kaldi-trunk/src/utils:$PATH
-PATH=<YOUR_HOME>/kaldi-trunk/src/bin:$PATH     
-PATH=<YOUR_HOME>/kaldi-trunk/src/fgmmbin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/gmmbin:$PATH      
-PATH=<YOUR_HOME>/kaldi-trunk/src/kwsbin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/nnet2bin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/onlinebin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/sgmmbin:$PATH
-PATH=<YOUR_HOME>/kaldi-trunk/src/featbin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/fstbin:$PATH   
-PATH=<YOUR_HOME>/kaldi-trunk/src/ivectorbin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/latbin:$PATH  
-PATH=<YOUR_HOME>/kaldi-trunk/src/nnetbin:$PATH   
-PATH=<YOUR_HOME>/kaldi-trunk/src/sgmm2bin:$PATH
-xinput set-button-map 8 1 2 3 0 0
-update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 60
-update-alternatives --config g++
-sudo update-initramfs -c -k all -u         
-export HADOOP_HOME=/usr/local/hadoop      
-export PATH=$PATH:$HADOOP_HOME/bin        
-export JAVA_HOME=/usr/lib/jvm/java-8-oracl       
-export CUDA_HOME=/usr/local/cuda                        
-export C_INCLUDE_PATH=/usr/local/cuda-8.0/include/      
-export CPLUS_INCLUDE_PATH=/usr/local/cuda-8.0/include/
-export SPARK_HOME="/data/apps/spark-2.0.1-bin-hadoop2.7"   
-
-
-#allow to pipe a python output to a file in 'utf-8' 
-#http://stackoverflow.com/questions/13481582/pipe-output-of-python-script
-
-export PYTHONIOENCODING=utf-8  
-```
-## /etc/profile
-```
-export GREP_OPTIONS=--color=auto
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/usr/lib64/:$LD_LIBRARY_PATH
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_101
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-PS1="`whoami`@`hostname`:"'[$PWD]'
-history
-USER_IP=`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'`
-if [ "$USER_IP" = "" ]
-then
-	USER_IP=`hostname`
-fi
-if [ ! -d /tmp/dbasky ]
-then
-	mkdir /tmp/dbasky
-	chmod 777 /tmp/dbasky
-fi
-if [ ! -d /tmp/dbasky/${LOGNAME} ]
-then
-	mkdir /tmp/dbasky/${LOGNAME}
-	chmod 300 /tmp/dbasky/${LOGNAME}
-fi
-export HISTSIZE=4096
-DT=`date "+%Y-%m-%d_%H:%M:%S"`
-export HISTFILE="/tmp/dbasky/${LOGNAME}/${USER_IP} dbasky.$DT"
-chmod 600 /tmp/dbasky/${LOGNAME}/*dbasky* 2>/dev/null
-
-
-```
-
-## ~/.theano.rc
-```
-[global]
-floatX = float32
-device = gpu0
-mode= FAST_RUN
-
-[nvcc]
-fastmath = True
-
-[dnn.conv]                                       
-algo_fwd = time_once
-algo_bwd_data = time_once
-algo_bwd_filter = time_once
-
-```
-## ~/.pip/pip.conf
-``` 
-[global]
-download_cache = /data/.cache/pip
-index-url = https://pypi.douban.com/simple
-```
-## ~/.tmux.conf 
-```
-setw -g mouse on
-```
-## ~/.tmat.conf
-```
-#more in folder tmux tmat
-set -g tmate-server-host "x.x.x.x"
-set -g tmate-server-port your port
-set -g tmate-server-rsa-fingerprint   "x...xxx.x.x.x"
-set -g tmate-server-ecdsa-fingerprint "xxxx.x.x.x.x.x"
-#set -g tmate-identity ""              # Can be specified to use a different SSH key.
+sleep 60
 ```
