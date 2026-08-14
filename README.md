@@ -24,7 +24,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [network-security](network-security/) — [monitoring/wazuh](network-security/monitoring/wazuh/Wazuh%20Day%201.md) · [uniscan](network-security/uniscan/readme.md) · [reverse-engineering/Decompilation](network-security/reverse-engineering/Decompilation/README.md)
 
 ### Ubuntu System (系统组件 / 桌面 / 输入法)
-- [apt_dpkg](ubuntu/apt_dpkg/readme.md) (incl. [sources.list mirror](ubuntu/apt_dpkg/sources_list.md)) · [release_update](ubuntu/release_update/readme.md) · [linux4OldComputers](ubuntu/linux4OldComputers/readme.md) · [swap](ubuntu/swap/add_swap_ubuntu_14.04.md) · [recovery](ubuntu/recovery/recovery.sh) · [threads](ubuntu/threads/readme.md) · [desktop](ubuntu/desktop/readme.md) (incl. [KDE Plasma](ubuntu/desktop/kde-plasma-desktop.md)) · [natilus](ubuntu/natilus/readme.md) · [input-method](ubuntu/input-method/readme.md)
+- [apt_dpkg](ubuntu/apt_dpkg/readme.md) (incl. [sources.list mirror](ubuntu/apt_dpkg/sources_list.md)) · [release_update](ubuntu/release_update/readme.md) · [linux4OldComputers](ubuntu/linux4OldComputers/readme.md) · [swap](ubuntu/swap/add_swap_ubuntu_14.04.md) · [recovery](ubuntu/recovery/recovery.sh) · [threads](ubuntu/threads/readme.md) · [desktop](ubuntu/desktop/readme.md) (incl. [KDE Plasma](ubuntu/desktop/kde-plasma-desktop.md)) · [natilus](ubuntu/natilus/readme.md) · [input-method](ubuntu/input-method/chinese.md)
 
 ### System
 - [tmux/tmate](ssh/tmux-tmate.md) · [binwalk](binwalk/binwalk.md)
@@ -37,7 +37,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - Hadoop: source/config removed from repo (too large). Get it from the official site — https://hadoop.apache.org/releases.html
 
 ### Programming Languages
-- [python](programming-languages/python/README.md) · [python/ipython](programming-languages/python/ipython.md) · [conda](programming-languages/conda/conda_readme.md) · [perl](programming-languages/perl/readme.md) · [java](programming-languages/java/install-java.md) · [mono](programming-languages/mono/readme.md) · [latex](programming-languages/latex/readme.md) · [makefile](programming-languages/makefile/readme.md) · [markdown](programming-languages/markdown/readme.md) · [LLM](programming-languages/LLM/readme.md) · [chinese](programming-languages/chinese/readme.md)
+- [python](programming-languages/python/README.md) · [python/ipython](programming-languages/python/ipython.md) · [conda](programming-languages/conda/conda_readme.md) · [perl](programming-languages/perl/readme.md) · [java](programming-languages/java/install-java.md) · [mono](programming-languages/mono/readme.md) · [latex](programming-languages/latex/readme.md) · [makefile](programming-languages/makefile/readme.md) · [markdown](programming-languages/markdown/readme.md) · [LLM](programming-languages/LLM/readme.md)
 
 ### Office & Media
 - [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
