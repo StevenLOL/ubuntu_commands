@@ -46,6 +46,4 @@ Then in `winecfg` (Libraries tab), set `msxml6`, `riched20`, `gdiplus` to **Nati
 
 - **32-bit only**: Office 2010 32-bit is what works on Wine; use a `win32` prefix.
 - **`ubuntu-wine` PPA is dead** — install current Wine from the Ubuntu repos / WineHQ.
-- **`<YOUR_HOME>` placeholder** must be replaced.
 - **Product key in the original note** (`WWW-VQ7F...`) is a personal/example key — keep keys out of shared docs.
-- The first line of the original file had a stray `??`/mojibake; ignore it — the commands above are the working steps.

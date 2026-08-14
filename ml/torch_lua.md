@@ -30,6 +30,5 @@ The note also references a CUDA-vs-Python compatibility table (image):
 ## 5. Pitfalls
 
 - **Match CUDA to the wheel**: install the `cudatoolkit` version your driver supports; a mismatched build can't use the GPU.
-- **Replace `<YOUR_GITHUB>`** — the asset link is a template.
 - **conda vs pip**: if you use pip, use the `pip` command from the PyTorch site (not the conda one).
 - Pin versions for reproducibility; unpinned `conda install pytorch` may pull an unexpected CUDA build.

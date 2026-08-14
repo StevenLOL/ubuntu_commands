@@ -41,6 +41,4 @@ env WINEPREFIX="<YOUR_HOME>/.wine" wine C:\\windows\\command\\start.exe \
 
 - **32-bit vs 64-bit**: the default `~/.wine` is 64-bit, but many Windows apps (incl. Office 2010) need a 32-bit prefix (`WINEARCH=win32`) — set it before first run.
 - **`ubuntu-wine` PPA is dead** — use the `wine` package from the Ubuntu repos (or WineHQ's own repo).
-- **`<YOUR_HOME>` placeholders** must be replaced with your real path.
 - Not all apps work; check the Wine AppDB before investing time.
-- The original note had a Chinese line about `winecfg`; the steps above cover it.

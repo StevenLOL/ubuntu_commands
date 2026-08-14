@@ -40,6 +40,5 @@ Container rootfs: `/var/lib/lxc/<name>/rootfs`; package cache: `/var/cache/lxc`.
 
 - **`liblxc.so.1: undefined symbol: cgmanager_get_pid_cgroup_abs_sync`** → your `libcgmanager` is too old for the LXC build. Fix: `sudo apt-get install libcgmanager0`.
 - **Template download takes minutes** (it fetches/validates packages) — be patient.
-- **The `lxc-ls –fancy` dashes** are em-dashes in the original; use `lxc-ls --fancy` (ASCII) on the command line.
 - LXC is lower-level than Docker; for app packaging prefer Docker.
 - Refs: 51cto LXC tutorial · xmodulo.

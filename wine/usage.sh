@@ -32,4 +32,3 @@ WINEARCH=win32 WINEPREFIX=~/.wine winecfg
 
 - **`wine1.3` / `ubuntu-wine` PPA is dead** — use the current `wine` package.
 - **Windows 7 mode** is a good default for older apps; some need XP mode instead.
-- The original note's first line had a garbled `sudo` (`udo`) — it's `sudo add-apt-repository`.

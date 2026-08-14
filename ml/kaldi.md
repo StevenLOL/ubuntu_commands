@@ -53,7 +53,6 @@ export CPLUS_INCLUDE_PATH=/usr/include/atlas
 
 ## 5. Pitfalls
 
-- **Replace `<YOUR_HOME>`** with your actual path; the snippet above is a template.
 - **ATLAS/LAPACK conflict**: the `clapack.h` error is fixed by installing `libatlas-base-dev` and removing the conflicting `liblapack-dev`.
 - **Old SVN trunk**: Kaldi moved to GitHub; prefer `git clone https://github.com/kaldi-asr/kaldi.git` for current code.
 - **`make -j` with too many jobs** can OOM on small machines; lower the `-j` count.

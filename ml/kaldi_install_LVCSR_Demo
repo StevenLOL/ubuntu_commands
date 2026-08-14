@@ -54,7 +54,6 @@ After building, run the demo using the model data you copied; the `online` binar
 
 ## 5. Pitfalls
 
-- **Replace placeholders**: `<USER>`, `<SERVER_IP>`, `<YOUR_HOME>`, `<YOUR_PASSWORD>` are templates — fill them in.
 - **`chmod 777 -R` is risky** — it makes everything world-writable; prefer correct ownership instead.
 - **OpenFST symlink**: the `libfst.so.0` link is required or Kaldi binaries fail to load; point it at your real OpenFST build.
 - **PortAudio** must be installed (`install_portaudio.sh`) before building `src/online`.

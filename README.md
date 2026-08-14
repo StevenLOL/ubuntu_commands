@@ -13,13 +13,13 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [git](git/readme.md) · [github](github/readme.md) · [gitlab](gitlab/readme.md)
 
 ### Container & Virtualization
-- [docker](docker/readme.md) · [lxc](lxc/readme.txt) · [vbox](vbox/README.md) · [wsl](wsl/windows_wsl.md) · [cygwin](cygwin/readme.md) · [remote-desktop](remote-desktop/readme.md) · [sharefolder](sharefolder/sharefolder.txt) · [RamDisk](RamDisk/README.md)
+- [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) · [wsl](wsl/windows_wsl.md) · [cygwin](cygwin/readme.md) · [remote-desktop](remote-desktop/readme.md) · [sharefolder](sharefolder/sharefolder.txt) · [RamDisk](RamDisk/README.md)
 
 ### Network & Security
 - [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md) · [wazuh](wazuh/Wazuh%20Day%201.md) · [uniscan](uniscan/readme.md)
 
 ### System
-- [apt_dpkg](apt_dpkg/readme.md) · [APT](APT/readme.md) · [release_update](release_update/readme.md) · [linux4OldComputers](linux4OldComputers/readme.md) · [swap](swap/add_swap_ubuntu_14.04.txt) · [recovery](recovery/recovery.sh) · [tmux_tmate](tmux_tmate/readme.md) · [threads](threads/readme.md) · [desktop](desktop/readme.md) (incl. [KDE Plasma](desktop/kde-plasma-desktop.txt)) · [markdown](markdown/readme.md) · [makefile](makefile/readme.txt) · [binwalk](binwalk/binwalk.md)
+- [apt_dpkg](apt_dpkg/readme.md) · [APT](APT/readme.md) · [release_update](release_update/readme.md) · [linux4OldComputers](linux4OldComputers/readme.md) · [swap](swap/add_swap_ubuntu_14.04.txt) · [recovery](recovery/recovery.sh) · [tmux_tmate](tmux_tmate/readme.md) · [threads](threads/readme.md) · [desktop](desktop/readme.md) (incl. [KDE Plasma](desktop/kde-plasma-desktop.txt)) · [markdown](markdown/readme.md) · [makefile](makefile/readme.md) · [binwalk](binwalk/binwalk.md)
 
 ### Machine Learning / Speech / Vision
 - [tensorflow](tensorflow/readme.md) · [tensorflow install](tensorflow/install_tensorflow.md) · [skflow](tensorflow/skflow.md) · [ml index](ml/xgboost.md) · [ml/bob](ml/bob.txt) · [Alink](ml/alink.md) · [shogun](ml/shogun_install.sh) · [torch](ml/torch.md) · [torch_lua](ml/torch_lua.md) · [caffe](ml/caffe.md) · [theano](ml/theano.md) · [lightgbm](ml/lightgbm.md) · [RAPIDSAI](ml/rapidsai.md) · [opencv](ml/opencv.md) · [kaldi](ml/kaldi.md) · [huggingface](ml/huggingface.md) · [crf++](ml/crf++.txt) · [alize](ml/alize.md) · [sailalign](ml/sailalign.txt) · [hts](ml/hts.sh) · [scipy](ml/scipy.txt)
@@ -32,7 +32,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [python](python/README.md) · [python/ipython](python/ipython.md) · [conda](conda/conda_readme.md) · [perl](perl/readme.md) · [java](java/install-java.md) · [mono](mono/readme.md) · [latex](latex/readme.md)
 
 ### Office & Media
-- [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](wine/usage.sh) · [wine/freeoffice](wine/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.txt) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
+- [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](wine/usage.sh) · [wine/freeoffice](wine/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
 
 ### Misc
 - [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [chinese](chinese/readme.md) · [natilus](natilus/readme.md) · [samsung](samsung/no-file-ubuntu.txt) · [elan](elan/elan.txt) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)

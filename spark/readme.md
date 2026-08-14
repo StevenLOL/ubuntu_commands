@@ -58,5 +58,4 @@ MASTER=spark://<PRIVATE_IP>:7077 $SPARK_HOME/bin/pyspark
 - **`SPARK_LOCAL_IP` / master `-i`** must be a real reachable IP; `localhost` won't work across nodes.
 - **HDFS not included** — Spark uses Hadoop for HDFS; install Hadoop separately if you need it.
 - **`findspark`** is only needed to point PySpark at a non-default `SPARK_HOME`; with a proper env var it's optional.
-- The `<PRIVATE_IP>` / `<YOUR_GITHUB>` placeholders must be filled in.
 - Refs: spark.apache.org/docs/latest/spark-standalone.html · http://www.mccarroll.net/blog/pyspark/
