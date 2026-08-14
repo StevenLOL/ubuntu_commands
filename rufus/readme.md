@@ -2,14 +2,9 @@
 
 ## 1. What is it / What is it for?
 
-Rufus is a small, free, **portable** Windows utility that writes an `.iso` (or `.img`) image onto a USB stick to create a **bootable installer** — e.g. an Ubuntu install drive. It is the typical **first step before installing Linux**: you download the distro's ISO, flash it to a USB stick with Rufus, then boot the target machine from that stick.
+Rufus is a small, free, **portable** Windows utility that writes an `.iso` (or `.img`) image onto a USB stick to create a **bootable installer** — e.g. an Ubuntu install drive. It is the typical **first step before installing Linux**: you download the distro's ISO, flash it to a USB stick with Rufus, then boot the target machine from that stick and install Linux.
 
 Homepage: https://rufus.ie/
-
-> **You do NOT always need to download a tool.** Writing an image to a USB stick is a basic OS capability, not something Rufus uniquely provides:
-> - On **Linux** you already have everything: `dd`, `cp`, or the GUI *Disks* app (`gnome-disks`) — no extra download needed.
-> - On **Windows** the OS has no built-in image writer, so Rufus (or a similar tool) is the convenient download. That is the only reason it exists.
-> - Likewise, many "tools" in this repo (e.g. `tar`, `ssh`, `git`, `curl`, `fallocate`) are **already on the system** — install only when genuinely missing.
 
 ## 2. How to download / install
 
@@ -33,17 +28,3 @@ Make an Ubuntu (or any Linux) install USB:
    - Leave *File system* as `FAT32` for UEFI boot.
 3. Click **START** → choose *Write in ISO image mode* (default) → confirm.
 4. When done, **safely eject** the stick, plug it into the target PC, boot from USB (often `F12`/`F2`/`Del` at power-on), and install Linux.
-
-### Equivalent without downloading anything (Linux host)
-
-If you are already on Linux, you do not need Rufus at all:
-
-```bash
-# verify the device (do NOT guess — wiping the wrong disk is fatal)
-lsblk
-# write the ISO (replace sdX with your USB device, NOT a partition like sdX1)
-sudo dd if=ubuntu-24.04.1-desktop-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync
-# or use the GUI: gnome-disks → select the stick → ⋮ → Restore Disk Image
-```
-
-Or the cross-platform `balenaEtcher` / `Ventoy` if you prefer a GUI on Linux/macOS.
