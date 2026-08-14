@@ -19,11 +19,11 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Container & Virtualization
 - [docker](virtualization/docker/readme.md) · [lxc](virtualization/lxc/readme.md) · [vbox](virtualization/vbox/README.md) (incl. [sharefolder](virtualization/vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](system/RamDisk/README.md)
 
-### Security (信息安全)
+### Security
 - [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](cloud/vpn/openvpn.md) · [shadowsocks](cloud/vpn/shadowsocks.md) · [wireless](cloud/vpn/wireless.md)
 - [security](security/) — [monitoring/wazuh](security/monitoring/wazuh/Wazuh Day 1.md) · [uniscan](security/uniscan/readme.md) · [reverse-engineering/Decompilation](security/reverse-engineering/Decompilation/apktool/) · [binwalk](security/binwalk/binwalk.md)
 
-### System (系统组件 / 桌面 / 输入法)
+### System (components / desktop / input method)
 - [apt_dpkg](system/apt_dpkg/readme.md) (incl. [sources.list mirror](system/apt_dpkg/sources_list.md)) · [release_update](system/release_update/readme.md) · [linux4OldComputers](system/linux4OldComputers/readme.md) · [swap](system/swap/add_swap_ubuntu_14.04.md) · [recovery](system/recovery/recovery.sh) · [threads](system/threads/readme.md) · [desktop](system/desktop/readme.md) (incl. [KDE Plasma](system/desktop/kde-plasma-desktop.md)) · [natilus](system/natilus/readme.md) · [input-method](system/input-method/chinese.md)
 
 ### System
@@ -32,7 +32,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Machine Learning / Speech / Vision
 - [tensorflow](machine-learning/readme_tensorflow.md) · [tensorflow install](machine-learning/install_tensorflow.md) · [skflow](machine-learning/skflow.md) · [ml index](machine-learning/xgboost.md) · [ml/bob](machine-learning/bob.md) · [Alink](machine-learning/alink.md) · [shogun](machine-learning/shogun_install.sh) · [torch](machine-learning/torch.md) · [torch_lua](machine-learning/torch_lua.md) · [caffe](machine-learning/caffe.md) · [theano](machine-learning/theano.md) · [lightgbm](machine-learning/lightgbm.md) · [RAPIDSAI](machine-learning/rapidsai.md) · [opencv](machine-learning/opencv.md) · [kaldi](machine-learning/kaldi.md) · [huggingface](machine-learning/huggingface.md) · [crf++](machine-learning/crf++.md) · [alize](machine-learning/alize.md) · [sailalign](machine-learning/sailalign.md) · [hts](machine-learning/hts.sh) · [scipy](machine-learning/scipy.md)
 
-### Cloud (云计算)
+### Cloud
 - [spark](cloud/spark/readme.md) · [sge](cloud/sge/start.sge.sh) · [elasticip](cloud/elasticip/readme.md) · [vpn](cloud/vpn/openvpn.md) (incl. [expressvpn](cloud/vpn/express_vpn.md) · [shadowsocks](cloud/vpn/shadowsocks.md) · [wireless](cloud/vpn/wireless.md))
 - Hadoop: source/config removed from repo (too large). Get it from the official site — https://hadoop.apache.org/releases.html
 
@@ -42,7 +42,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Office & Media
 - [format_convert](format_convert/) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [email](system/email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](media/youtube/readme.md) · [google](google/googler.md)
 
-### Media (多媒体 / 音频与音视频)
+### Media (audio & video)
 - [ffmpeg](media/ffmpeg.md) · [sox](media/sox/install_sox.md) · [elan](media/elan/elan.txt) · [audacity](media/audacity.md) · [vlc](media/vlc.md)
 
 ### Misc
