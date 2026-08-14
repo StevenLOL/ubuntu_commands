@@ -27,7 +27,7 @@ sudo docker pull container_name
 ```
 sudo docker run -p 30011:30011 -p 30012:30012 -it -v /localfolder/:/container_folder/ contaienr_image_name_or_id
 # with GPU and memroy limits
-sudo docker run --gpus device=1 -m 64g -p 30012:8080 -it -v /mnt/steven/:/steven/ ubuntu20.04-jupyter
+sudo docker run --gpus device=1 -m 64g -p 30012:8080 -it -v <YOUR_HOME>/:<YOUR_HOME>/ ubuntu20.04-jupyter
 ```
 # if program hangs after run -it, try launch /bin/bash :
 
@@ -172,7 +172,7 @@ REF: http://stackoverflow.com/questions/41202983/login-password-required-to-acce
 1
 ```
 sudo nano /etc/rc.local
-REF [How can I make “rc.local” run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
+REF [How can I make “rc.local�?run on startup?](http://askubuntu.com/questions/9853/how-can-i-make-rc-local-run-on-startup)
 ```
 Or 2
 ```
@@ -211,7 +211,7 @@ python face_v_server_extract_features_tf.py
 # Docker 中国镜像
 
 ```
-创建或修改 /etc/docker/daemon.json 文件，修改为如下形式
+创建或修�?/etc/docker/daemon.json 文件，修改为如下形式
 {
   "registry-mirrors": [
     "https://registry.docker-cn.com",

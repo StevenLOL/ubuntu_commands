@@ -1,4 +1,4 @@
-# 网络与 SSH / Network & SSH
+# 网络�?SSH / Network & SSH
 
 ## SSH
 ```
@@ -12,7 +12,7 @@ for x in {11..255};do ssh <SERVER_IP_PREFIX>.$x; done;
 
 # scan host in the network:
 arp
-sudo nmap -sn 10.99.23.1/24 > readme.txt
+sudo nmap -sn <PRIVATE_SUBNET> > readme.txt
 avahi-browse -a -v -r -t -d local   #sudo apt-get install avahi-discover
 ```
 
@@ -22,7 +22,7 @@ apt-get install apache2-utils
 ab -n 10000 -c 100 https://www.baidu.com/
 ```
 
-## 多线程 / 同时跑两条命令
+## 多线�?/ 同时跑两条命�?
 ```
 some_commands &
 with wait

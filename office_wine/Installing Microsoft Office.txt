@@ -16,7 +16,7 @@ sudo apt-get update
 
 sudo apt-get install wine
 
-export WINEPREFIX="/home/cgomez/.wineprefixes/office2010/"
+export WINEPREFIX="<YOUR_HOME>/.wineprefixes/office2010/"
 
 export WINEARCH="win32"
 
@@ -55,7 +55,7 @@ Add the official Wine PPA to get the latest Wine version
 
 Create a 32-bit Wine prefix. This is important since only Microsoft Office 2010 32-bit works on Wine and you need a 32-bit Wine environment to run 32-bit Windows applications. The WINEPREFIX can be a location of your choice.
 
-    $ export WINEPREFIX="/home/cgomez/.wineprefixes/office2010/"
+    $ export WINEPREFIX="<YOUR_HOME>/.wineprefixes/office2010/"
     $ export WINEARCH="win32"
 
 Start up Winetricks via the same command window to install some required dependencies
@@ -64,7 +64,7 @@ Start up Winetricks via the same command window to install some required depende
 
 In the WineTricks window which opens, select "Select the default wineprefix" and click OK. The new window which opens should have the WINEPREFIX location in the title
 
-    Winetricks - current prefix is "/home/cgomez/.wineprefixes/office2010/"
+    Winetricks - current prefix is "<YOUR_HOME>/.wineprefixes/office2010/"
 
 Now select "Install a Windows DLL or component" and then select "dotnet20" and "msxml6" and follow the on-screen instructions.
 

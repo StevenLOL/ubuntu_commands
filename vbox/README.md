@@ -19,7 +19,7 @@ Here's how I installed Android x86 on VirtualBox and use it for Android developm
 4. Install Android and start it.
 5. On the virtual device, switch to Alt-F1 and set up the network:
 $dhcpcd eth0
-$setprop net.dns1 192.168.1.1 <--your router IP
+$setprop net.dns1 <ROUTER_IP> <--your router IP
 $netcfg <--notice the IP address
 6. Switch to Alt-F7 and test the network. It should work now.
 7. On the host computer, connect to the device:

@@ -29,7 +29,7 @@
 - Hadoop：源码/配置已从仓库移除（体积过大），请从官方获取 — https://hadoop.apache.org/releases.html
 
 ### 编程语言 / Languages
-- [python](python/README.MD) · [python3.6](python/python3.6/readme.md) · [pip](python/pip/README.md) · [virtualenv](python/virtualenv/readme.md) · [jupyter_lab](python/jupyter_lab/readme.md) · [ipython_notebook](python/ipython_notebook/readme.md) · [pyqt5](python/pyqt5/readme.md) · [VisualStudioCode](python/VisualStudioCode/readme.md) · [conda](conda/) · [perl](perl/readme.md) · [java](java/install%20java.md) · [mono](mono/readme.md) · [latex](latex/readme.md)
+- [python](python/README.md) · [python3.6](python/python3.6/readme.md) · [pip](python/pip/README.md) · [virtualenv](python/virtualenv/readme.md) · [jupyter_lab](python/jupyter_lab/readme.md) · [ipython_notebook](python/ipython_notebook/readme.md) · [pyqt5](python/pyqt5/readme.md) · [VisualStudioCode](python/VisualStudioCode/readme.md) · [conda](conda/) · [perl](perl/readme.md) · [java](java/install-java.md) · [mono](mono/readme.md) · [latex](latex/readme.md)
 
 ### 办公 / 多媒体 / Office & Media
 - [pdf](pdf/readme.md) · [office_wine](office_wine/) · [wine](wine/usage.sh) · [sox](sox/) · [email](email/) · [evernote](evernote/) · [format_convert](format_convert/) · [ultraedit](ultraedit/) · [youtube](youtube/readme.md) · [android](android/readme.md) · [adb](adb/readme.md) · [google](google/) · [chrome](google/)

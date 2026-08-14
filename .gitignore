@@ -64,6 +64,15 @@ docs/_build/
 Thumbs.db
 *~
 
+# Binary / large generated files
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.zip
+*.mp4
+*.mov
+
 # Local review/notes (not part of the command knowledge base)
 docs/
 
