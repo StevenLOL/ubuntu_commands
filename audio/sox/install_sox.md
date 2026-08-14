@@ -34,3 +34,13 @@ for file in *.$ext; do
 done
 ```
 
+Extract audio from a video container (`.mp4`) to `.wav`:
+```bash
+sox ./clip.mp4 -o extracted.wav
+```
+
+Convert existing WAV to mono WAV:
+```bash
+sox ./test01.wav -c 1 test02.wav
+```
+
