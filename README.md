@@ -36,14 +36,14 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [spark](spark/readme.md) · [sge](sge/start.sge.sh) · [elasticip](ElasticIP/readme.md)
 - Hadoop: source/config removed from repo (too large). Get it from the official site — https://hadoop.apache.org/releases.html
 
-### Programming Languages
-- [python](programming-languages/python/README.md) · [python/ipython](programming-languages/python/ipython.md) · [conda](programming-languages/conda/conda_readme.md) · [perl](programming-languages/perl/readme.md) · [java](programming-languages/java/install-java.md) · [mono](programming-languages/mono/readme.md) · [latex](programming-languages/latex/readme.md) · [makefile](programming-languages/makefile/readme.md) · [markdown](programming-languages/markdown/readme.md) · [LLM](programming-languages/LLM/ollama/readme.md)
+### Software Development
+- [python](software-dev/python/README.md) · [python/ipython](software-dev/python/ipython.md) · [conda](software-dev/conda/conda_readme.md) · [perl](software-dev/perl/readme.md) · [java](software-dev/java/install-java.md) · [mono](software-dev/mono/readme.md) · [latex](software-dev/latex/readme.md) · [makefile](software-dev/makefile/readme.md) · [markdown](software-dev/markdown/readme.md) · [LLM](software-dev/LLM/ollama/readme.md) · [android](software-dev/android/readme.md) · [android/adb](software-dev/android/adb.md) · [eclipse](software-dev/eclipse/installpackage.sh)
 
 ### Office & Media
-- [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
+- [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [google](google/googler.md)
 
 ### Misc
-- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)
+- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [unity3d](unity3d)
 
 ## Privacy
 
