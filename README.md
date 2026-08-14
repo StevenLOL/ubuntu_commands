@@ -20,7 +20,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](system/RamDisk/README.md)
 
 ### Security (信息安全)
-- [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md)
+- [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](cloud/vpn/openvpn.md) · [shadowsocks](cloud/vpn/shadowsocks.md) · [wireless](cloud/vpn/wireless.md)
 - [security](security/) — [monitoring/wazuh](security/monitoring/wazuh/Wazuh Day 1.md) · [uniscan](security/uniscan/readme.md) · [reverse-engineering/Decompilation](security/reverse-engineering/Decompilation/apktool/) · [binwalk](security/binwalk/binwalk.md)
 
 ### System (系统组件 / 桌面 / 输入法)
@@ -32,8 +32,8 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 ### Machine Learning / Speech / Vision
 - [tensorflow](machine-learning/readme_tensorflow.md) · [tensorflow install](machine-learning/install_tensorflow.md) · [skflow](machine-learning/skflow.md) · [ml index](machine-learning/xgboost.md) · [ml/bob](machine-learning/bob.md) · [Alink](machine-learning/alink.md) · [shogun](machine-learning/shogun_install.sh) · [torch](machine-learning/torch.md) · [torch_lua](machine-learning/torch_lua.md) · [caffe](machine-learning/caffe.md) · [theano](machine-learning/theano.md) · [lightgbm](machine-learning/lightgbm.md) · [RAPIDSAI](machine-learning/rapidsai.md) · [opencv](machine-learning/opencv.md) · [kaldi](machine-learning/kaldi.md) · [huggingface](machine-learning/huggingface.md) · [crf++](machine-learning/crf++.md) · [alize](machine-learning/alize.md) · [sailalign](machine-learning/sailalign.md) · [hts](machine-learning/hts.sh) · [scipy](machine-learning/scipy.md)
 
-### Big Data
-- [spark](spark/readme.md) · [sge](sge/start.sge.sh) · [elasticip](ElasticIP/readme.md)
+### Cloud (云计算)
+- [spark](cloud/spark/readme.md) · [sge](cloud/sge/start.sge.sh) · [elasticip](cloud/elasticip/readme.md) · [vpn](cloud/vpn/openvpn.md) (incl. [expressvpn](cloud/vpn/express_vpn.md) · [shadowsocks](cloud/vpn/shadowsocks.md) · [wireless](cloud/vpn/wireless.md))
 - Hadoop: source/config removed from repo (too large). Get it from the official site — https://hadoop.apache.org/releases.html
 
 ### Software Development
