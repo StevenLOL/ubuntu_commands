@@ -17,14 +17,17 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [git](git/readme.md) · [git/github-hosts](git/github-hosts.md) · [git/gitlab-ce](git/gitlab-ce.md)
 
 ### Container & Virtualization
-- [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](RamDisk/README.md)
+- [docker](docker/readme.md) · [lxc](lxc/readme.md) · [vbox](vbox/README.md) (incl. [sharefolder](vbox/sharefolder.md)) · [windows](windows/wine.md) (Wine, [WSL2](windows/windows_wsl.md), [cygwin](windows/cygwin/readme.md), [MS Office](windows/installing_microsoft_office.md), [FreeOffice](windows/freeoffice.md)) · [remote-desktop](ssh/remote-desktop.md) · [RamDisk](ubuntu/RamDisk/README.md)
 
 ### Network & Security
 - [ssh](ssh/ssh-no-pswd.md) · [ssh reverse tunnel](ssh/ssh_reverse_tunnel.md) · [vpn](vpn/openvpn.md) · [shadowsocks](vpn/shadowsocks.md) · [wireless](vpn/wireless.md)
 - [network-security](network-security/) — [monitoring/wazuh](network-security/monitoring/wazuh/Wazuh%20Day%201.md) · [uniscan](network-security/uniscan/readme.md) · [reverse-engineering/Decompilation](network-security/reverse-engineering/Decompilation/README.md)
 
+### Ubuntu System (系统组件 / 桌面 / 输入法)
+- [apt_dpkg](ubuntu/apt_dpkg/readme.md) (incl. [sources.list mirror](ubuntu/apt_dpkg/sources_list.md)) · [release_update](ubuntu/release_update/readme.md) · [linux4OldComputers](ubuntu/linux4OldComputers/readme.md) · [swap](ubuntu/swap/add_swap_ubuntu_14.04.md) · [recovery](ubuntu/recovery/recovery.sh) · [threads](ubuntu/threads/readme.md) · [desktop](ubuntu/desktop/readme.md) (incl. [KDE Plasma](ubuntu/desktop/kde-plasma-desktop.md)) · [natilus](ubuntu/natilus/readme.md) · [input-method](ubuntu/input-method/readme.md)
+
 ### System
-- [apt_dpkg](apt_dpkg/readme.md) (incl. [sources.list mirror](apt_dpkg/sources_list.md)) · [release_update](release_update/readme.md) · [linux4OldComputers](linux4OldComputers/readme.md) · [swap](swap/add_swap_ubuntu_14.04.md) · [recovery](recovery/recovery.sh) · [tmux/tmate](ssh/tmux-tmate.md) · [threads](threads/readme.md) · [desktop](desktop/readme.md) (incl. [KDE Plasma](desktop/kde-plasma-desktop.md)) · [binwalk](binwalk/binwalk.md)
+- [tmux/tmate](ssh/tmux-tmate.md) · [binwalk](binwalk/binwalk.md)
 
 ### Machine Learning / Speech / Vision
 - [tensorflow](machine-learning/readme_tensorflow.md) · [tensorflow install](machine-learning/install_tensorflow.md) · [skflow](machine-learning/skflow.md) · [ml index](machine-learning/xgboost.md) · [ml/bob](machine-learning/bob.md) · [Alink](machine-learning/alink.md) · [shogun](machine-learning/shogun_install.sh) · [torch](machine-learning/torch.md) · [torch_lua](machine-learning/torch_lua.md) · [caffe](machine-learning/caffe.md) · [theano](machine-learning/theano.md) · [lightgbm](machine-learning/lightgbm.md) · [RAPIDSAI](machine-learning/rapidsai.md) · [opencv](machine-learning/opencv.md) · [kaldi](machine-learning/kaldi.md) · [huggingface](machine-learning/huggingface.md) · [crf++](machine-learning/crf++.md) · [alize](machine-learning/alize.md) · [sailalign](machine-learning/sailalign.md) · [hts](machine-learning/hts.sh) · [scipy](machine-learning/scipy.md)
@@ -40,7 +43,7 @@ Personal Linux / Ubuntu command and tool cheat-sheet notes. Organized by topic; 
 - [format_convert](format_convert/audio_format_mp3_wav.md) · [pdf](format_convert/pdf.md) · [wine](windows/wine.md) · [wine/freeoffice](windows/freeoffice.md) · [sox](sox/install_sox.md) · [email](email/reinstall_thunder_bird.sh) · [evernote](evernote/readme.md) · [ultraedit](ultraedit/Config) · [youtube](youtube/readme.md) · [android](android/readme.md) · [android/adb](android/adb.md) · [google](google/googler.md)
 
 ### Misc
-- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [natilus](natilus/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)
+- [nvidia](nvidia/readme.md) · [sqlite](sqlite/readme.md) · [kaggle](kaggle/readme.md) · [samsung](samsung/no-file-ubuntu.md) · [elan](elan/elan.md) · [eclipse](eclipse/installpackage.sh) · [unity3d](unity3d)
 
 ## Privacy
 
