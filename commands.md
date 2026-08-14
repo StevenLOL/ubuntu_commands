@@ -1,20 +1,20 @@
-# 终端命令速查 / Terminal Commands Cheatsheet
+# Terminal Commands Cheatsheet
 
-> 这是总入口。完整分类速查见 `cheatsheet/` 目录；各工具专题见对应子目录的 `readme.md`。
-> 按 `tab` 获取命令补全建议：`command` ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completion。
+> This is the main entry point. Full categorized notes live in `cheatsheet/`; tool-specific topics are in each subdirectory's `readme.md`.
+> Press `tab` for completion suggestions: `command` ([code](https://github.com/<YOUR_GITHUB>/ubuntu_commands/tree/master/python)) completion.
 
-## 分类索引 / Categories
+## Categories
 
-- [系统 / System](cheatsheet/system.md) — 系统信息、磁盘、用户、日志、Fail2ban、机器名、提示符
-- [文件与磁盘 / Files & Disk](cheatsheet/files-disk.md) — 编辑/复制/重命名、分割、ISO/USB/网络挂载、RamFS
-- [网络与 SSH / Network & SSH](cheatsheet/network-ssh.md) — ssh、网内扫描、ab 测试、队列、打开网页
-- [文本处理 / Text Processing](cheatsheet/text-processing.md) — 字符串、搜索排序、逐行批处理、随机抽取
-- [终端复用/定时/容器 / tmux-cron-docker](cheatsheet/tmux-cron-docker.md) — tmux、cron、开机启动、Docker 示例
-- [开发环境配置 / Dev Config](cheatsheet/dev-config.md) — .bashrc / /etc/profile / .theano.rc / pip.conf / tmux.conf
+- [System](cheatsheet/system.md) — system info, disk, users, logs, Fail2ban, hostname, prompt
+- [Files & Disk](cheatsheet/files-disk.md) — edit/copy/rename, split, ISO/USB/network mount, RamFS
+- [Network & SSH](cheatsheet/network-ssh.md) — ssh, LAN scan, ab test, queue, open web page
+- [Text Processing](cheatsheet/text-processing.md) — strings, search & sort, line batch, random sample
+- [tmux / cron / docker](cheatsheet/tmux-cron-docker.md) — tmux, cron, startup, Docker examples
+- [Dev Config](cheatsheet/dev-config.md) — .bashrc / /etc/profile / .theano.rc / pip.conf / tmux.conf
 
-## 高频命令 / Most-used
+## Most-used
 
-### 导航与浏览 / navigation & browsing
+### navigation & browsing
 ```
 cd ~/         #go to home directory of current account ~/=home
 cd ..         #go to parent directory
@@ -33,12 +33,12 @@ find . -exec ls -dl \{\} \; | awk '{print $3, $5, $9}'
 find ./ -iname "train_lm.sh"
 ```
 
-### 字数统计 / wordcount
+### wordcount
 ```
 wc /data/groundtrueE/text
 ```
 
-### 安装与更新软件 / install update software
+### install update software
 ```
 sudo apt-get update
 sudo apt-get install xx
@@ -58,13 +58,13 @@ sudo pip uninstall pycuda
 sudo python setup.py install               #if there is a setup.py
 ```
 
-### 列出已安装模块 / list installed module package
+### list installed module package
 ```
 lsmod | grep nouveau
 sudo dpkg -L packagename  #find installed file location
 ```
 
-### 切换软件源 / change repositories location with replace txt
+### change repositories location with replace txt
 ```
 /etc/apt/sources.list
 sudo cat /etc/apt/sources.list | sed 's/sg.archive.ubuntu.com/download.nus.edu.sg\/mirror/'  > ./sources.list
@@ -72,7 +72,7 @@ sudo cat /etc/apt/sources.list | sed 's/archive.ubuntu.com/mirrors.aliyun.com\/m
 sudo cp ./sources.list /etc/apt/sources.list
 ```
 
-### 编译软件 / build software
+### build software
 ```
 ./configure
 make -j 4
@@ -86,14 +86,14 @@ sudo make install
 autoconf
 ```
 
-### 播放音频 / play audio
+### play audio
 ```
 play a.wav
 sox suria102_262_1904.wav  -p trim 300 5 |play -p
 sox a.mp3 -c 1 -r 16000  -b 16 a.wav  #change mp3 to wav, 16khz 16bits mono
 ```
 
-### 等待 / wait
+### wait
 ```
 sleep 60
 ```
