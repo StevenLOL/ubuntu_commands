@@ -2,7 +2,7 @@
 
 ## 1. What is it / What is it for?
 
-An Elastic IP is a static public IPv4 address you can attach to a cloud instance (AWS calls it "Elastic IP"; on UCloud it's "弹性IP"). The public IP is assigned by the cloud platform, not configured inside the guest OS.
+An Elastic IP is a static public IPv4 address you can attach to a cloud instance. The public IP is assigned by the cloud platform, not configured inside the guest OS.
 
 
 - Reaching a VM from the internet via a fixed public IP.

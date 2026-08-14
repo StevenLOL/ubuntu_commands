@@ -2,18 +2,18 @@
 
 ## What
 
-Audacity 是一款免费开源的跨平台音频录制与编辑软件，支持多轨编辑、降噪、剪辑、效果处理等，常用于录音、播客制作与简单音频后期。
+Audacity is a free, open-source, cross-platform audio recorder and editor. It supports multi-track editing, noise reduction, cutting, and effects, and is commonly used for recording, podcasts, and simple audio post-production.
 
 ## How to install
 
-Ubuntu / Debian：
+Ubuntu / Debian:
 
 ```bash
 sudo apt update
 sudo apt install -y audacity
 ```
 
-通过 Flatpak 安装（版本通常更新）：
+Via Flatpak (usually a newer version):
 
 ```bash
 flatpak install flathub org.audacityteam.Audacity
@@ -21,35 +21,35 @@ flatpak install flathub org.audacityteam.Audacity
 
 ## How to use
 
-启动：
+Launch:
 
 ```bash
-audacity            # 直接启动 GUI
+audacity            # launch the GUI directly
 flatpak run org.audacityteam.Audacity
 ```
 
-常用操作（GUI 内）：
+Common operations (in the GUI):
 
-- 录制：点击红色录音键，选择输入设备（麦克风）。
-- 导入：`文件 → 导入 → 音频`，支持 wav / mp3 / ogg 等。
-- 导出：`文件 → 导出 → 导出为 WAV / MP3`。
-- 降噪：选中静音片段 → `效果 → 降噪 → 取得噪声样本` → 全选 → `效果 → 降噪`。
-- 剪辑：`Ctrl + I` 拆分，`Delete` 删除，拖拽移动片段。
+- Record: click the red record button, choose the input device (microphone).
+- Import: `File → Import → Audio`, supports wav / mp3 / ogg, etc.
+- Export: `File → Export → Export as WAV / MP3`.
+- Noise reduction: select a silent segment → `Effect → Noise Reduction → Get Noise Profile` → select all → `Effect → Noise Reduction`.
+- Edit: `Ctrl + I` to split, `Delete` to remove, drag to move clips.
 
-命令行批量转换（需 `ffmpeg` 配合，Audacity 本身无完整 CLI）：
+Batch conversion via CLI (Audacity has no full CLI; use `ffmpeg` for conversion):
 
 ```bash
-# 录制后用 ffmpeg 转码
+# transcode after recording
 ffmpeg -i input.wav -ar 44100 -ac 1 output.mp3
 ```
 
 ## Cheat-sheet
 
-| 操作 | 快捷键 |
+| Action | Shortcut |
 | --- | --- |
-| 播放 / 停止 | `Space` |
-| 录制 | `R` |
-| 拆分剪辑 | `Ctrl + I` |
-| 删除 | `Delete` |
-| 全选 | `Ctrl + A` |
-| 放大 / 缩小 | `Ctrl + 1` / `Ctrl + 2` |
+| Play / Stop | `Space` |
+| Record | `R` |
+| Split clip | `Ctrl + I` |
+| Delete | `Delete` |
+| Select all | `Ctrl + A` |
+| Zoom in / out | `Ctrl + 1` / `Ctrl + 2` |

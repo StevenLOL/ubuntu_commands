@@ -16,7 +16,7 @@ ollama run llama2-chinese
 ## FAQ
 
 ### Error: invalid character '\x00' looking for beginning of value
-文件下载出错，删除下载后的文件即可,windows 文件位置：
+If a file download error occurs, just delete the downloaded file. On Windows the location is:
 ```
 C:\Users\YourUserName\.ollama\models\blobs
 ```

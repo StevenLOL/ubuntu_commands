@@ -19,7 +19,7 @@ Markdown itself needs no install (it is just a syntax). To *render* it you need 
 
 ## 3. How to use
 
-### Headings (层级标题)
+### Headings
 
 Use 1–6 `#` for heading levels. One `#` = top level (H1).
 
@@ -32,7 +32,7 @@ Use 1–6 `#` for heading levels. One `#` = top level (H1).
 ###### H6
 ```
 
-### Emphasis (强调)
+### Emphasis
 
 ```markdown
 *italic*   _italic_        (single asterisk / underscore)
@@ -42,7 +42,7 @@ Use 1–6 `#` for heading levels. One `#` = top level (H1).
 `inline code`              (backticks)
 ```
 
-### Lists (列表)
+### Lists
 
 Unordered and ordered lists; indent 2–4 spaces (or a tab) to nest.
 
@@ -67,7 +67,7 @@ Task lists (GitHub / Typora):
 - [ ] another pending
 ```
 
-### Links & Images (链接与图片)
+### Links & Images
 
 ```markdown
 [link text](https://example.com)
@@ -85,7 +85,7 @@ See [the docs][1] for details.
 [1]: https://example.com/docs "Documentation"
 ```
 
-### Code blocks (代码块)
+### Code blocks
 
 Fenced blocks with a language hint for syntax highlighting:
 
@@ -98,7 +98,7 @@ def hello():
 
 Inline code uses single backticks: `` `pip install` ``.
 
-### Tables (图表 / 表格)
+### Tables
 
 Columns separated by `|`; the second row defines alignment with `---`, `:---`, `---:`, `:---:`.
 
@@ -122,7 +122,7 @@ Columns separated by `|`; the second row defines alignment with `---`, `:---`, `
 > | Tables    | yes       | GFM / Typora   |
 > | Diagrams  | partial   | Typora / Mermaid |
 
-### Blockquotes (引用)
+### Blockquotes
 
 ```markdown
 > This is a quote.
@@ -131,7 +131,7 @@ Columns separated by `|`; the second row defines alignment with `---`, `:---`, `
 > > Nested quote (second level).
 ```
 
-### Horizontal rule (分隔线)
+### Horizontal rule
 
 Use three or more `-`, `*`, or `_` on their own line:
 
@@ -139,7 +139,7 @@ Use three or more `-`, `*`, or `_` on their own line:
 ---
 ```
 
-### Footnotes (脚注)
+### Footnotes
 
 ```markdown
 Here is a statement.[^1]
@@ -147,7 +147,7 @@ Here is a statement.[^1]
 [^1]: This is the footnote text.
 ```
 
-### Sequence diagram (示意图 — Typora)
+### Sequence diagram (Typora)
 
 Typora renders a fenced `sequence` block as a UML sequence diagram:
 
@@ -161,7 +161,7 @@ kk-->ff: yes!
 
 Supported keywords inside the block: `title:`, `participant A as a`, `A->B: msg` (solid), `A-->B: msg` (dashed), `A->>B: msg` (open arrow), `Note left of A: text`.
 
-### Mermaid diagrams (示意图 — GFM / VS Code)
+### Mermaid diagrams (GFM / VS Code)
 
 GitHub Flavored Markdown and the VS Code `Markdown Preview Enhanced` extension render `mermaid` blocks (flowchart, sequence, gantt, etc.):
 
@@ -184,7 +184,7 @@ sequenceDiagram
 ```
 ````
 
-### Math (数学公式 — LaTeX)
+### Math (LaTeX)
 
 Typora and many renderers support TeX via `$...$` (inline) and `$$...$$` (block):
 
