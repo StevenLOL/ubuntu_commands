@@ -62,4 +62,35 @@ Enable **USB debugging** on the device: `Settings → About phone → tap Build 
 ```bash
 ./adb.exe logcat > my.log    # large file; compress with 7zip afterwards
 ```
+### Capture Logs by PID and save to text file
+First, clear the old logs, then capture the logs for the specific app and save them to a `.txt` file:
+```bash
+adb logcat -c && adb logcat --pid=$(adb shell pidof -s com.example.app) > app_log.txt
+```
+*(Note: In Windows PowerShell, if the above command throws an error, you can execute it in two steps: first run `adb logcat -c`, then run `adb logcat --pid=(adb shell pidof -s com.example.app) > app_log.txt`)*
+
+### Query Installed Packages
+List all third-party (user-installed) packages on the device:
+```bash
+adb shell pm list packages -3
+```
+
+### Query the APK Installation Path
+Get the absolute path of a specific package (using `com.example.app` as an example):
+```bash
+adb shell pm path com.example.app
+```
+*(Note: The path after `package:` is the APK path)*
+
+### Pull the APK to Local Machine
+Copy the APK file from the device to your local computer (e.g., saving to the D: drive):
+```bash
+adb pull /data/app/com.example.app/base.apk D:\app.apk
+```
+
+### Launch the Application
+Use the `monkey` command to launch the app (this only requires the package name, without needing the specific Activity name):
+```bash
+adb shell monkey -p com.example.app -c android.intent.category.LAUNCHER 1
+```
 
